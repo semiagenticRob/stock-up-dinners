@@ -8,6 +8,7 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
 import { AuthProvider } from '@/providers/AuthProvider';
+import { RevenueCatProvider } from '@/providers/RevenueCatProvider';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -62,17 +63,19 @@ function RootLayoutNav() {
 
   return (
     <AuthProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? darkTheme : lightTheme}>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(auth)" />
-          <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="(onboarding)" />
-          <Stack.Screen
-            name="meal/[id]"
-            options={{ headerShown: true, title: '' }}
-          />
-        </Stack>
-      </ThemeProvider>
+      <RevenueCatProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? darkTheme : lightTheme}>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(auth)" />
+            <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="(onboarding)" />
+            <Stack.Screen
+              name="meal/[id]"
+              options={{ headerShown: true, title: '' }}
+            />
+          </Stack>
+        </ThemeProvider>
+      </RevenueCatProvider>
     </AuthProvider>
   );
 }

@@ -36,9 +36,9 @@ export default function SignInScreen() {
 
         if (error) throw error;
 
-        // TODO: Call Purchases.logIn(supabaseUser.id) here once RevenueCat is integrated
-        // Then navigate to paywall
-        router.replace('/(onboarding)/stock-pantry');
+        // RevenueCat logIn happens in RevenueCatProvider on auth state change
+        // Route to paywall — it will check entitlement and skip if already pro
+        router.replace('/(auth)/paywall');
       }
     } catch (error: any) {
       if (error.code !== 'ERR_REQUEST_CANCELED') {
@@ -61,8 +61,8 @@ export default function SignInScreen() {
 
       if (error) throw error;
 
-      // OAuth redirects will be handled by the auth state listener
-      // TODO: Call Purchases.logIn(supabaseUser.id) after auth completes
+      // OAuth redirects handled by auth state listener
+      // RevenueCat logIn happens in RevenueCatProvider on auth state change
     } catch (error: any) {
       Alert.alert('Sign In Error', error.message || 'Failed to sign in');
     } finally {
