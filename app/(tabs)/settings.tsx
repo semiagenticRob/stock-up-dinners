@@ -1,12 +1,27 @@
-import { StyleSheet, View, Text, Pressable, ScrollView, Alert } from 'react-native';
+import { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  ScrollView,
+  Alert,
+  Linking,
+  Platform,
+  ActivityIndicator,
+} from 'react-native';
+import RevenueCatUI from 'react-native-purchases-ui';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useAuth } from '@/providers/AuthProvider';
+import { useRevenueCat } from '@/providers/RevenueCatProvider';
 
 export default function SettingsScreen() {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme ?? 'light'];
   const { user, signOut } = useAuth();
+  const { customerInfo, isProMember, restorePurchases } = useRevenueCat();
+  const [isRestoring, setIsRestoring] = useState(false);
 
   const handleSignOut = () => {
     Alert.alert('Sign Out', 'Are you sure you want to sign out?', [
@@ -18,6 +33,40 @@ export default function SettingsScreen() {
       },
     ]);
   };
+
+  const handleManageSubscription = async () => {
+    if (customerInfo?.managementURL) {
+      await Linking.openURL(customerInfo.managementURL);
+    } else if (Platform.OS === 'ios') {
+      await Linking.openURL('https://apps.apple.com/account/subscriptions');
+    }
+  };
+
+  const handleRestore = async () => {
+    setIsRestoring(true);
+    try {
+      await restorePurchases();
+      Alert.alert('Success', 'Purchases restored successfully.');
+    } catch (error) {
+      Alert.alert('Restore Failed', 'No previous purchases found.');
+    } finally {
+      setIsRestoring(false);
+    }
+  };
+
+  const handleShowCustomerCenter = async () => {
+    try {
+      await RevenueCatUI.presentCustomerCenter();
+    } catch (error) {
+      // Fallback to manage subscription URL
+      handleManageSubscription();
+    }
+  };
+
+  // Subscription status display
+  const subscriptionStatus = isProMember ? 'Active' : 'Inactive';
+  const expirationDate = customerInfo?.entitlements.active['Stock Up Dinners Pro']
+    ?.expirationDate;
 
   return (
     <ScrollView
@@ -45,17 +94,57 @@ export default function SettingsScreen() {
           SUBSCRIPTION
         </Text>
         <View style={[styles.card, { backgroundColor: colors.surface }]}>
-          <Pressable style={styles.row}>
+          <View style={styles.row}>
+            <Text style={[styles.label, { color: colors.text }]}>Status</Text>
+            <View style={styles.statusBadge}>
+              <View
+                style={[
+                  styles.statusDot,
+                  {
+                    backgroundColor: isProMember
+                      ? Colors.brand.green500
+                      : Colors.brand.red600,
+                  },
+                ]}
+              />
+              <Text
+                style={{
+                  color: isProMember
+                    ? Colors.brand.green700
+                    : Colors.brand.red600,
+                  fontWeight: '600',
+                  fontSize: 14,
+                }}
+              >
+                {subscriptionStatus}
+              </Text>
+            </View>
+          </View>
+          {expirationDate && (
+            <View style={styles.row}>
+              <Text style={[styles.label, { color: colors.text }]}>
+                Renews
+              </Text>
+              <Text style={{ color: colors.textSecondary }}>
+                {new Date(expirationDate).toLocaleDateString()}
+              </Text>
+            </View>
+          )}
+          <Pressable style={styles.row} onPress={handleShowCustomerCenter}>
             <Text style={[styles.label, { color: colors.text }]}>
               Manage Subscription
             </Text>
             <Text style={{ color: colors.textSecondary }}>{'>'}</Text>
           </Pressable>
-          <Pressable style={styles.row}>
+          <Pressable style={styles.row} onPress={handleRestore}>
             <Text style={[styles.label, { color: colors.text }]}>
               Restore Purchases
             </Text>
-            <Text style={{ color: colors.textSecondary }}>{'>'}</Text>
+            {isRestoring ? (
+              <ActivityIndicator size="small" color={Colors.brand.green700} />
+            ) : (
+              <Text style={{ color: colors.textSecondary }}>{'>'}</Text>
+            )}
           </Pressable>
         </View>
       </View>
@@ -117,6 +206,16 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
+  },
+  statusBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  statusDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
   },
   signOutButton: {
     paddingVertical: 14,
