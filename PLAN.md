@@ -17,14 +17,14 @@ Sequential. Each phase unlocks the next. Go as fast as you can.
 - [x] **2. AI-generate 14 dinners for the free bi-weekly plan**
   DONE — 14 meals across 2 cook days with full recipes, storage instructions, and consolidated buying list. See [14-Dinner Meal Prep Plan](#14-dinner-meal-prep-plan--costco-staples-only) below.
 
-- [ ] **3. Vet every recipe against real Costco inventory**
-  Check each ingredient on Costco.com. Flag anything seasonal, regional, or not actually available. Swap as needed. Verify cost estimates are in the right ballpark.
+- [x] **3. Vet every recipe against real Costco inventory**
+  DONE (2026-04-15) — All 14 meals confirmed against Costco inventory. Meal 10 fish taco: swap cod → Kirkland Tilapia Loins (more reliably stocked). Meal 8 tikka: KS Organic Greek Yogurt confirmed on staples list. All other ingredients verified permanent staples.
 
-- [ ] **4. Build consolidated shopping lists (Week 1 + Week 2)**
-  Aggregate all ingredients across 7 dinners per week. Deduplicate. Calculate quantities for a family of 4. Estimate total weekly grocery cost. Format as a printable checklist.
+- [x] **4. Build consolidated shopping lists (Week 1 + Week 2)**
+  DONE (2026-04-16) — Week 1 big shop (~$555-575) and Week 2 fresh-protein top-up (~$50-60) built. Full formatted lists in vault Stock Up Dinners.md. Combined total ~$595-635 (~$43-45 per family dinner).
 
-- [ ] **5. Organize into Week 1 and Week 2 with logical meal sequencing**
-  No back-to-back same protein. Mix quick meals with longer cooks. Put easiest meals on Mon/Fri (tired nights). Weekend meals can be more involved.
+- [x] **5. Organize into Week 1 and Week 2 with logical meal sequencing**
+  DONE (2026-04-17) — 14 meals sequenced across 2 weeks. No back-to-back same protein. Easy Mon/Fri, involved Sat/Sun. Week 1: Coconut Shrimp Curry → Chicken Burrito Bowls → Beef Bolognese → Teriyaki Salmon → Chicken Stir-Fry → Turkey Chili → Baked Penne. Week 2: Beef Burritos → Chicken Tikka Bowls → Salmon Quinoa Bowls → Peanut Chicken Noodles → Fish Taco Kits → Roasted Pork → Chicken Parm.
 
 ### Phase 2 — Product (the PDF)
 
@@ -41,9 +41,11 @@ Sequential. Each phase unlocks the next. Go as fast as you can.
 
 - [ ] **9. Build the landing page**
   Headline + 3 bullet value props + email capture + PDF preview image. Keep it dead simple. One page, one action: enter your email, get the plan.
+  ✏️ *Copy drafted and ready* — paste from `docs/launch/landing-page-copy.md` directly into Beehiiv page builder.
 
 - [ ] **10. Write + set up welcome email sequence**
   Email 1 (instant): delivers PDF + quick start tips. Email 2 (day 3): "How's Week 1 going?" engagement check. Email 3 (day 7): teaser for the full 6-week system. Configure automation in Beehiiv.
+  ✏️ *All 3 emails drafted and ready* — in `docs/launch/landing-page-copy.md` (same file, scroll past landing page copy).
 
 - [ ] **11. Test the full funnel end-to-end**
   Sign up with a burner email. Confirm PDF arrives. Check formatting on mobile + desktop. Click every link. Fix anything broken.
@@ -55,12 +57,14 @@ Sequential. Each phase unlocks the next. Go as fast as you can.
 
 - [ ] **13. Draft + post Reddit content**
   Value-first posts for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy. Share a sample week in the post body. Link to full PDF in comments only. Post Sunday afternoon for peak traffic. Engage every comment.
+  ✏️ *All 3 Reddit posts drafted and ready* — in `docs/launch/reddit-launch-posts.md`. Post only after landing page is live (Task 9).
 
 - [ ] **14. Join + post in Facebook Costco groups**
   Join 3-5 active groups now (approval delays). Post value-first content once approved. Same approach as Reddit — lead with the meals, link in comments.
 
 - [ ] **15. Set up Gumroad for paid product**
   Create account. Build the $25 product listing page (even if the paid PDF isn't ready yet — use "coming soon" or waitlist). This lets Email 3 in the sequence link somewhere real.
+  ✏️ *Full listing copy drafted and ready* — main $25 listing + coming-soon early-access variant at $20 — in `docs/launch/gumroad-listing.md`. Set up Gumroad account, paste copy, grab URL, update Email 3.
 
 ### Phase 5 — Post-launch (after signups start)
 
