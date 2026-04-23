@@ -41,11 +41,11 @@ Sequential. Each phase unlocks the next. Go as fast as you can.
 
 - [ ] **9. Build the landing page**
   Headline + 3 bullet value props + email capture + PDF preview image. Keep it dead simple. One page, one action: enter your email, get the plan.
-  ✏️ *Copy drafted and ready* — paste from `docs/launch/landing-page-copy.md` directly into Beehiiv page builder.
+  ✏️ *Copy drafted and ready* — paste from `docs/marketing/landing-page-copy.md` directly into Beehiiv page builder.
 
 - [ ] **10. Write + set up welcome email sequence**
   Email 1 (instant): delivers PDF + quick start tips. Email 2 (day 3): "How's Week 1 going?" engagement check. Email 3 (day 7): teaser for the full 6-week system. Configure automation in Beehiiv.
-  ✏️ *All 3 emails drafted and ready* — in `docs/launch/landing-page-copy.md` (same file, scroll past landing page copy).
+  ✏️ *All 3 emails drafted and ready* — in `docs/marketing/landing-page-copy.md` (same file, scroll past landing page copy).
 
 - [ ] **11. Test the full funnel end-to-end**
   Sign up with a burner email. Confirm PDF arrives. Check formatting on mobile + desktop. Click every link. Fix anything broken.
@@ -54,10 +54,12 @@ Sequential. Each phase unlocks the next. Go as fast as you can.
 
 - [ ] **12. Create Pinterest business account + design 10-15 pins**
   Pin concepts: meal grid previews, shopping list teasers, "14 dinners from one warehouse trip" hooks, individual meal photos. Schedule across the first 2 weeks. All link to landing page.
+  ✏️ *12-pin strategy with titles, descriptions, hashtags, visual briefs, and 6-day posting schedule ready* — in `docs/marketing/pinterest-pin-strategy.md`.
 
 - [ ] **13. Draft + post Reddit content**
   Value-first posts for r/Costco, r/MealPrepSunday, r/EatCheapAndHealthy. Share a sample week in the post body. Link to full PDF in comments only. Post Sunday afternoon for peak traffic. Engage every comment.
-  ✏️ *All 3 Reddit posts drafted and ready* — in `docs/launch/reddit-launch-posts.md`. Post only after landing page is live (Task 9).
+  ✏️ *All 3 Reddit posts drafted and ready* — in `docs/marketing/reddit-launch-posts.md`. Post only after landing page is live (Task 9).
+  ✏️ *Pinterest pin strategy* — 12 pins with titles, descriptions, hashtags, visual briefs, and 6-day posting schedule — in `docs/marketing/pinterest-pin-strategy.md`.
 
 - [ ] **14. Join + post in Facebook Costco groups**
   Join 3-5 active groups now (approval delays). Post value-first content once approved. Same approach as Reddit — lead with the meals, link in comments.
