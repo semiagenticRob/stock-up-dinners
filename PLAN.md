@@ -63,6 +63,7 @@ Sequential. Each phase unlocks the next. Go as fast as you can.
 
 - [ ] **14. Join + post in Facebook Costco groups**
   Join 3-5 active groups now (approval delays). Post value-first content once approved. Same approach as Reddit — lead with the meals, link in comments.
+  ✏️ *Targeting guide ready* — 6 specific groups (Costco Finds 1.4M, Costco Products & Reviews 500K+, meal planning communities), value-first post format template, and launch-day timing guide — in `docs/marketing/facebook-groups-strategy.md`. Join these NOW while Beehiiv setup is underway.
 
 - [ ] **15. Set up Gumroad for paid product**
   Create account. Build the $25 product listing page (even if the paid PDF isn't ready yet — use "coming soon" or waitlist). This lets Email 3 in the sequence link somewhere real.
