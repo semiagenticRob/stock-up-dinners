@@ -1,17 +1,12 @@
 ---
-import '@/styles/global.css';
+import PageShell from '@/layouts/PageShell.astro';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Stock Up Dinners</title>
-  </head>
-  <body>
-    <div class="container section">
-      <h1>Tokens loaded.</h1>
-      <p class="lede">If this paragraph is in Inter and the heading is in Inter 800, fonts work.</p>
-      <button class="btn">Test button</button>
-    </div>
-  </body>
-</html>
+<PageShell
+  title="Two cook days. Two weeks of dinner."
+  description="A free 14-dinner meal plan for a family of four — built around 75 Costco staples. PDF + printable shopping list."
+>
+  <div class="container section">
+    <h1>PageShell working.</h1>
+    <p class="lede">Title in &lt;head&gt;, GA4 tag wired, OG meta set.</p>
+  </div>
+</PageShell>
