@@ -99,7 +99,7 @@ p { margin: 0; }
   font-family: var(--f-mono);
   font-size: 11px;
   letter-spacing: 0.14em;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--c-accent);
   text-transform: uppercase;
   margin-bottom: 10px;
