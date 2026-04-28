@@ -1,0 +1,14 @@
+---
+export interface Props {
+  tint?: boolean;
+  id?: string;
+  class?: string;
+}
+const { tint = false, id, class: cls } = Astro.props;
+const classes = ['section', tint ? 'section--tint' : '', cls ?? ''].filter(Boolean).join(' ');
+---
+<section class={classes} id={id}>
+  <div class="container">
+    <slot />
+  </div>
+</section>

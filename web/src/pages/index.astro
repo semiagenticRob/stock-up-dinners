@@ -1,12 +1,21 @@
 ---
 import PageShell from '@/layouts/PageShell.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Section from '@/components/Section.astro';
 ---
 <PageShell
   title="Two cook days. Two weeks of dinner."
   description="A free 14-dinner meal plan for a family of four — built around 75 Costco staples. PDF + printable shopping list."
 >
-  <div class="container section">
-    <h1>PageShell working.</h1>
-    <p class="lede">Title in &lt;head&gt;, GA4 tag wired, OG meta set.</p>
-  </div>
+  <Header />
+  <Section>
+    <h1>Foundations wired up.</h1>
+    <p class="lede">Header above, footer below. Both share the wordmark component.</p>
+  </Section>
+  <Section tint>
+    <h2>Tinted section</h2>
+    <p class="lede">Used for alternating bands — value props, "why this exists", closing CTA.</p>
+  </Section>
+  <Footer />
 </PageShell>

@@ -1,0 +1,27 @@
+---
+import Wordmark from './Wordmark.astro';
+---
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" aria-label="Stock Up Dinners home" class="header__brand">
+      <Wordmark />
+    </a>
+    <a href="/#signup" class="header__cta">Get the free plan</a>
+  </div>
+</header>
+
+<style>
+  .header { border-bottom: 1px solid var(--c-border); background: var(--c-bg); }
+  .header__inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+  .header__brand { text-decoration: none; }
+  .header__cta {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-ink);
+    text-decoration: none;
+    border: 1px solid var(--c-border);
+    padding: 8px 14px;
+    border-radius: var(--r-btn);
+  }
+  .header__cta:hover { background: var(--c-bg-tint); }
+</style>

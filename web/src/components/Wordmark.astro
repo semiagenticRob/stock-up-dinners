@@ -1,0 +1,29 @@
+---
+export interface Props {
+  size?: 'sm' | 'md';
+}
+const { size = 'md' } = Astro.props;
+const dim = size === 'sm' ? '14px' : '18px';
+const fontSize = size === 'sm' ? '13px' : '14px';
+---
+<span class="wordmark" style={`font-size:${fontSize}`}>
+  <span class="wordmark__mark" style={`width:${dim}; height:${dim}`}></span>
+  STOCK UP DINNERS
+</span>
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--c-ink);
+    text-decoration: none;
+  }
+  .wordmark__mark {
+    display: inline-block;
+    border-radius: 3px;
+    background: var(--c-accent);
+  }
+</style>
