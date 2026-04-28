@@ -15,63 +15,65 @@ import SignupForm from '@/components/SignupForm.astro';
 >
   <Header />
 
-  <Section>
-    <Hero />
-  </Section>
+  <main>
+    <Section>
+      <Hero />
+    </Section>
 
-  <Section tint>
-    <p class="eyebrow">How it works</p>
-    <h2>Designed to fit your week, not consume it.</h2>
-    <p class="lede">No daily cooking. No mid-week grocery runs. One Costco trip, two batch sessions, fourteen dinners ready to reheat.</p>
-    <ValueProps />
-  </Section>
+    <Section tint>
+      <p class="eyebrow">How it works</p>
+      <h2>Designed to fit your week, not consume it.</h2>
+      <p class="lede">No daily cooking. No mid-week grocery runs. One Costco trip, two batch sessions, fourteen dinners ready to reheat.</p>
+      <ValueProps />
+    </Section>
 
-  <Section>
-    <p class="eyebrow">Inside the free PDF</p>
-    <h2>A full system, not a recipe roundup.</h2>
-    <div class="pdf-row">
-      <PDFCoverMock />
-      <div class="pdf-meta">
-        <h3>What's actually in the file</h3>
-        <ul>
-          <li><strong>14 dinners with full recipes.</strong> Ingredients, quantities, instructions, storage notes.</li>
-          <li><strong>2 consolidated shopping lists.</strong> Costco-aisle organized. Printable. Quantified.</li>
-          <li><strong>Cook day workflows.</strong> Step-by-step for Cook Day 1 + Cook Day 2 — what goes in the oven first, what's prepped while it's roasting.</li>
-          <li><strong>Storage + reheat cheat sheet.</strong> Foil pan vs freezer bag, oven vs microwave, exact times.</li>
-          <li><strong>The 75-staple list.</strong> The Costco shortlist this whole system runs on.</li>
-        </ul>
+    <Section>
+      <p class="eyebrow">Inside the free PDF</p>
+      <h2>A full system, not a recipe roundup.</h2>
+      <div class="pdf-row">
+        <PDFCoverMock />
+        <div class="pdf-meta">
+          <h3>What's actually in the file</h3>
+          <ul>
+            <li><strong>14 dinners with full recipes.</strong> Ingredients, quantities, instructions, storage notes.</li>
+            <li><strong>2 consolidated shopping lists.</strong> Costco-aisle organized. Printable. Quantified.</li>
+            <li><strong>Cook day workflows.</strong> Step-by-step for Cook Day 1 + Cook Day 2 — what goes in the oven first, what's prepped while it's roasting.</li>
+            <li><strong>Storage + reheat cheat sheet.</strong> Foil pan vs freezer bag, oven vs microwave, exact times.</li>
+            <li><strong>The 75-staple list.</strong> The Costco shortlist this whole system runs on.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </Section>
+    </Section>
 
-  <Section tint>
-    <div class="why">
-      <div>
-        <p class="eyebrow" style="color: var(--c-muted)">Why this exists</p>
-        <h2>Built because nothing else worked.</h2>
+    <Section tint>
+      <div class="why">
+        <div>
+          <p class="eyebrow" style="color: var(--c-muted)">Why this exists</p>
+          <h2>Built because nothing else worked.</h2>
+        </div>
+        <div class="why__body">
+          <p>Most meal-plan products either ignore Costco entirely or assume you've got time for daily prep. This one is the opposite: it accepts that your kitchen runs on warehouse-club staples and that real life is two cook windows, not seven.</p>
+          <p>Free fourteen-day plan now. The full six-week system, with three more bi-weekly plans, lands later. <a href="/about" class="why__link">More about the project →</a></p>
+        </div>
       </div>
-      <div class="why__body">
-        <p>Most meal-plan products either ignore Costco entirely or assume you've got time for daily prep. This one is the opposite: it accepts that your kitchen runs on warehouse-club staples and that real life is two cook windows, not seven.</p>
-        <p>Free fourteen-day plan now. The full six-week system, with three more bi-weekly plans, lands later. <a href="/about" class="why__link">More about the project →</a></p>
+    </Section>
+
+    <Section>
+      <div class="faq-wrap">
+        <p class="eyebrow">Common questions</p>
+        <h2>FAQ</h2>
+        <FAQ />
       </div>
-    </div>
-  </Section>
+    </Section>
 
-  <Section>
-    <div class="faq-wrap">
-      <p class="eyebrow">Common questions</p>
-      <h2>FAQ</h2>
-      <FAQ />
-    </div>
-  </Section>
-
-  <Section tint>
-    <div class="closing">
-      <h2>Get the free 14-dinner plan.</h2>
-      <p class="lede">PDF + printable shopping list, in your inbox in under a minute.</p>
-      <SignupForm variant="closing" helper="Free PDF + printable shopping list. No spam." />
-    </div>
-  </Section>
+    <Section tint>
+      <div class="closing">
+        <h2>Get the free 14-dinner plan.</h2>
+        <p class="lede">PDF + printable shopping list, in your inbox in under a minute.</p>
+        <SignupForm variant="closing" helper="Free PDF + printable shopping list. No spam." />
+      </div>
+    </Section>
+  </main>
 
   <Footer />
 </PageShell>

@@ -11,21 +11,23 @@ import SignupForm from '@/components/SignupForm.astro';
   noindex
 >
   <Header />
-  <Section>
-    <p class="eyebrow">Almost there</p>
-    <h1>Check your email.</h1>
-    <p class="lede">The PDF is on its way — should arrive within a minute. If you don't see it, check spam or promotions.</p>
+  <main>
+    <Section>
+      <p class="eyebrow">Almost there</p>
+      <h1>Check your email.</h1>
+      <p class="lede">The PDF is on its way — should arrive within a minute. If you don't see it, check spam or promotions.</p>
 
-    <div class="recapture">
-      <h3>Didn't get it? Try again.</h3>
-      <p class="lede" style="margin-top:8px">Typos happen. Re-enter your email and we'll resend.</p>
-      <SignupForm variant="closing" helper="Resend the welcome email + PDF." buttonLabel="Resend" />
-    </div>
+      <div class="recapture">
+        <h3>Didn't get it? Try again.</h3>
+        <p class="lede" style="margin-top:8px">Typos happen. Re-enter your email and we'll resend.</p>
+        <SignupForm variant="closing" helper="Resend the welcome email + PDF." buttonLabel="Resend" />
+      </div>
 
-    <p class="lede" style="margin-top:48px">
-      <a href="/" style="color:var(--c-ink); border-bottom:1.5px solid var(--c-accent); text-decoration:none; padding-bottom:1px;">← Back to the home page</a>
-    </p>
-  </Section>
+      <p class="lede" style="margin-top:48px">
+        <a href="/" style="color:var(--c-ink); border-bottom:1.5px solid var(--c-accent); text-decoration:none; padding-bottom:1px;">← Back to the home page</a>
+      </p>
+    </Section>
+  </main>
   <Footer />
 </PageShell>
 
