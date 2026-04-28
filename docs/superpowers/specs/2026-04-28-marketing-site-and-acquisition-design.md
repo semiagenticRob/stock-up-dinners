@@ -191,15 +191,52 @@ Confirms PDF is en route, sets expectation that the welcome email may take 30–
 ## 8. Build & deploy
 
 ### Repo & framework
-- New Astro project. Recommended: place at the **repo root** of a *separate* GitHub repo (`stockupdinners-site` or similar), **not** inside the existing `stock-up-dinners` mobile app repo. The mobile app and the marketing site have unrelated build pipelines, deploy targets, and release cadences. Coupling them would mean every push to either triggers both CI suites.
-- Astro `output: 'static'` (the default).
-- TypeScript strict.
-- Tailwind not required — design system is small enough to live in `src/styles/global.css` with CSS custom properties for the tokens.
+- The Astro project lives **inside the existing `stock-up-dinners` repo** under a top-level `web/` directory, fully isolated from the React Native app.
+- `web/` has its own `package.json`, `node_modules`, and lockfile — it does **not** share dependencies with the RN app at the repo root. The two trees are independent npm projects that happen to share a git remote.
+- Folder layout (only `web/` is new — everything else is the existing RN app):
+
+  ```
+  stock-up-dinners/
+    app/                       # RN — Expo Router routes (unchanged)
+    components/                # RN
+    db/                        # RN — WatermelonDB
+    hooks/                     # RN
+    lib/                       # RN — Supabase client
+    providers/                 # RN
+    supabase/                  # RN — server schema + migrations
+    docs/                      # specs, design docs (shared)
+    web/                       # ← Astro marketing site (new)
+      astro.config.mjs
+      package.json
+      tsconfig.json
+      public/
+        og-default.png
+        favicon.svg
+        the-plan.pdf           # if Beehiiv-hosting fails over
+        CNAME                  # stockupdinners.com
+        robots.txt
+      src/
+        components/
+        layouts/
+        pages/
+        styles/
+    .github/
+      workflows/
+        deploy-web.yml         # builds + deploys web/ on push to main
+                               # path-filtered to web/** only
+  ```
+
+- `web/`'s `astro.config.mjs` sets `output: 'static'`, TypeScript `strict: true`.
+- Tailwind not required — design system is small enough to live in `web/src/styles/global.css` with CSS custom properties for the tokens.
+- The existing RN-app `CLAUDE.md` gets a short "Marketing site lives in `web/` — separate npm project, see `web/README.md`" note so future Claude sessions don't mix the two.
 
 ### Deployment
-- GitHub Actions workflow (`.github/workflows/deploy.yml`) using the official `actions/deploy-pages@v4` Astro template. Build on push to `main`, deploy artifact to GitHub Pages.
-- Custom domain via `public/CNAME` file containing `stockupdinners.com`. DNS: A records pointing to GitHub Pages IPs + a `www` CNAME.
+- GitHub Actions workflow at `.github/workflows/deploy-web.yml` using the official `actions/deploy-pages@v4` Astro template.
+- **Path-filtered:** the workflow only triggers on changes to `web/**` and `.github/workflows/deploy-web.yml`. Pushes touching only RN-app files do not run the web build, and vice versa.
+- The workflow `cd web` before `npm ci` and `npm run build`; deploy artifact is `web/dist`.
+- Custom domain via `web/public/CNAME` containing `stockupdinners.com`. DNS: A records pointing to GitHub Pages IPs + a `www` CNAME.
 - HTTPS enforced via GitHub Pages' built-in Let's Encrypt.
+- **Domain wiring is the final step** of the launch. Build, deploy, verify on the GitHub Pages default URL (`<user>.github.io/<repo>`) first; only point DNS once the live site looks correct.
 
 ### Env vars (build-time, baked into client bundle)
 - `PUBLIC_BEEHIIV_PUBLICATION_ID`
