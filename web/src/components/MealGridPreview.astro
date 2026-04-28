@@ -1,0 +1,49 @@
+---
+export interface Props {
+  meals?: Array<{ ix: string; name: string }>;
+  cols?: number;
+}
+const defaultMeals = [
+  { ix: '01', name: 'Chicken Burrito Bowls' },
+  { ix: '02', name: 'Beef Bolognese' },
+  { ix: '03', name: 'Teriyaki Salmon' },
+  { ix: '04', name: 'Veggie Stir-Fry' },
+  { ix: '05', name: 'Turkey Chili' },
+  { ix: '06', name: 'Coconut Shrimp' },
+  { ix: '07', name: 'Baked Penne' },
+  { ix: '08', name: 'Chicken Tikka' },
+];
+const { meals = defaultMeals, cols = 4 } = Astro.props;
+---
+<ul class="grid" style={`--cols:${cols}`}>
+  {meals.map((m) => (
+    <li class="cell">
+      <span class="ix">{m.ix}</span>{m.name}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .grid {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 6px;
+    max-width: 760px;
+  }
+  .cell {
+    background: #fff;
+    border: 1px solid var(--c-border);
+    border-radius: 5px;
+    padding: 10px 12px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--c-ink);
+  }
+  .cell .ix { color: #94A3B8; margin-right: 6px; }
+  @media (max-width: 780px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

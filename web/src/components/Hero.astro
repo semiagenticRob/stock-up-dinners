@@ -1,0 +1,35 @@
+---
+import SignupForm from './SignupForm.astro';
+import MealGridPreview from './MealGridPreview.astro';
+---
+<div class="hero">
+  <p class="hero__meta">14&nbsp;DINNERS &nbsp;·&nbsp; 2&nbsp;COOK_DAYS &nbsp;·&nbsp; 1&nbsp;COSTCO_LIST</p>
+  <h1>Two cook days.<br/>Two weeks of dinner.</h1>
+  <p class="hero__sub">
+    A free 14-dinner meal plan for a family of four — built around 75 Costco staples.
+    Print the shopping list, do one warehouse run, batch-cook on Sunday. Reheat the rest of the week.
+  </p>
+  <SignupForm variant="hero" />
+  <MealGridPreview />
+</div>
+
+<style>
+  .hero { padding-top: 8px; }
+  .hero__meta {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--c-muted);
+    letter-spacing: 0.08em;
+    margin: 0 0 18px;
+  }
+  .hero__sub {
+    font-size: 18px;
+    color: var(--c-body);
+    line-height: 1.55;
+    max-width: 580px;
+    margin: 18px 0 28px;
+  }
+  @media (max-width: 780px) {
+    .hero__sub { font-size: 16px; }
+  }
+</style>

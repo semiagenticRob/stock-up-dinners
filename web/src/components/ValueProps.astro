@@ -1,0 +1,39 @@
+---
+const props = [
+  {
+    num: '01',
+    title: '14 dinners, ready to go',
+    body: 'Family-of-four portions, mapped across two weeks. Real recipes — burrito bowls, bolognese, curry — not protein-and-rice on repeat.',
+  },
+  {
+    num: '02',
+    title: '2 cook days a week',
+    body: 'Sunday batch + a midweek mini. Storage and reheat instructions for every meal, so dinner is microwave-fast on weeknights.',
+  },
+  {
+    num: '03',
+    title: '1 consolidated Costco list',
+    body: 'Deduplicated, quantified for a family of four, organized by warehouse aisle. Walk in, walk out, done.',
+  },
+];
+---
+<div class="vp-grid">
+  {props.map((p) => (
+    <div class="vp-card">
+      <div class="num">{p.num}</div>
+      <h4>{p.title}</h4>
+      <p>{p.body}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .vp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 32px; }
+  .vp-card { border: 1px solid var(--c-border); border-radius: var(--r-card); padding: 22px; background: #fff; }
+  .vp-card .num { font-family: var(--f-mono); font-size: 11px; color: var(--c-muted); }
+  .vp-card h4 { margin: 6px 0 8px; font-size: 20px; font-weight: 800; letter-spacing: -0.015em; }
+  .vp-card p { font-size: 14px; color: var(--c-body); line-height: 1.55; }
+  @media (max-width: 780px) {
+    .vp-grid { grid-template-columns: 1fr; }
+  }
+</style>

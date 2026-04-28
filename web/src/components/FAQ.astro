@@ -1,0 +1,49 @@
+---
+const faqs = [
+  {
+    q: 'Do I have to shop at Costco?',
+    a: 'The plan is built around 75 Costco staples — pack sizes, quantities, and price expectations all assume Costco. You can substitute equivalents from any warehouse club or large grocery store, but the shopping list won\'t map 1:1.',
+  },
+  {
+    q: 'Will the recipes work for picky kids?',
+    a: 'Most of them, yes. The plan leans on familiar shapes — burrito bowls, pasta, stir-fry, chili — with simple seasoning. The PDF includes notes on ingredients to swap or skip when you\'ve got a picky eater at the table.',
+  },
+  {
+    q: 'How long does each cook day take?',
+    a: 'Cook Day 1 is roughly 3–4 hours of active time on a Sunday afternoon, batching 7 meals. Cook Day 2 is a 60–90 minute mid-week mini, batching the next 7. Reheats are 5–15 minutes on weeknights.',
+  },
+  {
+    q: 'What if I\'m cooking for 2 instead of 4?',
+    a: 'Halve the protein and starch quantities; produce and condiments are usually fine to keep at full quantity since Costco pack sizes are generous. The free plan doesn\'t include scaled-down lists — that\'s on the roadmap for the paid 6-week system.',
+  },
+  {
+    q: 'Is there a paid version?',
+    a: 'Yes — a $25 PDF with the full 6-week system (the free 14 dinners plus three more bi-weekly plans = 26 dinners total, with rolling weekly rhythm and pantry-drawdown logic). You\'ll hear about it in the welcome email sequence.',
+  },
+  {
+    q: 'Will you spam me?',
+    a: 'No. The welcome sequence is three emails over a week, then occasional updates when new bi-weekly plans drop. Unsubscribe with one click any time.',
+  },
+];
+---
+<div class="faq">
+  {faqs.map((f) => (
+    <details class="faq__row">
+      <summary class="faq__q">
+        <span>{f.q}</span>
+        <span class="faq__chev" aria-hidden="true">+</span>
+      </summary>
+      <div class="faq__a">{f.a}</div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq { display: flex; flex-direction: column; gap: 8px; margin-top: 28px; }
+  .faq__row { border: 1px solid var(--c-border); border-radius: var(--r-card); padding: 18px 22px; background: #fff; }
+  .faq__q { font-weight: 600; font-size: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; color: var(--c-ink); }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__chev { color: #94A3B8; font-family: var(--f-mono); transition: transform 120ms ease; }
+  .faq__row[open] .faq__chev { transform: rotate(45deg); }
+  .faq__a { margin-top: 10px; font-size: 14px; color: var(--c-body); line-height: 1.6; }
+</style>
