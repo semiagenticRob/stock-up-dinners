@@ -33,8 +33,11 @@ export function attachSignupForm(form: HTMLFormElement, deps: SignupDeps): void 
 
   const resetHelper = () => setHelper(originalHelperText, 'idle');
 
+  let submitted = false;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (submitted) return;
 
     const email = emailInput.value.trim();
     if (!EMAIL_RE.test(email)) {
@@ -67,12 +70,9 @@ export function attachSignupForm(form: HTMLFormElement, deps: SignupDeps): void 
       setHelper('Got it — check your email.', 'success');
       button.textContent = 'Sent ✓';
       button.disabled = false;
+      submitted = true;
 
-      if (redirectDelayMs === 0) {
-        deps.navigate('/thanks');
-      } else {
-        setTimeout(() => deps.navigate('/thanks'), redirectDelayMs);
-      }
+      setTimeout(() => deps.navigate('/thanks'), redirectDelayMs);
     } catch (err) {
       deps.track('signup_error', { message: String(err) });
       setHelper('Something went wrong. Try again or email hi@stockupdinners.com.', 'error');

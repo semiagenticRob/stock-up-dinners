@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { attachSignupForm, type SignupDeps } from '@/scripts/signup';
 
 function buildForm(extraInputs: Record<string, string> = {}): HTMLFormElement {
@@ -47,7 +47,12 @@ function buildDeps(overrides: Partial<SignupDeps> = {}): SignupDeps {
 }
 
 beforeEach(() => {
+  vi.useFakeTimers();
   document.body.replaceChildren();
+});
+
+afterEach(() => {
+  vi.useRealTimers();
 });
 
 describe('attachSignupForm', () => {
@@ -59,7 +64,7 @@ describe('attachSignupForm', () => {
     (form.querySelector('input[type=email]') as HTMLInputElement).value = 'a@b.co';
     form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
 
-    await new Promise(r => setTimeout(r, 0));
+    await vi.runAllTimersAsync();
 
     expect(deps.fetch).toHaveBeenCalledOnce();
     const [url, init] = (deps.fetch as ReturnType<typeof vi.fn>).mock.calls[0];
@@ -82,7 +87,7 @@ describe('attachSignupForm', () => {
 
     (form.querySelector('input[type=email]') as HTMLInputElement).value = 'x@y.co';
     form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-    await new Promise(r => setTimeout(r, 0));
+    await vi.runAllTimersAsync();
 
     const init = (deps.fetch as ReturnType<typeof vi.fn>).mock.calls[0][1];
     const body = init.body as URLSearchParams;
@@ -99,7 +104,7 @@ describe('attachSignupForm', () => {
 
     (form.querySelector('input[type=email]') as HTMLInputElement).value = 'a@b.co';
     form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-    await new Promise(r => setTimeout(r, 0));
+    await vi.runAllTimersAsync();
 
     expect(deps.track).toHaveBeenCalledWith('signup_error', expect.any(Object));
     expect(deps.navigate).not.toHaveBeenCalled();
@@ -116,7 +121,7 @@ describe('attachSignupForm', () => {
 
     (form.querySelector('input[type=email]') as HTMLInputElement).value = 'not-an-email';
     form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-    await new Promise(r => setTimeout(r, 0));
+    await vi.runAllTimersAsync();
 
     expect(deps.fetch).not.toHaveBeenCalled();
     const helper = form.querySelector('[data-helper]') as HTMLElement;
@@ -138,7 +143,26 @@ describe('attachSignupForm', () => {
     expect(button.disabled).toBe(true);
 
     resolveFetch(new Response(null, { status: 200 }));
-    await new Promise(r => setTimeout(r, 0));
+    await vi.runAllTimersAsync();
     expect(button.disabled).toBe(false);
+  });
+
+  it('shows error helper text when fetch throws (network error)', async () => {
+    const form = buildForm();
+    const deps = buildDeps({
+      fetch: vi.fn(() => Promise.reject(new TypeError('Failed to fetch'))),
+    });
+    attachSignupForm(form, deps);
+
+    (form.querySelector('input[type=email]') as HTMLInputElement).value = 'a@b.co';
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    await vi.runAllTimersAsync();
+
+    expect(deps.track).toHaveBeenCalledWith('signup_error', expect.objectContaining({
+      message: expect.stringContaining('Failed to fetch'),
+    }));
+    expect(deps.navigate).not.toHaveBeenCalled();
+    const helper = form.querySelector('[data-helper]') as HTMLElement;
+    expect(helper.classList.contains('helper--error')).toBe(true);
   });
 });
