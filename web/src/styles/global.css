@@ -151,6 +151,13 @@ p { margin: 0; }
 .form .helper--success { color: var(--c-success); }
 .form button[disabled] { opacity: 0.6; cursor: not-allowed; }
 
+/* Focus indication */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
