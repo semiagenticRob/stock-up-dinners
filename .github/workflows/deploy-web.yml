@@ -40,7 +40,6 @@ jobs:
 
       - name: Build
         env:
-          PUBLIC_BEEHIIV_SUBSCRIBE_URL: ${{ secrets.PUBLIC_BEEHIIV_SUBSCRIBE_URL }}
           PUBLIC_GA4_MEASUREMENT_ID: ${{ secrets.PUBLIC_GA4_MEASUREMENT_ID }}
         run: npm run build
 

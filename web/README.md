@@ -9,20 +9,23 @@ This is a separate npm project from the React Native app in the parent repo. Run
 ```bash
 cd web
 npm install
-cp .env.example .env.local   # then fill in the two values
+cp .env.example .env.local   # then fill in the value
 npm run dev
 ```
 
 ## Environment variables
 
-Both are public (visible in the client bundle). No secrets.
+Public (visible in the client bundle). No secrets.
 
 | Var | Where to get it |
 |---|---|
-| `PUBLIC_BEEHIIV_SUBSCRIBE_URL` | Beehiiv dashboard → Settings → Forms → create a "Custom" form → copy its submission endpoint URL |
 | `PUBLIC_GA4_MEASUREMENT_ID` | GA4 admin → Data Streams → Web stream → Measurement ID (`G-XXXXXXXXXX`) |
 
-For deploys, set both as GitHub repo secrets with the same names. The `deploy-web.yml` workflow injects them at build time.
+For deploys, set this as a GitHub repo secret with the same name. The `deploy-web.yml` workflow injects it at build time.
+
+## Signup flow
+
+Visitors who click "Get the free plan" are redirected to the Beehiiv-hosted subscribe page at `https://stockupdinners.beehiiv.com/subscribe`. UTM parameters present on the visitor's URL at click time are appended to the redirect so attribution flows into Beehiiv. The site does not directly call Beehiiv's API.
 
 ## Scripts
 
@@ -32,8 +35,8 @@ For deploys, set both as GitHub repo secrets with the same names. The `deploy-we
 | `npm run build` | Production build into `dist/` |
 | `npm run preview` | Serve the built `dist/` locally |
 | `npm run typecheck` | `astro check` — TypeScript + Astro template checks |
-| `npm run test` | Vitest unit tests (utm + signup logic) |
-| `npm run test:e2e` | Playwright e2e tests (routes, OG, signup flow) |
+| `npm run test` | Vitest unit tests (utm logic) |
+| `npm run test:e2e` | Playwright e2e tests (routes, OG, signup redirect) |
 
 ## Deploy
 

@@ -7,50 +7,42 @@ export interface Props {
 const {
   variant = 'hero',
   helper = 'Free PDF + printable shopping list. No spam — unsubscribe anytime.',
-  buttonLabel = 'Send the plan',
+  buttonLabel = 'Get the free plan',
 } = Astro.props;
 
-const formId = variant === 'hero' ? 'signup' : `signup-${variant}`;
+const ctaId = variant === 'hero' ? 'signup' : `signup-${variant}`;
+const subscribeUrl = 'https://stockupdinners.beehiiv.com/subscribe';
 ---
-<form class="form" id={formId} data-signup-form novalidate>
-  <label class="sr-only" for={`${formId}-email`}>Email address</label>
-  <input
-    id={`${formId}-email`}
-    name="email"
-    type="email"
-    placeholder="you@example.com"
-    autocomplete="email"
-    required
-  />
-  <button type="submit">{buttonLabel}</button>
-  <p class="helper" data-helper>{helper}</p>
-</form>
+<div class="signup" id={ctaId}>
+  <a href={subscribeUrl} class="btn signup__btn" data-signup-link>{buttonLabel}</a>
+  <p class="helper signup__helper">{helper}</p>
+</div>
 
 <script>
-  import { attachSignupForm } from '@/scripts/signup';
-  import { extractUtmParams } from '@/scripts/utm';
-  import { track } from '@/scripts/analytics';
+  import { extractUtmParams, UTM_KEYS } from '@/scripts/utm';
 
-  const subscribeUrl = import.meta.env.PUBLIC_BEEHIIV_SUBSCRIBE_URL;
-
-  document.querySelectorAll<HTMLFormElement>('form[data-signup-form]').forEach((form) => {
-    if (!subscribeUrl) {
-      console.warn('[signup] PUBLIC_BEEHIIV_SUBSCRIBE_URL not set — form disabled.');
-      const button = form.querySelector<HTMLButtonElement>('button[type="submit"], button:not([type])');
-      const helper = form.querySelector<HTMLElement>('[data-helper]');
-      if (button) button.disabled = true;
-      if (helper) {
-        helper.textContent = 'Signup is temporarily unavailable. Please try again later.';
-        helper.classList.add('helper--error');
+  function appendUtm() {
+    const utm = extractUtmParams(window.location.search);
+    if (Object.keys(utm).length === 0) return;
+    document.querySelectorAll<HTMLAnchorElement>('a[data-signup-link]').forEach((a) => {
+      const url = new URL(a.href);
+      for (const k of UTM_KEYS) {
+        const v = utm[k];
+        if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
       }
-      return;
-    }
-    attachSignupForm(form, {
-      fetch: window.fetch.bind(window),
-      navigate: (url) => window.location.assign(url),
-      track,
-      getUtm: () => extractUtmParams(window.location.search),
-      subscribeUrl,
+      a.href = url.toString();
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', appendUtm);
+  } else {
+    appendUtm();
+  }
 </script>
+
+<style>
+  .signup { display: flex; flex-direction: column; gap: 10px; max-width: 520px; }
+  .signup__btn { align-self: flex-start; padding: 14px 22px; }
+  .signup__helper { font-size: 12.5px; color: var(--c-muted); margin: 0; }
+</style>

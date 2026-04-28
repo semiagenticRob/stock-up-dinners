@@ -3,7 +3,6 @@ import PageShell from '@/layouts/PageShell.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Section from '@/components/Section.astro';
-import SignupForm from '@/components/SignupForm.astro';
 ---
 <PageShell
   title="Check your email"
@@ -16,22 +15,10 @@ import SignupForm from '@/components/SignupForm.astro';
       <p class="eyebrow">Almost there</p>
       <h1>Check your email.</h1>
       <p class="lede">The PDF is on its way — should arrive within a minute. If you don't see it, check spam or promotions.</p>
-
-      <div class="recapture">
-        <h3>Didn't get it? Try again.</h3>
-        <p class="lede" style="margin-top:8px">Typos happen. Re-enter your email and we'll resend.</p>
-        <SignupForm variant="closing" helper="Resend the welcome email + PDF." buttonLabel="Resend" />
-      </div>
-
-      <p class="lede" style="margin-top:48px">
+      <p class="lede" style="margin-top:32px">
         <a href="/" style="color:var(--c-ink); border-bottom:1.5px solid var(--c-accent); text-decoration:none; padding-bottom:1px;">← Back to the home page</a>
       </p>
     </Section>
   </main>
   <Footer />
 </PageShell>
-
-<style>
-  .recapture { margin-top: 48px; padding: 24px; border: 1px solid var(--c-border); border-radius: var(--r-card); background: var(--c-bg-tint); max-width: 560px; }
-  .recapture h3 { font-size: 16px; font-weight: 700; margin: 0; }
-</style>

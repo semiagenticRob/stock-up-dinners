@@ -2,7 +2,6 @@
 /// <reference types="astro/client" />
 
 interface ImportMetaEnv {
-  readonly PUBLIC_BEEHIIV_SUBSCRIBE_URL: string | undefined;
   readonly PUBLIC_GA4_MEASUREMENT_ID: string | undefined;
 }
 
