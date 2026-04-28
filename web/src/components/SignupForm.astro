@@ -35,14 +35,22 @@ const formId = variant === 'hero' ? 'signup' : `signup-${variant}`;
 
   document.querySelectorAll<HTMLFormElement>('form[data-signup-form]').forEach((form) => {
     if (!subscribeUrl) {
-      console.warn('[signup] PUBLIC_BEEHIIV_SUBSCRIBE_URL not set — form will no-op.');
+      console.warn('[signup] PUBLIC_BEEHIIV_SUBSCRIBE_URL not set — form disabled.');
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"], button:not([type])');
+      const helper = form.querySelector<HTMLElement>('[data-helper]');
+      if (button) button.disabled = true;
+      if (helper) {
+        helper.textContent = 'Signup is temporarily unavailable. Please try again later.';
+        helper.classList.add('helper--error');
+      }
+      return;
     }
     attachSignupForm(form, {
       fetch: window.fetch.bind(window),
       navigate: (url) => window.location.assign(url),
       track,
       getUtm: () => extractUtmParams(window.location.search),
-      subscribeUrl: subscribeUrl ?? '',
+      subscribeUrl,
     });
   });
 </script>
