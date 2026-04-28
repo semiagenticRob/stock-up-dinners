@@ -1,0 +1,10 @@
+node_modules
+dist
+.astro
+.env
+.env.local
+.env.*.local
+test-results
+playwright-report
+playwright/.cache
+coverage
