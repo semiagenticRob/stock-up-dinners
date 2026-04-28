@@ -3,6 +3,10 @@ import PageShell from '@/layouts/PageShell.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Section from '@/components/Section.astro';
+import Hero from '@/components/Hero.astro';
+import ValueProps from '@/components/ValueProps.astro';
+import PDFCoverMock from '@/components/PDFCoverMock.astro';
+import FAQ from '@/components/FAQ.astro';
 import SignupForm from '@/components/SignupForm.astro';
 ---
 <PageShell
@@ -10,10 +14,85 @@ import SignupForm from '@/components/SignupForm.astro';
   description="A free 14-dinner meal plan for a family of four — built around 75 Costco staples. PDF + printable shopping list."
 >
   <Header />
+
   <Section>
-    <h1>SignupForm smoke test</h1>
-    <p class="lede" style="margin-bottom: 24px;">Submit with an invalid email — should show inline error. Submit with a valid email when env is unset — should also error gracefully.</p>
-    <SignupForm />
+    <Hero />
   </Section>
+
+  <Section tint>
+    <p class="eyebrow">How it works</p>
+    <h2>Designed to fit your week, not consume it.</h2>
+    <p class="lede">No daily cooking. No mid-week grocery runs. One Costco trip, two batch sessions, fourteen dinners ready to reheat.</p>
+    <ValueProps />
+  </Section>
+
+  <Section>
+    <p class="eyebrow">Inside the free PDF</p>
+    <h2>A full system, not a recipe roundup.</h2>
+    <div class="pdf-row">
+      <PDFCoverMock />
+      <div class="pdf-meta">
+        <h3>What's actually in the file</h3>
+        <ul>
+          <li><strong>14 dinners with full recipes.</strong> Ingredients, quantities, instructions, storage notes.</li>
+          <li><strong>2 consolidated shopping lists.</strong> Costco-aisle organized. Printable. Quantified.</li>
+          <li><strong>Cook day workflows.</strong> Step-by-step for Cook Day 1 + Cook Day 2 — what goes in the oven first, what's prepped while it's roasting.</li>
+          <li><strong>Storage + reheat cheat sheet.</strong> Foil pan vs freezer bag, oven vs microwave, exact times.</li>
+          <li><strong>The 75-staple list.</strong> The Costco shortlist this whole system runs on.</li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <Section tint>
+    <div class="why">
+      <div>
+        <p class="eyebrow" style="color: var(--c-muted)">Why this exists</p>
+        <h2>Built because nothing else worked.</h2>
+      </div>
+      <div class="why__body">
+        <p>Most meal-plan products either ignore Costco entirely or assume you've got time for daily prep. This one is the opposite: it accepts that your kitchen runs on warehouse-club staples and that real life is two cook windows, not seven.</p>
+        <p>Free fourteen-day plan now. The full six-week system, with three more bi-weekly plans, lands later. <a href="/about" class="why__link">More about the project →</a></p>
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="faq-wrap">
+      <p class="eyebrow">Common questions</p>
+      <h2>FAQ</h2>
+      <FAQ />
+    </div>
+  </Section>
+
+  <Section tint>
+    <div class="closing">
+      <h2>Get the free 14-dinner plan.</h2>
+      <p class="lede">PDF + printable shopping list, in your inbox in under a minute.</p>
+      <SignupForm variant="closing" helper="Free PDF + printable shopping list. No spam." />
+    </div>
+  </Section>
+
   <Footer />
 </PageShell>
+
+<style>
+  .pdf-row { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; align-items: start; margin-top: 32px; }
+  .pdf-meta h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 10px; }
+  .pdf-meta ul { margin: 0; padding: 0; list-style: none; }
+  .pdf-meta li { padding: 12px 0; border-bottom: 1px solid var(--c-border); font-size: 14px; color: var(--c-body); line-height: 1.55; }
+  .pdf-meta li:last-child { border-bottom: none; }
+  .pdf-meta li strong { color: var(--c-ink); font-weight: 700; }
+
+  .why { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .why__body p { font-size: 15.5px; color: var(--c-body); line-height: 1.65; margin-bottom: 14px; }
+  .why__link { font-size: 13.5px; font-weight: 600; color: var(--c-ink); border-bottom: 1.5px solid var(--c-accent); padding-bottom: 1px; text-decoration: none; }
+
+  .faq-wrap { max-width: 760px; }
+  .closing { text-align: center; }
+  .closing :global(.form) { margin: 16px auto 0; justify-content: center; }
+
+  @media (max-width: 780px) {
+    .pdf-row, .why { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
