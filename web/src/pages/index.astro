@@ -10,8 +10,8 @@ import FAQ from '@/components/FAQ.astro';
 import SignupForm from '@/components/SignupForm.astro';
 ---
 <PageShell
-  title="Two cook days. Two weeks of dinner."
-  description="A free 14-dinner meal plan for a family of four — built around 75 Costco staples. PDF + printable shopping list."
+  title="Easy Meal Prep for Costco Members"
+  description="A free 14-dinner meal plan for a family of four. Built around 75 Costco staples. One warehouse run, two cook days, fourteen dinners. PDF + printable shopping list."
 >
   <Header />
 
@@ -31,7 +31,10 @@ import SignupForm from '@/components/SignupForm.astro';
       <p class="eyebrow">Inside the free PDF</p>
       <h2>A full system, not a recipe roundup.</h2>
       <div class="pdf-row">
-        <PDFCoverMock />
+        <div class="pdf-stack">
+          <PDFCoverMock />
+          <img class="pdf-photo" src="/images/salmon-bowl.jpg" alt="" loading="lazy" decoding="async" width="1024" height="1024" aria-hidden="true" />
+        </div>
         <div class="pdf-meta">
           <h3>What's actually in the file</h3>
           <ul>
@@ -47,13 +50,17 @@ import SignupForm from '@/components/SignupForm.astro';
 
     <Section tint>
       <div class="why">
-        <div>
-          <p class="eyebrow" style="color: var(--c-muted)">Why this exists</p>
-          <h2>Built because nothing else worked.</h2>
+        <div class="why__copy">
+          <p class="eyebrow" style="color: var(--c-muted)">Why we built this</p>
+          <h2>The Only Solution for a Busy Family Like Us!</h2>
+          <div class="why__body">
+            <p>We're busy professionals with kids. After a long day of meetings, nothing was more stressful than getting home and rushing to prep dinner with hungry children prowling the house. Instead of accepting the 4:50PM panic, we decided to do something about it.</p>
+            <p>Our kitchen runs on warehouse-club staples and a real-life week is two cook windows, not seven.</p>
+            <p>Free fourteen-day plan now. The full six-week system, with three more bi-weekly plans, lands later. <a href="/about" class="why__link">More about the project →</a></p>
+          </div>
         </div>
-        <div class="why__body">
-          <p>Most meal-plan products either ignore Costco entirely or assume you've got time for daily prep. This one is the opposite: it accepts that your kitchen runs on warehouse-club staples and that real life is two cook windows, not seven.</p>
-          <p>Free fourteen-day plan now. The full six-week system, with three more bi-weekly plans, lands later. <a href="/about" class="why__link">More about the project →</a></p>
+        <div class="why__media">
+          <img src="/images/family-story.jpg" alt="The family behind Stock Up Dinners — outdoor evening picnic, dinner-on-a-blanket." loading="lazy" decoding="async" width="1280" height="964" />
         </div>
       </div>
     </Section>
@@ -80,15 +87,37 @@ import SignupForm from '@/components/SignupForm.astro';
 
 <style>
   .pdf-row { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; align-items: start; margin-top: 32px; }
+  .pdf-stack { position: relative; max-width: 420px; padding-right: 80px; padding-bottom: 60px; }
+  .pdf-photo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #fff;
+    box-shadow: 0 18px 36px -12px rgba(15, 23, 42, 0.28);
+    z-index: 1;
+  }
   .pdf-meta h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 10px; }
   .pdf-meta ul { margin: 0; padding: 0; list-style: none; }
   .pdf-meta li { padding: 12px 0; border-bottom: 1px solid var(--c-border); font-size: 14px; color: var(--c-body); line-height: 1.55; }
   .pdf-meta li:last-child { border-bottom: none; }
   .pdf-meta li strong { color: var(--c-ink); font-weight: 700; }
 
-  .why { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .why { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
   .why__body p { font-size: 15.5px; color: var(--c-body); line-height: 1.65; margin-bottom: 14px; }
+  .why__body { margin-top: 8px; }
   .why__link { font-size: 13.5px; font-weight: 600; color: var(--c-ink); border-bottom: 1.5px solid var(--c-accent); padding-bottom: 1px; text-decoration: none; }
+  .why__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+    box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
+  }
+  .why__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .faq-wrap { max-width: 760px; }
   .closing { text-align: center; }
@@ -96,5 +125,7 @@ import SignupForm from '@/components/SignupForm.astro';
 
   @media (max-width: 780px) {
     .pdf-row, .why { grid-template-columns: 1fr; gap: 24px; }
+    .pdf-stack { padding-right: 60px; padding-bottom: 60px; max-width: 380px; }
+    .pdf-photo { width: 160px; height: 160px; }
   }
 </style>

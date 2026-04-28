@@ -3,22 +3,34 @@ import SignupForm from './SignupForm.astro';
 import MealGridPreview from './MealGridPreview.astro';
 ---
 <div class="hero">
-  <p class="hero__meta">14&nbsp;DINNERS &nbsp;·&nbsp; 2&nbsp;COOK_DAYS &nbsp;·&nbsp; 1&nbsp;COSTCO_LIST</p>
-  <h1>Two cook days.<br/>Two weeks of dinner.</h1>
-  <p class="hero__sub">
-    A free 14-dinner meal plan for a family of four — built around 75 Costco staples.
-    Print the shopping list, do one warehouse run, batch-cook on Sunday. Reheat the rest of the week.
-  </p>
-  <SignupForm variant="hero" />
-  <MealGridPreview />
+  <div class="hero__text">
+    <p class="hero__meta">1&nbsp;COSTCO&nbsp;SHOPPING&nbsp;LIST &nbsp;·&nbsp; 2&nbsp;COOK_DAYS &nbsp;·&nbsp; 14&nbsp;DINNERS</p>
+    <h1>Easy Meal Prep for Costco Members</h1>
+    <p class="hero__sub">
+      A free 14-dinner meal plan for a family of four. Built around 75 Costco staples.
+      Print the shopping list, do one warehouse run, batch-cook. Reheat for the rest of the week.
+    </p>
+    <SignupForm variant="hero" />
+  </div>
+  <div class="hero__media" aria-hidden="true">
+    <img src="/images/hero-pasta.jpg" alt="" loading="eager" decoding="async" width="1024" height="1024" />
+  </div>
 </div>
+<MealGridPreview />
 
 <style>
-  .hero { padding-top: 8px; }
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+    padding-top: 8px;
+  }
   .hero__meta {
     font-family: var(--f-mono);
     font-size: 11px;
-    color: var(--c-muted);
+    color: var(--c-accent);
+    font-weight: 500;
     letter-spacing: 0.08em;
     margin: 0 0 18px;
   }
@@ -28,6 +40,23 @@ import MealGridPreview from './MealGridPreview.astro';
     line-height: 1.55;
     max-width: 580px;
     margin: 18px 0 28px;
+  }
+  .hero__media {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+    box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
+  }
+  .hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; gap: 28px; }
+    .hero__media { max-width: 100%; aspect-ratio: 4 / 3; }
   }
   @media (max-width: 780px) {
     .hero__sub { font-size: 16px; }

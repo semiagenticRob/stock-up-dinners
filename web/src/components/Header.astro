@@ -6,7 +6,7 @@ import Wordmark from './Wordmark.astro';
     <a href="/" aria-label="Stock Up Dinners home" class="header__brand">
       <Wordmark />
     </a>
-    <a href="/#signup" class="header__cta">Get the free plan</a>
+    <a href="/#signup" class="header__cta">Get the free plan →</a>
   </div>
 </header>
 
@@ -17,11 +17,14 @@ import Wordmark from './Wordmark.astro';
   .header__cta {
     font-size: 13px;
     font-weight: 600;
-    color: var(--c-ink);
+    color: var(--c-accent-ink);
+    background: var(--c-accent);
     text-decoration: none;
-    border: 1px solid var(--c-border);
-    padding: 8px 14px;
+    border: 1px solid var(--c-accent);
+    padding: 9px 16px;
     border-radius: var(--r-btn);
+    transition: filter 120ms ease, transform 120ms ease;
   }
-  .header__cta:hover { background: var(--c-bg-tint); }
+  .header__cta:hover { filter: brightness(0.95); }
+  .header__cta:active { transform: translateY(1px); }
 </style>

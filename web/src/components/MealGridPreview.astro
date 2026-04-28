@@ -1,24 +1,28 @@
 ---
 export interface Props {
-  meals?: Array<{ ix: string; name: string }>;
+  meals?: Array<{ ix: string; name: string; img: string }>;
   cols?: number;
 }
 const defaultMeals = [
-  { ix: '01', name: 'Chicken Burrito Bowls' },
-  { ix: '02', name: 'Beef Bolognese' },
-  { ix: '03', name: 'Teriyaki Salmon' },
-  { ix: '04', name: 'Veggie Stir-Fry' },
-  { ix: '05', name: 'Turkey Chili' },
-  { ix: '06', name: 'Coconut Shrimp' },
-  { ix: '07', name: 'Baked Penne' },
-  { ix: '08', name: 'Chicken Tikka' },
+  { ix: '01', name: 'Chicken Burrito Bowls', img: '/images/meals/01-chicken-burrito-bowls.jpg' },
+  { ix: '02', name: 'Beef Bolognese',        img: '/images/meals/02-beef-bolognese.jpg' },
+  { ix: '03', name: 'Teriyaki Salmon',       img: '/images/meals/03-teriyaki-salmon.jpg' },
+  { ix: '04', name: 'Veggie Stir-Fry',       img: '/images/meals/04-veggie-stir-fry.jpg' },
+  { ix: '05', name: 'Turkey Chili',          img: '/images/meals/05-turkey-chili.jpg' },
+  { ix: '06', name: 'Coconut Shrimp',        img: '/images/meals/06-coconut-shrimp.jpg' },
+  { ix: '07', name: 'Baked Penne',           img: '/images/meals/07-baked-penne.jpg' },
+  { ix: '08', name: 'Chicken Tikka',         img: '/images/meals/08-chicken-tikka.jpg' },
 ];
 const { meals = defaultMeals, cols = 4 } = Astro.props;
 ---
 <ul class="grid" style={`--cols:${cols}`}>
   {meals.map((m) => (
     <li class="cell">
-      <span class="ix">{m.ix}</span>{m.name}
+      <img class="thumb" src={m.img} alt="" loading="lazy" decoding="async" width="96" height="96" />
+      <div class="meta">
+        <span class="ix">{m.ix}</span>
+        <span class="name">{m.name}</span>
+      </div>
     </li>
   ))}
 </ul>
@@ -30,19 +34,41 @@ const { meals = defaultMeals, cols = 4 } = Astro.props;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(var(--cols), 1fr);
-    gap: 6px;
+    gap: 10px;
     max-width: 760px;
   }
   .cell {
     background: #fff;
     border: 1px solid var(--c-border);
-    border-radius: 5px;
-    padding: 10px 12px;
-    font-family: var(--f-mono);
-    font-size: 11px;
-    color: var(--c-ink);
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
-  .cell .ix { color: #94A3B8; margin-right: 6px; }
+  .thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid var(--c-border);
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+  }
+  .meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .meta .ix {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #94A3B8;
+  }
+  .meta .name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-ink);
+    line-height: 1.25;
+  }
   @media (max-width: 780px) {
     .grid { grid-template-columns: repeat(2, 1fr); }
   }
