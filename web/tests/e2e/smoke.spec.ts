@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const ROUTES = [
   { path: '/', expect: 'Two cook days' },
-  { path: '/about', expect: 'About' },
+  { path: '/about', expect: 'The kitchen runs on Costco' },
   { path: '/thanks', expect: 'Check your email' },
   { path: '/privacy', expect: 'Privacy policy' },
   { path: '/terms', expect: 'Terms of use' },
