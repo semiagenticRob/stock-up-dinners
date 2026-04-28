@@ -30,6 +30,13 @@ describe('extractUtmParams', () => {
     expect(extractUtmParams(url)).toEqual({ utm_source: 'facebook' });
   });
 
+  it('accepts bare search string from window.location.search', () => {
+    expect(extractUtmParams('?utm_source=organic&utm_medium=direct')).toEqual({
+      utm_source: 'organic',
+      utm_medium: 'direct',
+    });
+  });
+
   it('exports the canonical 5-key list', () => {
     expect(UTM_KEYS).toEqual([
       'utm_source',
