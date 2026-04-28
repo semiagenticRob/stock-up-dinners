@@ -3,6 +3,7 @@ import PageShell from '@/layouts/PageShell.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import Section from '@/components/Section.astro';
+import SignupForm from '@/components/SignupForm.astro';
 ---
 <PageShell
   title="Two cook days. Two weeks of dinner."
@@ -10,12 +11,9 @@ import Section from '@/components/Section.astro';
 >
   <Header />
   <Section>
-    <h1>Foundations wired up.</h1>
-    <p class="lede">Header above, footer below. Both share the wordmark component.</p>
-  </Section>
-  <Section tint>
-    <h2>Tinted section</h2>
-    <p class="lede">Used for alternating bands — value props, "why this exists", closing CTA.</p>
+    <h1>SignupForm smoke test</h1>
+    <p class="lede" style="margin-bottom: 24px;">Submit with an invalid email — should show inline error. Submit with a valid email when env is unset — should also error gracefully.</p>
+    <SignupForm />
   </Section>
   <Footer />
 </PageShell>

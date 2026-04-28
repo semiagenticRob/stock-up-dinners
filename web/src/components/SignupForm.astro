@@ -1,0 +1,48 @@
+---
+export interface Props {
+  variant?: 'hero' | 'closing';
+  helper?: string;
+  buttonLabel?: string;
+}
+const {
+  variant = 'hero',
+  helper = 'Free PDF + printable shopping list. No spam — unsubscribe anytime.',
+  buttonLabel = 'Send the plan',
+} = Astro.props;
+
+const formId = variant === 'hero' ? 'signup' : `signup-${variant}`;
+---
+<form class="form" id={formId} data-signup-form novalidate>
+  <label class="sr-only" for={`${formId}-email`}>Email address</label>
+  <input
+    id={`${formId}-email`}
+    name="email"
+    type="email"
+    placeholder="you@example.com"
+    autocomplete="email"
+    required
+  />
+  <button type="submit">{buttonLabel}</button>
+  <p class="helper" data-helper>{helper}</p>
+</form>
+
+<script>
+  import { attachSignupForm } from '@/scripts/signup';
+  import { extractUtmParams } from '@/scripts/utm';
+  import { track } from '@/scripts/analytics';
+
+  const subscribeUrl = import.meta.env.PUBLIC_BEEHIIV_SUBSCRIBE_URL;
+
+  document.querySelectorAll<HTMLFormElement>('form[data-signup-form]').forEach((form) => {
+    if (!subscribeUrl) {
+      console.warn('[signup] PUBLIC_BEEHIIV_SUBSCRIBE_URL not set — form will no-op.');
+    }
+    attachSignupForm(form, {
+      fetch: window.fetch.bind(window),
+      navigate: (url) => window.location.assign(url),
+      track,
+      getUtm: () => extractUtmParams(window.location.search),
+      subscribeUrl: subscribeUrl ?? '',
+    });
+  });
+</script>
