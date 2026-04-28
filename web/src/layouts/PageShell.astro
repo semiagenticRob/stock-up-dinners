@@ -19,7 +19,8 @@ const {
 
 const siteUrl = 'https://stockupdinners.com';
 const fullTitle = title.includes('Stock Up Dinners') ? title : `${title} — Stock Up Dinners`;
-const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const rawCanonical = new URL(Astro.url.pathname, siteUrl).toString();
+const canonicalUrl = canonical ?? (rawCanonical === `${siteUrl}/` ? siteUrl : rawCanonical);
 const ogImageAbs = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).toString();
 const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
 ---
@@ -41,6 +42,8 @@ const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Stock Up Dinners" />
 
     <meta name="twitter:card" content="summary_large_image" />
