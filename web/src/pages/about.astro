@@ -1,0 +1,32 @@
+---
+import PageShell from '@/layouts/PageShell.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Section from '@/components/Section.astro';
+import SignupForm from '@/components/SignupForm.astro';
+---
+<PageShell
+  title="About"
+  description="Why Stock Up Dinners exists, and who's behind it."
+>
+  <Header />
+  <Section>
+    <p class="eyebrow">About</p>
+    <h1>The kitchen runs on Costco. The plan should too.</h1>
+    <div class="prose">
+      <p>Stock Up Dinners started as a personal experiment: could a family of four eat real, varied dinners every weeknight without grocery-shopping more than once every two weeks? After two years of iterating on what we cooked, when, and what went in the cart, the answer turned out to be yes — but only with a system.</p>
+      <p>The system is built around 75 Costco staples that don't go bad fast and that combine into a wide enough range of dinners to keep the table interesting. Two batch-cook sessions per fortnight do the heavy lifting; weeknights are reheats. The free 14-dinner plan is the first cycle of that system, exactly the way it runs in our kitchen.</p>
+      <p>The full six-week version (with three more bi-weekly plans, pantry-drawdown logic, and a rolling weekly rhythm) is available as a $25 PDF for anyone who wants to commit to the whole thing. There's also a companion app in the works that turns the system into something you can tap your way through instead of printing.</p>
+      <p>Built by a one-person team. No VC, no ads, no algorithm-chasing. The newsletter is the product distribution channel — sign up below if you want the free plan.</p>
+    </div>
+    <div style="margin-top:40px">
+      <SignupForm variant="hero" />
+    </div>
+  </Section>
+  <Footer />
+</PageShell>
+
+<style>
+  .prose { max-width: 640px; margin-top: 24px; }
+  .prose p { font-size: 16.5px; color: var(--c-body); line-height: 1.7; margin-bottom: 18px; }
+</style>

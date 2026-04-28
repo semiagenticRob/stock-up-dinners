@@ -1,0 +1,38 @@
+---
+import PageShell from '@/layouts/PageShell.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import Section from '@/components/Section.astro';
+const updated = '2026-04-28';
+---
+<PageShell title="Terms of use" description="Terms governing use of the Stock Up Dinners site and content.">
+  <Header />
+  <Section>
+    <p class="eyebrow">Last updated {updated}</p>
+    <h1>Terms of use</h1>
+    <div class="prose">
+      <h3>Acceptable use</h3>
+      <p>You're welcome to use this site, sign up for the newsletter, download the free PDF, and follow the recipes for personal household use.</p>
+
+      <h3>Content ownership</h3>
+      <p>The recipes, meal plans, copy, and design on this site are the original work of Stock Up Dinners. Don't republish, resell, or redistribute the PDFs or page content. Sharing the link is great. Copy-pasting the contents to your own site or selling them is not.</p>
+
+      <h3>No warranties</h3>
+      <p>The meal plans are provided as-is. Cost estimates, cook times, and ingredient availability are best-efforts but not guaranteed — Costco inventory varies by region. Check ingredient labels for allergens. We're not liable for kitchen mishaps, supply substitutions, or picky eaters.</p>
+
+      <h3>Changes</h3>
+      <p>These terms may be updated as the project evolves. Substantive changes will be reflected in the "last updated" date above.</p>
+
+      <h3>Contact</h3>
+      <p>Questions? <a href="mailto:hi@stockupdinners.com">hi@stockupdinners.com</a>.</p>
+    </div>
+  </Section>
+  <Footer />
+</PageShell>
+
+<style>
+  .prose { max-width: 720px; margin-top: 24px; }
+  .prose h3 { font-size: 18px; font-weight: 700; margin: 28px 0 8px; }
+  .prose p { font-size: 15.5px; color: var(--c-body); line-height: 1.65; margin-bottom: 12px; }
+  .prose a { color: var(--c-ink); border-bottom: 1px solid var(--c-accent); }
+</style>
