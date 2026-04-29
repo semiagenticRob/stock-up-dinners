@@ -18,29 +18,6 @@ const subscribeUrl = 'https://stockupdinners.beehiiv.com/subscribe';
   <p class="helper signup__helper">{helper}</p>
 </div>
 
-<script>
-  import { extractUtmParams, UTM_KEYS } from '@/scripts/utm';
-
-  function appendUtm() {
-    const utm = extractUtmParams(window.location.search);
-    if (Object.keys(utm).length === 0) return;
-    document.querySelectorAll<HTMLAnchorElement>('a[data-signup-link]').forEach((a) => {
-      const url = new URL(a.href);
-      for (const k of UTM_KEYS) {
-        const v = utm[k];
-        if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
-      }
-      a.href = url.toString();
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', appendUtm);
-  } else {
-    appendUtm();
-  }
-</script>
-
 <style>
   .signup { display: flex; flex-direction: column; gap: 10px; max-width: 520px; }
   .signup__btn { align-self: flex-start; padding: 14px 22px; }

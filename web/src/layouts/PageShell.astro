@@ -66,5 +66,27 @@ const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
   </head>
   <body>
     <slot />
+    <script>
+      import { extractUtmParams, UTM_KEYS } from '@/scripts/utm';
+
+      function appendUtm() {
+        const utm = extractUtmParams(window.location.search);
+        if (Object.keys(utm).length === 0) return;
+        document.querySelectorAll<HTMLAnchorElement>('a[data-signup-link]').forEach((a) => {
+          const url = new URL(a.href);
+          for (const k of UTM_KEYS) {
+            const v = utm[k];
+            if (v && !url.searchParams.has(k)) url.searchParams.set(k, v);
+          }
+          a.href = url.toString();
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', appendUtm);
+      } else {
+        appendUtm();
+      }
+    </script>
   </body>
 </html>
