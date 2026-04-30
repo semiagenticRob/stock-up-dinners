@@ -2,134 +2,152 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project
+## Project status
 
-Stock Up Dinners is a Costco-anchored dinner meal-plan product. The repo holds **two independent npm projects** that share a git remote and nothing else:
+Stock Up Dinners is mid-pivot from an Expo / React Native + Astro static site to a **Next.js 14 web PWA** with paid Stripe subscription, lot-based pantry tracking, FIFO consumption, and (post-launch) receipt OCR.
 
-- **Repo root** — Expo / React Native app (iOS-first), the product.
-- **`web/`** — Astro static marketing site at [stockupdinners.com](https://stockupdinners.com), the acquisition funnel.
+Authoritative product spec: **`docs/specs/2026-04-30-v2-web-rebuild-spec.md`** (ATAT v1.0, "Approved for build"). Read it before making non-trivial product or architecture decisions. The build plan that operationalizes the spec lives at `~/.claude/plans/lazy-watching-stallman.md` (outside the repo).
 
-They do **not** share dependencies, build tooling, backend, or CI workflows. When making changes, stay inside one project at a time and only stage files from that project — see "Working-tree hygiene" below.
+## Branches
 
-`PLAN.md` holds the product plan, launch checklist, and the canonical 75-item Costco staple list that the data model (and meal generation) is constrained to.
+- `main` — last v1 commit is tagged `v1-rn-archive`. Through the cutover at the end of the rebuild, `main` is otherwise *frozen* — the GitHub Pages Astro deploy that used to live there has been removed on the rebuild branch only, and **`main` should not receive new commits during the rebuild**. The marketing site at stockupdinners.com is currently dark or running off the v1 tag's last successful deploy until the new Next.js marketing pages ship.
+- `v2-nextjs-rebuild` — the active development branch. All new work happens here. Merges to `main` only at cutover (Phase 6 in the plan).
 
----
+## Repo state during the rebuild
 
-## React Native app (repo root)
+Right now (Phase 1 of the plan complete) the repo is in a **transitional state** — there is no Next.js scaffold yet. Current top-level layout:
 
-### Commands
-
-```bash
-npm start              # Expo dev server
-npm run ios            # Run on iOS simulator (dev client)
-npm run android
-npm run web
-npm test               # Jest
-npx jest path/to/file  # Single test file
-npm run typecheck      # tsc --noEmit
+```
+/stock-up-dinners
+├── content/           # Versioned catalog (JSON, source of truth for the v2 product)
+│   ├── ingredients.json         # 75 Costco staples, extracted from v1 SQL seeds
+│   ├── recipes.json             # 14 cycle-1 dinners (need to grow to 48)
+│   ├── skus.json                # empty stub — Phase 2 content work
+│   ├── substitution_groups.json # empty stub — Phase 2 content work
+│   └── starter-pack.json        # empty stub — Phase 2 content work
+├── docs/
+│   ├── specs/         # Authoritative specs (the ATAT v1.0 spec lives here)
+│   ├── archive/       # Pre-pivot specs/plans, kept for reference, not authoritative
+│   ├── marketing/     # Landing copy, FLUX image prompts, channel-specific posts
+│   ├── launch/        # Beehiiv setup, free PDF content, paid-plan recipe drafts
+│   ├── design/        # Brand brief (canva-brand-brief.md), .pen files
+│   └── assets/        # Source/working photography (33 files)
+├── lib/
+│   └── utm.ts         # Salvaged UTM-extraction logic, framework-agnostic
+├── public/            # Production static assets ready for the Next.js scaffold
+│   ├── images/        # 4 hero shots + 8 numbered meal thumbnails
+│   ├── og-default.png
+│   ├── favicon.svg
+│   └── robots.txt
+├── tests/
+│   ├── unit/          # utm.test.ts (passes as-is)
+│   └── e2e/           # smoke + signup specs from the Astro era; need rewriting
+├── _legacy/           # Reference-only material from v1 — don't import from here
+│   ├── marketing-copy/      # 6 .astro pages whose copy ports verbatim
+│   ├── components/          # 10 .astro components to port to React
+│   ├── layouts/             # PageShell.astro (UTM-injection pattern)
+│   ├── styles/global.css    # Design tokens to lift into Tailwind config
+│   ├── scripts/analytics.ts # GA4 wiring to re-implement
+│   ├── utils-rn/            # Old unit-conversion helpers + tests
+│   ├── constants-rn/        # Category labels, color tokens
+│   └── config/              # Old playwright.config.ts
+├── scripts/
+│   └── extract-seed-to-content.mjs   # One-shot v1 SQL → v2 JSON converter
+├── supabase/seed/     # v1 SQL seeds, still here as the original source of truth
+├── PLAN.md            # v1 launch plan + 75-item Costco list. Mostly historical now;
+│                      #   the staple list is preserved as the constraint set
+└── CLAUDE.md          # this file
 ```
 
-`jest.config.js` roots only `utils/` — tests outside `utils/__tests__` will not be discovered. Add new roots to the config before placing tests elsewhere.
+There is **no `package.json`, `node_modules`, or build tooling at the root yet** — that all comes back when the Next.js scaffold lands in Phase 3 (`npx create-next-app@latest .`). Phase 2 (content curation) and Phase 3 (scaffolding) can run in parallel.
 
-Native builds use EAS (`eas.json`): `development`, `development-simulator`, `preview`, `production`. A dev client is required (not Expo Go) because of native modules (WatermelonDB, RevenueCat, SecureStore).
+## What we're building toward
 
-Env vars (`EXPO_PUBLIC_*`, read in `lib/supabase.ts`): `EXPO_PUBLIC_SUPABASE_URL`, `EXPO_PUBLIC_SUPABASE_ANON_KEY`. RevenueCat keys are read in `providers/RevenueCatProvider.tsx`.
+After Phase 3 completes, the repo structure will match the spec's §3:
 
-### Architecture
-
-**Offline-first with bidirectional sync.** The app reads/writes locally against WatermelonDB and syncs to Supabase Postgres in the background. Nothing in the UI should call Supabase directly for user data — go through WatermelonDB via the hooks in `hooks/`.
-
-Layers, top-down:
-
-- `app/` — expo-router file-based routes. Groups: `(auth)` (welcome, paywall), `(onboarding)`, `(tabs)` (index/home, cook, inventory, shopping, settings), plus `meal/[id]`. `app/_layout.tsx` mounts `AuthProvider` → `RevenueCatProvider` and runs the auth-gate redirect. Note `__DEV__` bypasses the auth gate and starts on `(tabs)` — TODO: remove before submitting to App Store review.
-- `providers/` — `AuthProvider` (Supabase auth + SecureStore session), `RevenueCatProvider` (entitlement gating for paywall), `DatabaseProvider` (wraps WatermelonDB, triggers `sync()` on auth and on AppState → active).
-- `db/` — WatermelonDB. `schema.ts` defines 7 tables split into **seed tables** (`ingredients`, `meals`, `meal_ingredients` — pull-only from server) and **user-owned tables** (`user_inventory`, `shopping_lists`, `shopping_list_items`, `cook_log` — bidirectional). `db/models/` has one class per table. `db/sync.ts` implements the `synchronize()` pull/push.
-- `hooks/` — `useIngredients`, `useMeals`, `useInventory`, `useShoppingList`, `useCookLog`. These are the intended data access surface for screens.
-- `components/` — currently only platform-split helpers (`useColorScheme`, `useClientOnlyValue`). No shared feature UI lives here yet; screens compose inline.
-- `utils/` — pure helpers (e.g. `units.ts` for unit conversion). The only directory Jest is rooted at, so put unit-testable logic here with siblings under `utils/__tests__`.
-- `lib/supabase.ts` — single Supabase client using the SecureStore adapter for session persistence.
-- `supabase/migrations/001_initial_schema.sql` + `supabase/full_setup.sql` + `supabase/seed/` — server schema and seed data. RLS is on user-owned tables; seed tables are globally readable.
-
-**Sync contract** (`db/sync.ts`) — critical details when changing the schema or adding tables:
-- Seed tables are always pulled as `updated` after first sync (no deletes, no pushes).
-- User tables are filtered by `user_id` on pull. `shopping_list_items` is filtered indirectly by joining to the user's `shopping_lists`.
-- Timestamp columns are **ms numbers in WatermelonDB, ISO strings in Supabase**. `mapSupabaseToWatermelon` / `mapWatermelonToSupabase` handle the conversion for `purchased_at`, `updated_at`, `created_at`, `cooked_at`, `checked_at`. Any new timestamp column must be added to both mappers.
-- `meals.instructions` is JSON in Postgres but stored as a stringified column in WatermelonDB — parse at the model/hook layer.
-- `migrationsEnabledAtVersion: 1`: bumping `schema.version` requires a migration file and bumping this anchor appropriately.
-
-**Paths.** `@/*` is aliased to repo root (`tsconfig.json`). Prefer it over relative imports.
-
-### Data model invariants
-
-- The Costco staple ingredient list in `PLAN.md` is the **constraint set** for all meal generation — meals may only reference ingredients from that list. Seed data in `supabase/seed/` must stay consistent with it.
-- `meals.cycle` + `meals.meal_number` encode position in the 14-dinner bi-weekly plan; `is_active` gates what the app shows.
-
----
-
-## Marketing site (`web/`)
-
-A separate Astro project — own `package.json`, `node_modules`, lockfile, and CI workflow. Always `cd web` first.
-
-### Commands
-
-```bash
-cd web
-npm run dev            # Astro dev server on http://localhost:4321
-npm run build          # Production build into web/dist/
-npm run preview        # Serve the built dist/ locally
-npm run typecheck      # astro check (TS + template)
-npm run test           # Vitest (utm logic, etc.)
-npm run test:e2e       # Playwright (routes, OG, signup redirect)
+```
+/stock-up-dinners
+├── app/                    # Next.js App Router
+│   ├── (marketing)/        # / , /about , /pricing , /privacy , /terms , /thanks
+│   ├── (auth)/             # /login , /signup , /forgot-password
+│   ├── (app)/              # subscription-gated: /pantry , /recipes , /shopping ,
+│   │                       #   /shopping-list , /scan , /settings , /onboarding
+│   └── api/                # route handlers (zod-validated)
+├── components/             # shadcn/ui + feature components
+├── lib/
+│   ├── matching/engine.ts          # recipe matcher (spec §6.1)
+│   ├── pantry/decrement.ts         # FIFO consumption (spec §6.2)
+│   ├── shopping-list/compute.ts    # par + threshold (spec §6.3)
+│   ├── supabase/                   # @supabase/ssr clients
+│   └── utm.ts                      # already in place
+├── supabase/migrations/    # 0001_v2_initial.sql replaces v1 entirely
+├── content/                # JSON catalog → seeded into Postgres via scripts/seed.ts
+├── tests/
+└── middleware.ts           # auth + subscription gating for (app)/*
 ```
 
-### Deploy contract
+When this scaffold exists, **CLAUDE.md should be rewritten again** to describe the live architecture rather than the transitional state.
 
-`.github/workflows/deploy-web.yml` deploys to GitHub Pages on push to `main` **path-filtered to `web/**`**. Commits touching only RN-app files do not trigger a deploy, and vice versa. The workflow runs `typecheck` + `test` before building, then publishes `web/dist/`.
+## Conventions (forward-looking, from the spec)
 
-Build-time env vars are public (baked into the bundle):
-- `PUBLIC_GA4_MEASUREMENT_ID` — set as a GitHub repo secret of the same name; the workflow injects it.
-
-Custom domain `stockupdinners.com` is wired via `web/public/CNAME` + DNS A records to GitHub Pages IPs.
-
-### Signup contract
-
-The "Get the free plan" CTA **redirects** the visitor to `https://stockupdinners.beehiiv.com/subscribe`. The site does **not** call Beehiiv's API directly — there is no fetch, no API key, no client-side form submit logic to worry about. UTM parameters present on the inbound URL at click time are appended to the redirect so attribution flows into Beehiiv. The PDF and welcome email sequence are configured inside Beehiiv, not in this repo.
-
-### Brand system
-
-The visual system is "Pragmatic / Tool-Feel" — restraint over flourish. Tokens live as CSS custom properties in `web/src/styles/global.css`:
-
-- `--c-accent` `#DC2626` (crimson) — wordmark mark, eyebrow labels, primary CTA, key link underlines. Used sparingly.
-- `--c-ink` `#0F172A`, `--c-body` `#334155`, `--c-muted` `#64748B`, `--c-border` `#E2E8F0`, `--c-bg-tint` `#F8FAFC`.
-- Inter (display + body) and JetBrains Mono (indices, eyebrow labels, meal-grid chips) via `@fontsource/*` — no Google Fonts CDN.
-
-The complete spec — type scale, layout primitives, component inventory, homepage structure — lives in `docs/superpowers/specs/2026-04-28-marketing-site-and-acquisition-design.md`.
-
-### Image conventions
-
-Production images live under `web/public/images/`. Source/working images live under `docs/assets/`. Don't ship anything from `docs/assets/` directly — copy into `web/public/images/` (resized to ~1280px max via `sips -Z 1280 -s formatOptions 80`) so the production bundle stays small.
-
-- `web/public/images/meals/NN-slug.jpg` — 256×256 overhead-style meal thumbnails referenced by `MealGridPreview.astro`. Numbering matches the 14-meal cycle in `PLAN.md` (only 01–08 are wired into the homepage grid).
-- `web/public/images/{hero-pasta,salmon-bowl,family-story,cook-day}.jpg` — hero/section photography.
-- FLUX.1 prompts for all photography (per-meal, lifestyle, Pinterest pins, tile thumbnails) are tracked in `docs/marketing/image-prompts.md`. New imagery should be added there alongside its prompt + seed for series consistency.
-
-`web/scripts/` holds Node-run build/content helpers (e.g. `make-placeholder-og.mjs` for OG-image fallbacks). Run them from `web/` with `node scripts/<name>.mjs`; they're not wired into `npm run build`.
-
----
-
-## Design + content artifacts
-
-- `docs/design/*.pen` — Pencil files used as a co-design surface for the marketing site. Always edit via the Pencil MCP tools (`mcp__pencil__*`), never with Read/Grep — `.pen` is encrypted on disk. Image fills inside `.pen` files reference web-public paths relatively (e.g. `../../web/public/images/meals/01-...jpg`).
-- `docs/marketing/` — landing copy, channel-specific posts (Pinterest pins, Reddit launch, Facebook groups), and the FLUX prompt registry.
-- `docs/superpowers/specs/` and `docs/superpowers/plans/` — design specs and implementation plans (e.g. the marketing-site spec is the source of truth for the visual system, IA, acceptance criteria).
-
----
+- All money in cents (integer).
+- All timestamps UTC `timestamptz`.
+- All weights in grams (integer); display layer converts to lbs/oz.
+- All volumes in milliliters (integer); display layer converts to cups/tsp/tbsp.
+- All counts as integers.
+- IDs are UUIDs (Supabase default).
+- Server-side authorization on every mutation; never trust client claims.
+- Every API request body validated with `zod`; every response typed end-to-end.
 
 ## Working-tree hygiene
 
-Because the repo holds two independent projects, working trees frequently contain mixed RN and web changes. When committing:
+- **Stage explicitly by path**, not `git add -A` / `git add .`. The repo currently mixes salvaged content, archived references, and (soon) live application code; over-broad staging will pull in working artifacts.
+- **Conventional-commit prefixes:** `feat:`, `fix:`, `chore:`, `docs:`, `content:`, `refactor:`. No `(web)` scope anymore — that was a v1 affordance for the two-project layout.
+- **Author identity:** commits in this repo must be authored as `semiagenticrob <rbrt.s.wrrn@gmail.com>`. Use `git -c user.name='semiagenticrob' -c user.email='rbrt.s.wrrn@gmail.com' commit ...` rather than relying on shell config.
+- **Loose screenshots/PNGs at the repo root** are working artifacts — move them under `docs/assets/screenshots/` or delete them. Never ship them from there into `public/images/`.
 
-- **Stage explicitly by path**, not `git add -A` / `git add .`. A `feat(web): ...` commit must not contain `app/` or `hooks/` files; an RN commit must not contain `web/`.
-- The deploy workflow is path-filtered, so a mis-staged RN file inside a web commit silently runs through the marketing-site CI (typecheck/test/build); a mis-staged web file inside an RN commit will not trigger the web deploy you wanted.
-- Conventional-commit prefixes follow the project they touch: `feat(web): ...`, `fix(web): ...`, etc. for marketing; bare `feat: ...`, `fix: ...` for the RN app.
-- Loose screenshots/PNGs at the repo root (e.g. `homepage-*.png`, `why-*.png`) are working artifacts — move them under `docs/assets/` or delete them. Never commit them at the root and never ship them from there into `web/public/images/`.
+## Catalog data
+
+The v2 source of truth is `content/*.json`. The `_v1_legacy` field on each ingredient and recipe ingredient preserves the original v1 SQL row data so that Phase 2 curation work has full context:
+
+- For ingredients: `package_size`, `package_unit`, `is_perishable`, `shopping_aisle`, original `notes`.
+- For recipe ingredients: original `quantity_per_serving` and `default_unit` before unit conversion.
+
+These fields exist for human curation only — the seed script in Phase 3 will read the canonical fields and ignore `_v1_legacy`.
+
+To re-derive the JSON from the original SQL (e.g. if a transformation rule needs adjusting), run:
+
+```bash
+node scripts/extract-seed-to-content.mjs
+```
+
+The script is idempotent and overwrites `content/*.json` from `supabase/seed/*.sql`.
+
+## Phase 2 curation needs
+
+The catalog isn't ready for the matching engine until these gaps are filled (owner: solo founder; not a contractor task):
+
+- **Allergen + dietary tags** on ingredients (`allergen_tags: []`, `dietary_tags: []`).
+- **`default_par`** on ingredients (canonical-unit quantities for shopping-list threshold math).
+- **`is_assumed_staple`** flagging on salt, pepper, oils, garlic powder.
+- **`shelf_life_{pantry,fridge,freezer}_days`** values where the v1 data only had one column.
+- **Substitution groups** in `content/substitution_groups.json` + `substitution_group_slug` references on ingredients.
+- **`allow_substitution: false`** on recipe ingredients where the recipe truly needs the exact ingredient (e.g. salmon dishes shouldn't accept tuna).
+- **`display_quantity`** strings on recipe ingredients (e.g. `"1.5 lb"` for the 680g chicken breast quantity).
+- **`hero_image_url`** on recipes, linking to `public/images/meals/NN-*.jpg`.
+- **75–100 SKU entries** in `content/skus.json` with `receipt_aliases` harvested from a real Costco receipt.
+- **Starter pack** — greedy set-cover analysis to pick the 25–30 SKUs that unlock the most recipes.
+
+Recipe count needs to grow from 14 to 48; sources for the additional 34 are `docs/launch/paid-pdf-plan2.md` (14 ready) + `docs/launch/paid-pdf-plan3.md` (partial) + new curation.
+
+## Out of scope for v1
+
+The spec defers these explicitly. Don't volunteer to build them:
+
+- Native iOS/Android apps.
+- Household / multi-user shared pantries.
+- User-submitted recipes.
+- Predictive consumption modeling.
+- Crowdsourced SKU catalog expansion.
+- Social features.
+- Receipt OCR is **deferred to v1.1** (post-launch) per build-plan scope decisions, even though it's in the spec.
