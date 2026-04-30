@@ -1,0 +1,48 @@
+{
+  "name": "stock-up-dinners",
+  "version": "2.0.0-rebuild",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "seed": "tsx scripts/seed.ts",
+    "extract:legacy-seed": "node scripts/extract-seed-to-content.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@hookform/resolvers": "^3.10.0",
+    "@stripe/stripe-js": "^5.5.0",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.46.0",
+    "@tanstack/react-query": "^5.62.0",
+    "next": "16.2.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.54.0",
+    "stripe": "^17.5.0",
+    "zod": "^3.24.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/ui": "^3.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "happy-dom": "^20.9.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.2",
+    "typescript": "^5",
+    "vitest": "^3.0.0"
+  }
+}

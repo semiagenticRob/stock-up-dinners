@@ -2,45 +2,53 @@
 
 # dependencies
 node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Expo
-.expo/
+# Next.js
+/.next/
+/out/
+
+# Vercel
+.vercel
+
+# testing / coverage
+/coverage
+/playwright-report/
+/test-results/
+
+# build artifacts
+/build
 dist/
-web-build/
-expo-env.d.ts
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
+# debug logs
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+.pnpm-debug.log*
 
 # macOS
 .DS_Store
 *.pem
 
-# local env files
+# local env files (.env stays committable for the deployed prod values
+# the team agrees on, but anything ending in .local is ignored)
 .env
 .env*.local
 
-# typescript
+# typescript build outputs
 *.tsbuildinfo
+next-env.d.ts
 
-# generated native folders
-/ios
-/android
-supabase/.temp/
+# Tooling caches
 .superpowers/
 .worktrees/
 .playwright-mcp/
+
+# Supabase local emulator scratch
+supabase/.temp/
