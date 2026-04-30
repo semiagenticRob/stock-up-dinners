@@ -1,6 +1,16 @@
+> **SUPERSEDED 2026-04-30.** This spec described a React Native pantry tracker
+> with full / low / out quantity levels and a free-with-paid-upsell model. It has
+> been replaced by the ATAT v1.0 specification at
+> `docs/specs/2026-04-30-v2-web-rebuild-spec.md`, which targets a Next.js 14 web
+> PWA with lot-based pantry tracking, FIFO consumption, expiration awareness, and
+> a paid-from-day-one Stripe subscription. Preserved here as historical reference
+> only — do not build from this document.
+
+---
+
 2026-04-29
 
-Status: #building
+Status: #superseded (was #building)
 
 Tags: [[stock-up-dinners]] [[product-spec]] [[pantry-tracker]] [[core-feature]]
 
