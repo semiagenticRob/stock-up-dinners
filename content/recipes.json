@@ -1,0 +1,2200 @@
+[
+  {
+    "slug": "chicken_burrito_bowls",
+    "title": "Chicken Burrito Bowls",
+    "description": "Diced chicken with black beans, corn, and cheddar over jasmine rice.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Season chicken breasts with salt, pepper, and garlic powder. Bake at 400F for 22-25 min."
+      },
+      {
+        "step": 2,
+        "text": "Cool chicken and dice into bite-sized pieces."
+      },
+      {
+        "step": 3,
+        "text": "Cook jasmine rice (1.5 cups dry for 4 servings)."
+      },
+      {
+        "step": 4,
+        "text": "Drain and rinse black beans and corn."
+      },
+      {
+        "step": 5,
+        "text": "Mix diced chicken, black beans, and corn together in a foil pan."
+      },
+      {
+        "step": 6,
+        "text": "Portion rice into gallon freezer bag, flatten for stacking."
+      },
+      {
+        "step": 7,
+        "text": "Shred cheddar into a quart bag. Keep spinach fresh for day-of."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "chicken"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_chicken_breasts_boneless_skinless",
+        "quantity": 1361,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "diced",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.75,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_thai_hom_mali_jasmine_rice",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "s_w_organic_black_beans",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "del_monte_canned_corn_whole_kernel",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "tillamook_medium_cheddar_block",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "shredded",
+        "_v1_legacy": {
+          "quantity_per_serving": 2,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "baby_spinach",
+        "quantity": 113,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": true,
+        "notes": "fresh, day-of",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.0625,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000001",
+      "cycle": 1,
+      "meal_number": 1,
+      "total_time_minutes": 40,
+      "storage_type": "COMBO",
+      "storage_instructions": "Foil pan: diced chicken + black beans + corn mixed. Gallon bag: rice frozen flat. Quart bag: shredded cheddar.",
+      "reheat_instructions": "Thaw overnight. Spread rice in foil pan, cover, bake 375F 20 min. Reheat chicken-bean pan covered at 375F 25 min. Serve bowl-style with cheddar and spinach on top."
+    }
+  },
+  {
+    "slug": "beef_bolognese_over_spaghetti",
+    "title": "Beef Bolognese over Spaghetti",
+    "description": "Rich meat sauce over spaghetti with parmesan.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 60,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Dice onion. Brown 1.5 lb ground beef with onion and minced garlic."
+      },
+      {
+        "step": 2,
+        "text": "Add 3 cans diced tomatoes, 2 cans tomato paste, salt, pepper, garlic powder."
+      },
+      {
+        "step": 3,
+        "text": "Simmer on low 45-60 min (this is a mega-batch — half goes to Meal 7)."
+      },
+      {
+        "step": 4,
+        "text": "Cook 1.5 lb spaghetti. Drain and toss with a drizzle of EVOO."
+      },
+      {
+        "step": 5,
+        "text": "Portion half the Bolognese into a foil pan."
+      },
+      {
+        "step": 6,
+        "text": "Portion spaghetti into a second foil pan."
+      },
+      {
+        "step": 7,
+        "text": "Grate parm into a quart bag."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "beef"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ground_beef",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "browned",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "dry_pasta_spaghetti",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_diced_tomatoes",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_tomato_paste",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_parmigiano_reggiano",
+        "quantity": 85,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "grated",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.75,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "onions",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "diced",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_extra_virgin_olive_oil",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drizzle on pasta",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000002",
+      "cycle": 1,
+      "meal_number": 2,
+      "total_time_minutes": 75,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: Bolognese meat sauce. Foil pan 2: cooked spaghetti tossed with EVOO. Quart bag: grated parm.",
+      "reheat_instructions": "Thaw overnight. Bake sauce pan covered at 375F 25-30 min, stirring halfway. Bake pasta pan covered at 350F 20 min (sprinkle 2 tbsp water over pasta before sealing). Serve sauce over pasta, top with parm."
+    }
+  },
+  {
+    "slug": "teriyaki_salmon_broccoli_rice",
+    "title": "Teriyaki Salmon & Broccoli Rice",
+    "description": "Glazed salmon fillets with steamed broccoli over jasmine rice.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 20,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Season 4 salmon portions with soy sauce, honey, and garlic."
+      },
+      {
+        "step": 2,
+        "text": "Bake at 400F from frozen, 18-20 min."
+      },
+      {
+        "step": 3,
+        "text": "Steam or roast 1 lb frozen broccoli."
+      },
+      {
+        "step": 4,
+        "text": "Cook jasmine rice (1.5 cups dry)."
+      },
+      {
+        "step": 5,
+        "text": "Make teriyaki glaze: soy sauce + honey + minced garlic. Store in jar in fridge."
+      },
+      {
+        "step": 6,
+        "text": "Arrange salmon and broccoli in foil pan 1, rice in foil pan 2."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "seafood"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_frozen_wild_alaskan_sockeye_salmon_fillets",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_thai_hom_mali_jasmine_rice",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_frozen_broccoli_florets",
+        "quantity": 454,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "steamed",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "soy_sauce",
+        "quantity": 118,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "teriyaki glaze",
+        "_v1_legacy": {
+          "quantity_per_serving": 1,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "honey",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "teriyaki glaze",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "teriyaki glaze",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000003",
+      "cycle": 1,
+      "meal_number": 3,
+      "total_time_minutes": 30,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: salmon fillets with steamed broccoli alongside. Foil pan 2: jasmine rice. Small jar: teriyaki glaze (fridge, don't freeze).",
+      "reheat_instructions": "Thaw overnight. Bake rice pan covered at 350F 20 min. Bake salmon-broccoli pan covered at 325F 15-18 min. Drizzle glaze at the table."
+    }
+  },
+  {
+    "slug": "chicken_veggie_stir_fry",
+    "title": "Chicken & Veggie Stir-Fry",
+    "description": "Chicken strips with stir-fry vegetables in soy-garlic sauce over rice.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Thaw ~2.5 lb chicken tenderloins, slice into strips."
+      },
+      {
+        "step": 2,
+        "text": "Stir-fry chicken in avocado oil with garlic and soy sauce until cooked through."
+      },
+      {
+        "step": 3,
+        "text": "Cook half the stir-fry blend bag (~2.75 lb) in avocado oil with soy sauce and garlic."
+      },
+      {
+        "step": 4,
+        "text": "Cook jasmine rice (1.5 cups dry)."
+      },
+      {
+        "step": 5,
+        "text": "Combine chicken and vegetables in a foil pan."
+      },
+      {
+        "step": 6,
+        "text": "Portion rice into gallon freezer bag."
+      },
+      {
+        "step": 7,
+        "text": "Mix soy-garlic sauce in a small container."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "chicken"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_chicken_tenderloins_boneless_skinless",
+        "quantity": 1134,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "sliced into strips",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.625,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_thai_hom_mali_jasmine_rice",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_stir_fry_vegetable_blend",
+        "quantity": 624,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.344,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "soy_sauce",
+        "quantity": 89,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.75,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "avocado_oil",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "for searing",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000004",
+      "cycle": 1,
+      "meal_number": 4,
+      "total_time_minutes": 35,
+      "storage_type": "COMBO",
+      "storage_instructions": "Foil pan: chicken strips + stir-fry vegetables mixed. Gallon bag: rice frozen flat. Small container: soy-garlic sauce.",
+      "reheat_instructions": "Thaw overnight. Spread rice in foil pan, cover, bake 375F 20 min. Reheat stir-fry pan covered at 375F 20-25 min. Toss with sauce or serve on side."
+    }
+  },
+  {
+    "slug": "turkey_chili",
+    "title": "Turkey Chili",
+    "description": "Hearty chili with ground turkey, black beans, tomatoes, and corn.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 30,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Dice onion. Brown 2 lb ground turkey with onion and garlic."
+      },
+      {
+        "step": 2,
+        "text": "Add 2 cans diced tomatoes, 1 can tomato paste, 2 cans black beans (drained), 2 cans corn (drained)."
+      },
+      {
+        "step": 3,
+        "text": "Season with garlic powder, salt, pepper."
+      },
+      {
+        "step": 4,
+        "text": "Simmer 30 min."
+      },
+      {
+        "step": 5,
+        "text": "Ladle into a single foil pan."
+      },
+      {
+        "step": 6,
+        "text": "Shred cheddar into a quart bag."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "turkey"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ground_turkey",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "browned",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_diced_tomatoes",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_tomato_paste",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "s_w_organic_black_beans",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "del_monte_canned_corn_whole_kernel",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "tillamook_medium_cheddar_block",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "shredded, topping",
+        "_v1_legacy": {
+          "quantity_per_serving": 2,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "onions",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "diced",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000005",
+      "cycle": 1,
+      "meal_number": 5,
+      "total_time_minutes": 40,
+      "storage_type": "PAN",
+      "storage_instructions": "Single foil pan: everything in one. Quart bag: shredded cheddar for topping.",
+      "reheat_instructions": "Thaw overnight. Bake covered at 375F 30-35 min, stirring once halfway. Top with cheddar at the table."
+    }
+  },
+  {
+    "slug": "coconut_shrimp_curry",
+    "title": "Coconut Shrimp Curry",
+    "description": "Shrimp in coconut curry sauce with stir-fry vegetables over rice.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Thaw 2 lb shrimp. Quick saute in coconut oil with garlic."
+      },
+      {
+        "step": 2,
+        "text": "Saute onion and garlic in coconut oil."
+      },
+      {
+        "step": 3,
+        "text": "Add 2 cans coconut milk, 1 tbsp soy sauce, salt. Simmer 10 min."
+      },
+      {
+        "step": 4,
+        "text": "Add remaining stir-fry vegetables and shrimp to the curry."
+      },
+      {
+        "step": 5,
+        "text": "Cook jasmine rice (1.5 cups dry)."
+      },
+      {
+        "step": 6,
+        "text": "Portion curry into pan 1, rice into pan 2."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "seafood"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_frozen_raw_shrimp",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "sauteed",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_thai_hom_mali_jasmine_rice",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "thai_kitchen_organic_coconut_milk",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_stir_fry_vegetable_blend",
+        "quantity": 624,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.344,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "soy_sauce",
+        "quantity": 30,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "onions",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "diced",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_virgin_coconut_oil",
+        "quantity": 30,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "for sauteing",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000006",
+      "cycle": 1,
+      "meal_number": 6,
+      "total_time_minutes": 35,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: shrimp curry with vegetables in coconut sauce. Foil pan 2: jasmine rice.",
+      "reheat_instructions": "Thaw overnight. Bake rice pan covered at 350F 20 min. Bake curry pan covered at 350F 20-25 min (don't go higher — coconut milk can break at high heat). Stir gently."
+    }
+  },
+  {
+    "slug": "baked_penne_bolognese",
+    "title": "Baked Penne Bolognese",
+    "description": "Penne with Bolognese sauce, spinach, and bubbly mozzarella.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 40,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Cook 2 lb short-cut pasta (penne). Drain."
+      },
+      {
+        "step": 2,
+        "text": "Thaw and squeeze dry frozen spinach."
+      },
+      {
+        "step": 3,
+        "text": "Layer in foil pan: penne → remaining Bolognese from Meal 2 → squeezed spinach → tomato sauce → mozzarella on top."
+      },
+      {
+        "step": 4,
+        "text": "If eating now, bake at 375F for 20 min uncovered. Otherwise seal and freeze."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "beef"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ground_beef",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "from Bolognese",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "dry_pasta_short_cuts",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_tomato_sauce",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "raos_marinara_sauce",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "count"
+        }
+      },
+      {
+        "ingredient_slug": "ks_shredded_mozzarella",
+        "quantity": 454,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "on top",
+        "_v1_legacy": {
+          "quantity_per_serving": 4,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "frozen_spinach",
+        "quantity": 454,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "thawed, squeezed",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_diced_tomatoes",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "from Bolognese",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_tomato_paste",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "from Bolognese",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "kerrygold_butter_salted",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000007",
+      "cycle": 1,
+      "meal_number": 7,
+      "total_time_minutes": 50,
+      "storage_type": "PAN",
+      "storage_instructions": "Single foil pan: fully assembled casserole — penne + Bolognese + spinach + tomato sauce + mozzarella on top.",
+      "reheat_instructions": "Thaw overnight. Bake covered at 375F 30 min, then uncover and bake 10 min more until cheese is bubbly and golden."
+    }
+  },
+  {
+    "slug": "chicken_tikka_style_bowls",
+    "title": "Chicken Tikka-Style Bowls",
+    "description": "Tikka-spiced chicken with garbanzo beans in creamy tomato sauce over basmati rice.",
+    "servings": 4,
+    "prep_minutes": 20,
+    "cook_minutes": 25,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Cut ~3 lb chicken breast into chunks."
+      },
+      {
+        "step": 2,
+        "text": "Marinate in yogurt + garlic + tomato paste + garlic powder + salt."
+      },
+      {
+        "step": 3,
+        "text": "Bake at 425F for 18-20 min."
+      },
+      {
+        "step": 4,
+        "text": "Make tikka sauce: saute onion and garlic, add 2 cans tomato sauce + 1 can tomato paste + garlic powder + salt. Simmer 15 min. Stir in yogurt."
+      },
+      {
+        "step": 5,
+        "text": "Cook basmati rice (2 cups dry)."
+      },
+      {
+        "step": 6,
+        "text": "Combine chicken and drained garbanzo beans in tikka sauce."
+      },
+      {
+        "step": 7,
+        "text": "Portion into pan 1 (tikka) and pan 2 (rice)."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "chicken"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_chicken_breasts_boneless_skinless",
+        "quantity": 1361,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "chunks, marinated",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.75,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "royal_basmati_rice",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_tomato_sauce",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_tomato_paste",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "s_w_organic_garbanzo_beans",
+        "quantity": 2,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_greek_yogurt",
+        "quantity": 170,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "for marinade and sauce",
+        "_v1_legacy": {
+          "quantity_per_serving": 1.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "baby_spinach",
+        "quantity": 113,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": true,
+        "notes": "fresh, day-of",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.0625,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "onions",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "diced",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000008",
+      "cycle": 1,
+      "meal_number": 8,
+      "total_time_minutes": 45,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: tikka chicken chunks in sauce + garbanzo beans. Foil pan 2: basmati rice. Fresh spinach day-of.",
+      "reheat_instructions": "Thaw overnight. Bake rice pan covered at 350F 20 min. Bake tikka pan covered at 375F 25-30 min, stirring once. Serve over rice with fresh spinach."
+    }
+  },
+  {
+    "slug": "roasted_pork_tenderloin_plates",
+    "title": "Roasted Pork Tenderloin Plates",
+    "description": "Sliced pork medallions with roasted sweet potatoes and buttered green beans.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 30,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Season both pork tenderloins with salt, pepper, garlic powder. Drizzle olive oil."
+      },
+      {
+        "step": 2,
+        "text": "Roast at 400F for 20-25 min until 145F internal. Rest 10 min, slice into medallions."
+      },
+      {
+        "step": 3,
+        "text": "Cube sweet potatoes, toss with avocado oil, salt, pepper. Roast at 400F 25-30 min."
+      },
+      {
+        "step": 4,
+        "text": "Saute 2 lb frozen green beans in butter with minced garlic, salt, pepper."
+      },
+      {
+        "step": 5,
+        "text": "Arrange pork medallions in pan 1."
+      },
+      {
+        "step": 6,
+        "text": "Sweet potatoes and green beans in pan 2."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "pork"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "pork_tenderloin",
+        "quantity": 1588,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "sliced medallions",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.875,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "sweet_potatoes",
+        "quantity": 1134,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "cubed, roasted",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.625,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_frozen_green_beans",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "sauteed",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "kerrygold_butter_salted",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "for green beans",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_extra_virgin_olive_oil",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drizzle on pork",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "avocado_oil",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "for sweet potatoes",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000009",
+      "cycle": 1,
+      "meal_number": 9,
+      "total_time_minutes": 45,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: sliced pork medallions. Foil pan 2: roasted sweet potatoes and sauteed green beans.",
+      "reheat_instructions": "Thaw overnight. Bake both pans covered at 350F 20-25 min."
+    }
+  },
+  {
+    "slug": "fish_taco_kits",
+    "title": "Fish Taco Kits",
+    "description": "Seasoned cod with black beans, corn, and cabbage in flour tortillas.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 15,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Season ~2 lb thawed cod with garlic powder, salt, pepper."
+      },
+      {
+        "step": 2,
+        "text": "Pan-sear in avocado oil 3-4 min per side. Break into large flakes."
+      },
+      {
+        "step": 3,
+        "text": "Drain and rinse black beans and corn."
+      },
+      {
+        "step": 4,
+        "text": "Mix cod flakes, beans, and corn in gallon bag. Freeze flat."
+      },
+      {
+        "step": 5,
+        "text": "Shred cabbage (or use baby spinach) into second bag. Refrigerate."
+      },
+      {
+        "step": 6,
+        "text": "Keep tortillas in original packaging."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "seafood"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "frozen_cod_fillets",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "seared, flaked",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "flour_tortillas",
+        "quantity": 8,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 2,
+          "default_unit": "count"
+        }
+      },
+      {
+        "ingredient_slug": "s_w_organic_black_beans",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "del_monte_canned_corn_whole_kernel",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "baby_spinach",
+        "quantity": 113,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": true,
+        "notes": "sub for cabbage",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.0625,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "avocado_oil",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "for searing",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 7,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.0625,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000010",
+      "cycle": 1,
+      "meal_number": 10,
+      "total_time_minutes": 30,
+      "storage_type": "COMBO",
+      "storage_instructions": "Gallon bag 1: seasoned cod flakes + black beans + corn frozen flat. Gallon bag 2: shredded cabbage or spinach (fridge). Tortillas in original packaging.",
+      "reheat_instructions": "Thaw fish-bean bag overnight. Transfer to foil pan, cover, bake 350F 15-20 min. Warm tortillas in dry skillet or foil in oven. Assemble at the table."
+    }
+  },
+  {
+    "slug": "peanut_chicken_noodles",
+    "title": "Peanut Chicken Noodles",
+    "description": "Spaghetti in creamy peanut sauce with shredded chicken and edamame.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Poach or bake ~2.5 lb chicken tenderloins. Shred."
+      },
+      {
+        "step": 2,
+        "text": "Cook 1.5 lb spaghetti."
+      },
+      {
+        "step": 3,
+        "text": "Make peanut sauce: 1 cup peanut butter + 1/4 cup soy sauce + 2 tbsp honey + 2 tbsp minced garlic + warm water to thin."
+      },
+      {
+        "step": 4,
+        "text": "Cook edamame."
+      },
+      {
+        "step": 5,
+        "text": "Toss spaghetti with peanut sauce, shredded chicken, and edamame."
+      },
+      {
+        "step": 6,
+        "text": "Portion into foil pan. Drizzle extra sauce on top before freezing."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "chicken"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_chicken_tenderloins_boneless_skinless",
+        "quantity": 1134,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "shredded",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.625,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "dry_pasta_spaghetti",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_peanut_butter",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "peanut sauce",
+        "_v1_legacy": {
+          "quantity_per_serving": 2,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "soy_sauce",
+        "quantity": 118,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "peanut sauce",
+        "_v1_legacy": {
+          "quantity_per_serving": 1,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "honey",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "peanut sauce",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 57,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "peanut sauce",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "frozen_shelled_edamame",
+        "quantity": 340,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.1875,
+          "default_unit": "lb"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000011",
+      "cycle": 1,
+      "meal_number": 11,
+      "total_time_minutes": 35,
+      "storage_type": "PAN",
+      "storage_instructions": "Single foil pan: spaghetti + peanut sauce + shredded chicken + edamame all combined. Extra sauce drizzled on top.",
+      "reheat_instructions": "Thaw overnight. Sprinkle 3-4 tbsp water over top, cover tightly. Bake at 350F 25-30 min. Toss gently before serving."
+    }
+  },
+  {
+    "slug": "beef_black_bean_burritos",
+    "title": "Beef & Black Bean Burritos",
+    "description": "Seasoned beef and bean filling with rice and cheddar in flour tortillas.",
+    "servings": 4,
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Brown ~2 lb ground beef with diced onion, garlic, salt, pepper, garlic powder."
+      },
+      {
+        "step": 2,
+        "text": "Add 1 can black beans (drained), 1 can corn (drained). Mix well."
+      },
+      {
+        "step": 3,
+        "text": "Cook jasmine rice (1.5 cups dry)."
+      },
+      {
+        "step": 4,
+        "text": "Portion filling into foil pan, rice into gallon bag."
+      },
+      {
+        "step": 5,
+        "text": "Shred cheddar into quart bag."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "beef"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ground_beef",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "seasoned",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "flour_tortillas",
+        "quantity": 8,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 2,
+          "default_unit": "count"
+        }
+      },
+      {
+        "ingredient_slug": "ks_thai_hom_mali_jasmine_rice",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "s_w_organic_black_beans",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "del_monte_canned_corn_whole_kernel",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "drained",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "can"
+        }
+      },
+      {
+        "ingredient_slug": "tillamook_medium_cheddar_block",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "shredded",
+        "_v1_legacy": {
+          "quantity_per_serving": 2,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "onions",
+        "quantity": 227,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "diced",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_minced_garlic",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "garlic_powder",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 7,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.0625,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000012",
+      "cycle": 1,
+      "meal_number": 12,
+      "total_time_minutes": 35,
+      "storage_type": "COMBO",
+      "storage_instructions": "Foil pan: beef + bean + corn filling. Gallon bag: rice frozen flat. Quart bag: shredded cheddar. Tortillas in original packaging.",
+      "reheat_instructions": "Thaw overnight. Bake filling pan covered at 375F 20-25 min. Spread rice in foil pan, bake alongside 375F 20 min. Warm tortillas. Assemble at the table."
+    }
+  },
+  {
+    "slug": "salmon_quinoa_power_bowls",
+    "title": "Salmon Quinoa Power Bowls",
+    "description": "Flaked salmon with edamame and spinach over quinoa with balsamic vinaigrette.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Season 4 salmon portions with salt, pepper, olive oil. Bake at 400F 18-20 min. Cool and flake."
+      },
+      {
+        "step": 2,
+        "text": "Cook 1.5 cups dry quinoa."
+      },
+      {
+        "step": 3,
+        "text": "Cook edamame. Thaw and squeeze spinach."
+      },
+      {
+        "step": 4,
+        "text": "Layer in pan 1: flaked salmon, edamame, spinach (keep distinct)."
+      },
+      {
+        "step": 5,
+        "text": "Quinoa in pan 2."
+      },
+      {
+        "step": 6,
+        "text": "Make vinaigrette: EVOO + balsamic + salt + pepper. Jar in fridge."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "seafood"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "ks_frozen_wild_alaskan_sockeye_salmon_fillets",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "flaked",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_quinoa",
+        "quantity": 680,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.375,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "frozen_shelled_edamame",
+        "quantity": 340,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.1875,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "frozen_spinach",
+        "quantity": 454,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "thawed, squeezed",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_extra_virgin_olive_oil",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "vinaigrette",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "balsamic_vinegar",
+        "quantity": 59,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "vinaigrette",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "sea_salt_himalayan_pink_salt",
+        "quantity": 14,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.125,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "black_pepper",
+        "quantity": 7,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.0625,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000013",
+      "cycle": 1,
+      "meal_number": 13,
+      "total_time_minutes": 35,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: flaked salmon + edamame + squeezed spinach (layered, not mixed). Foil pan 2: quinoa. Small jar: balsamic vinaigrette (fridge).",
+      "reheat_instructions": "Thaw overnight. Bake quinoa pan covered at 350F 20 min. Bake salmon pan covered at 325F 15-18 min. Drizzle vinaigrette at the table."
+    }
+  },
+  {
+    "slug": "chicken_parm_pasta",
+    "title": "Chicken Parm & Pasta",
+    "description": "Just Bare chicken chunks with marinara, mozzarella, and parmesan over spaghetti.",
+    "servings": 4,
+    "prep_minutes": 10,
+    "cook_minutes": 35,
+    "instructions": [
+      {
+        "step": 1,
+        "text": "Bake or air-fry Just Bare chicken chunks per package directions."
+      },
+      {
+        "step": 2,
+        "text": "Cook 1 lb spaghetti. Toss with EVOO."
+      },
+      {
+        "step": 3,
+        "text": "Spread chicken in foil pan 1. Top with Rao's marinara, shredded mozzarella, grated parm."
+      },
+      {
+        "step": 4,
+        "text": "Spaghetti in pan 2."
+      }
+    ],
+    "hero_image_url": null,
+    "dietary_tags": [],
+    "meat_types": [
+      "chicken"
+    ],
+    "is_active": true,
+    "ingredients": [
+      {
+        "ingredient_slug": "just_bare_chicken_breast_chunks",
+        "quantity": 907,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "baked/air-fried",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.5,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "dry_pasta_spaghetti",
+        "quantity": 454,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "lb"
+        }
+      },
+      {
+        "ingredient_slug": "raos_marinara_sauce",
+        "quantity": 1,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "count"
+        }
+      },
+      {
+        "ingredient_slug": "ks_shredded_mozzarella",
+        "quantity": 454,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "shredded, on top",
+        "_v1_legacy": {
+          "quantity_per_serving": 4,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_parmigiano_reggiano",
+        "quantity": 85,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "grated",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.75,
+          "default_unit": "oz"
+        }
+      },
+      {
+        "ingredient_slug": "ks_organic_extra_virgin_olive_oil",
+        "quantity": 30,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": "on pasta",
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "fl_oz"
+        }
+      },
+      {
+        "ingredient_slug": "kerrygold_butter_salted",
+        "quantity": 28,
+        "display_quantity": null,
+        "allow_substitution": true,
+        "is_optional": false,
+        "notes": null,
+        "_v1_legacy": {
+          "quantity_per_serving": 0.25,
+          "default_unit": "oz"
+        }
+      }
+    ],
+    "_v1_legacy": {
+      "old_uuid": "10000000-0000-0000-0000-000000000014",
+      "cycle": 1,
+      "meal_number": 14,
+      "total_time_minutes": 45,
+      "storage_type": "2-PAN",
+      "storage_instructions": "Foil pan 1: Just Bare chunks topped with Rao's marinara + mozzarella + parm. Foil pan 2: spaghetti with EVOO.",
+      "reheat_instructions": "Thaw overnight. Bake chicken parm pan covered at 375F 25 min, then uncover 10 min until cheese is bubbly. Bake pasta pan covered at 350F 20 min. Serve chicken over pasta."
+    }
+  }
+]
