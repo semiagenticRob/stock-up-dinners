@@ -41,11 +41,12 @@ Env vars (`EXPO_PUBLIC_*`, read in `lib/supabase.ts`): `EXPO_PUBLIC_SUPABASE_URL
 
 Layers, top-down:
 
-- `app/` — expo-router file-based routes. Groups: `(auth)` (welcome, paywall), `(onboarding)`, `(tabs)` (index/home, cook, inventory, shopping, settings), plus `meal/[id]`. `app/_layout.tsx` mounts `AuthProvider` → `RevenueCatProvider` and runs the auth-gate redirect. Note `__DEV__` bypasses the auth gate and starts on `(tabs)` — remove before shipping.
+- `app/` — expo-router file-based routes. Groups: `(auth)` (welcome, paywall), `(onboarding)`, `(tabs)` (index/home, cook, inventory, shopping, settings), plus `meal/[id]`. `app/_layout.tsx` mounts `AuthProvider` → `RevenueCatProvider` and runs the auth-gate redirect. Note `__DEV__` bypasses the auth gate and starts on `(tabs)` — TODO: remove before submitting to App Store review.
 - `providers/` — `AuthProvider` (Supabase auth + SecureStore session), `RevenueCatProvider` (entitlement gating for paywall), `DatabaseProvider` (wraps WatermelonDB, triggers `sync()` on auth and on AppState → active).
 - `db/` — WatermelonDB. `schema.ts` defines 7 tables split into **seed tables** (`ingredients`, `meals`, `meal_ingredients` — pull-only from server) and **user-owned tables** (`user_inventory`, `shopping_lists`, `shopping_list_items`, `cook_log` — bidirectional). `db/models/` has one class per table. `db/sync.ts` implements the `synchronize()` pull/push.
 - `hooks/` — `useIngredients`, `useMeals`, `useInventory`, `useShoppingList`, `useCookLog`. These are the intended data access surface for screens.
 - `components/` — currently only platform-split helpers (`useColorScheme`, `useClientOnlyValue`). No shared feature UI lives here yet; screens compose inline.
+- `utils/` — pure helpers (e.g. `units.ts` for unit conversion). The only directory Jest is rooted at, so put unit-testable logic here with siblings under `utils/__tests__`.
 - `lib/supabase.ts` — single Supabase client using the SecureStore adapter for session persistence.
 - `supabase/migrations/001_initial_schema.sql` + `supabase/full_setup.sql` + `supabase/seed/` — server schema and seed data. RLS is on user-owned tables; seed tables are globally readable.
 
@@ -112,6 +113,8 @@ Production images live under `web/public/images/`. Source/working images live un
 - `web/public/images/{hero-pasta,salmon-bowl,family-story,cook-day}.jpg` — hero/section photography.
 - FLUX.1 prompts for all photography (per-meal, lifestyle, Pinterest pins, tile thumbnails) are tracked in `docs/marketing/image-prompts.md`. New imagery should be added there alongside its prompt + seed for series consistency.
 
+`web/scripts/` holds Node-run build/content helpers (e.g. `make-placeholder-og.mjs` for OG-image fallbacks). Run them from `web/` with `node scripts/<name>.mjs`; they're not wired into `npm run build`.
+
 ---
 
 ## Design + content artifacts
@@ -129,3 +132,4 @@ Because the repo holds two independent projects, working trees frequently contai
 - **Stage explicitly by path**, not `git add -A` / `git add .`. A `feat(web): ...` commit must not contain `app/` or `hooks/` files; an RN commit must not contain `web/`.
 - The deploy workflow is path-filtered, so a mis-staged RN file inside a web commit silently runs through the marketing-site CI (typecheck/test/build); a mis-staged web file inside an RN commit will not trigger the web deploy you wanted.
 - Conventional-commit prefixes follow the project they touch: `feat(web): ...`, `fix(web): ...`, etc. for marketing; bare `feat: ...`, `fix: ...` for the RN app.
+- Loose screenshots/PNGs at the repo root (e.g. `homepage-*.png`, `why-*.png`) are working artifacts — move them under `docs/assets/` or delete them. Never commit them at the root and never ship them from there into `web/public/images/`.
