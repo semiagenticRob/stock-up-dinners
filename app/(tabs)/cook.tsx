@@ -8,6 +8,7 @@ import {
   Switch,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useInventory } from '@/hooks/useInventory';
@@ -72,7 +73,7 @@ export default function CookNowScreen() {
     return (
       <View style={[styles.center, { backgroundColor: colors.background }]}>
         <View style={[styles.emptyState, { borderColor: colors.border }]}>
-          <Text style={styles.emptyEmoji}>🍳</Text>
+          <FontAwesome name="fire" size={48} color={Colors.brand.green700} />
           <Text style={[styles.emptyTitle, { color: colors.text }]}>
             Stock your pantry first
           </Text>

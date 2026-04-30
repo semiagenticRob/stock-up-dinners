@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { StyleSheet, View, Text, Pressable, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useInventory } from '@/hooks/useInventory';
@@ -81,7 +82,7 @@ export default function HomeScreen() {
           style={[styles.ctaButton, { backgroundColor: Colors.brand.green700 }]}
           onPress={() => router.push('/(tabs)/cook')}
         >
-          <Text style={styles.ctaEmoji}>🍳</Text>
+          <FontAwesome name="fire" size={28} color="#FFFFFF" />
           <Text style={styles.ctaText}>Cook Now</Text>
           <Text style={styles.ctaSubtext}>{canCookCount} available</Text>
         </Pressable>
@@ -89,7 +90,7 @@ export default function HomeScreen() {
           style={[styles.ctaButton, { backgroundColor: Colors.brand.amber700 }]}
           onPress={() => router.push('/(tabs)/shopping')}
         >
-          <Text style={styles.ctaEmoji}>🛒</Text>
+          <FontAwesome name="shopping-cart" size={28} color="#FFFFFF" />
           <Text style={styles.ctaText}>Go Shopping</Text>
           <Text style={styles.ctaSubtext}>Build a list</Text>
         </Pressable>

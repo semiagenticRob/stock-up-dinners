@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Colors from '@/constants/Colors';
 
 export default function WelcomeScreen() {
@@ -10,7 +11,7 @@ export default function WelcomeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.heroSection}>
-          <Text style={styles.emoji}>🛒</Text>
+          <FontAwesome name="shopping-cart" size={64} color="#FFFFFF" />
           <Text style={styles.title}>Stock Up Dinners</Text>
           <Text style={styles.subtitle}>
             Know what's in your pantry.{'\n'}Know what you can cook.{'\n'}
@@ -20,15 +21,15 @@ export default function WelcomeScreen() {
 
         <View style={styles.valueProps}>
           <ValueProp
-            icon="📦"
+            icon="archive"
             text="Track your Costco inventory automatically"
           />
           <ValueProp
-            icon="🍽️"
+            icon="cutlery"
             text="See exactly what meals you can make right now"
           />
           <ValueProp
-            icon="📋"
+            icon="list-alt"
             text="Smart shopping lists that update your stock"
           />
         </View>
@@ -49,10 +50,10 @@ export default function WelcomeScreen() {
   );
 }
 
-function ValueProp({ icon, text }: { icon: string; text: string }) {
+function ValueProp({ icon, text }: { icon: React.ComponentProps<typeof FontAwesome>['name']; text: string }) {
   return (
     <View style={styles.valuePropRow}>
-      <Text style={styles.valuePropIcon}>{icon}</Text>
+      <FontAwesome name={icon} size={24} color="#FFFFFF" />
       <Text style={styles.valuePropText}>{text}</Text>
     </View>
   );
@@ -72,17 +73,13 @@ const styles = StyleSheet.create({
   heroSection: {
     alignItems: 'center',
     paddingTop: 40,
-  },
-  emoji: {
-    fontSize: 64,
-    marginBottom: 16,
+    gap: 16,
   },
   title: {
     fontSize: 32,
     fontWeight: '800',
     color: '#FFFFFF',
     textAlign: 'center',
-    marginBottom: 16,
   },
   subtitle: {
     fontSize: 18,
@@ -97,9 +94,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 16,
-  },
-  valuePropIcon: {
-    fontSize: 28,
   },
   valuePropText: {
     fontSize: 16,

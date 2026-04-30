@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import RevenueCatUI from 'react-native-purchases-ui';
 import { useRevenueCat } from '@/providers/RevenueCatProvider';
 import Colors from '@/constants/Colors';
@@ -67,7 +68,7 @@ export default function PaywallScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.hero}>
-          <Text style={styles.emoji}>🍽️</Text>
+          <FontAwesome name="cutlery" size={56} color={Colors.brand.green700} />
           <Text style={styles.title}>Unlock Stock Up Dinners</Text>
           <Text style={styles.subtitle}>
             Track your pantry, never waste food, and always know what's for
@@ -76,11 +77,11 @@ export default function PaywallScreen() {
         </View>
 
         <View style={styles.features}>
-          <FeatureRow icon="📦" text="Automatic inventory tracking" />
-          <FeatureRow icon="🍳" text="26 Costco-optimized dinner recipes" />
-          <FeatureRow icon="🛒" text="Smart shopping lists by aisle" />
-          <FeatureRow icon="⏰" text="Perishable alerts so nothing goes bad" />
-          <FeatureRow icon="📊" text="Serves 1-10 with auto-scaling" />
+          <FeatureRow icon="archive" text="Automatic inventory tracking" />
+          <FeatureRow icon="fire" text="26 Costco-optimized dinner recipes" />
+          <FeatureRow icon="shopping-cart" text="Smart shopping lists by aisle" />
+          <FeatureRow icon="clock-o" text="Perishable alerts so nothing goes bad" />
+          <FeatureRow icon="sliders" text="Serves 1-10 with auto-scaling" />
         </View>
 
         <View style={styles.ctaSection}>
@@ -107,10 +108,10 @@ export default function PaywallScreen() {
   );
 }
 
-function FeatureRow({ icon, text }: { icon: string; text: string }) {
+function FeatureRow({ icon, text }: { icon: React.ComponentProps<typeof FontAwesome>['name']; text: string }) {
   return (
     <View style={styles.featureRow}>
-      <Text style={styles.featureIcon}>{icon}</Text>
+      <FontAwesome name={icon} size={24} color={Colors.brand.green700} style={{ width: 30, textAlign: 'center' }} />
       <Text style={styles.featureText}>{text}</Text>
     </View>
   );

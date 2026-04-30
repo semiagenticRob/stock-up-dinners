@@ -9,7 +9,10 @@ export function useCookLog() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchLogs = useCallback(async () => {
-    if (!user) return;
+    if (!user) {
+      setIsLoading(false);
+      return;
+    }
 
     const { data, error } = await supabase
       .from('cook_log')

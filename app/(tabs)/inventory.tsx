@@ -11,6 +11,7 @@ import {
   Modal,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Colors from '@/constants/Colors';
 import { CATEGORY_LABELS, CATEGORY_ORDER } from '@/constants/categories';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -136,7 +137,7 @@ export default function InventoryScreen() {
     return (
       <View style={[styles.container, { backgroundColor: colors.background }]}>
         <View style={[styles.emptyState, { borderColor: colors.border }]}>
-          <Text style={styles.emptyEmoji}>📦</Text>
+          <FontAwesome name="archive" size={48} color={Colors.brand.green700} />
           <Text style={[styles.emptyTitle, { color: colors.text }]}>
             Your pantry is empty
           </Text>

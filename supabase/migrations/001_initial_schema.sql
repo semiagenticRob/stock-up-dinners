@@ -70,9 +70,8 @@ CREATE TABLE public.ingredients (
 -- RLS: everyone can read ingredients (they're public seed data)
 ALTER TABLE public.ingredients ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Ingredients are readable by authenticated users"
+CREATE POLICY "Ingredients are publicly readable"
   ON public.ingredients FOR SELECT
-  TO authenticated
   USING (true);
 
 ------------------------------------------------------------
@@ -124,9 +123,8 @@ CREATE TABLE public.meals (
 
 ALTER TABLE public.meals ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Meals are readable by authenticated users"
+CREATE POLICY "Meals are publicly readable"
   ON public.meals FOR SELECT
-  TO authenticated
   USING (true);
 
 ------------------------------------------------------------
@@ -145,9 +143,8 @@ CREATE INDEX idx_meal_ingredients_meal ON public.meal_ingredients(meal_id);
 
 ALTER TABLE public.meal_ingredients ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Meal ingredients are readable by authenticated users"
+CREATE POLICY "Meal ingredients are publicly readable"
   ON public.meal_ingredients FOR SELECT
-  TO authenticated
   USING (true);
 
 ------------------------------------------------------------

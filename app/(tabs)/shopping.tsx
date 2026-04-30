@@ -9,6 +9,7 @@ import {
   Modal,
   Alert,
 } from 'react-native';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Colors from '@/constants/Colors';
 import { AISLE_LABELS } from '@/constants/categories';
 import { useColorScheme } from '@/components/useColorScheme';
@@ -70,7 +71,7 @@ export default function ShoppingScreen() {
     return (
       <View style={[styles.center, { backgroundColor: colors.background }]}>
         <View style={[styles.emptyState, { borderColor: colors.border }]}>
-          <Text style={styles.emptyEmoji}>🛒</Text>
+          <FontAwesome name="shopping-cart" size={48} color={Colors.brand.amber700} />
           <Text style={[styles.emptyTitle, { color: colors.text }]}>
             No shopping list yet
           </Text>
@@ -158,7 +159,7 @@ export default function ShoppingScreen() {
 
         {unchecked.length === 0 && checked.length > 0 && (
           <View style={styles.allDone}>
-            <Text style={styles.allDoneEmoji}>✅</Text>
+            <FontAwesome name="check-circle" size={48} color={Colors.brand.green500} />
             <Text style={[styles.allDoneText, { color: colors.text }]}>
               Shopping complete!
             </Text>

@@ -26,7 +26,10 @@ export function useInventory() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchInventory = useCallback(async () => {
-    if (!user) return;
+    if (!user) {
+      setIsLoading(false);
+      return;
+    }
 
     const { data, error } = await supabase
       .from('user_inventory')
