@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractUtmParams, UTM_KEYS } from '@/scripts/utm';
+import { extractUtmParams, UTM_KEYS } from '@/lib/utm';
 
 describe('extractUtmParams', () => {
   it('returns all 5 standard utm keys when present', () => {
