@@ -219,3 +219,47 @@
   .pdf-stack { padding-right: 60px; padding-bottom: 60px; max-width: 380px; }
   .pdf-photo { width: 160px; height: 160px; }
 }
+
+/* ----- Long-form prose pages (about, privacy, terms) ----- */
+.prose { max-width: 720px; margin-top: 24px; }
+.prose h3 { font-size: 18px; font-weight: 700; margin: 28px 0 8px; color: var(--c-ink); }
+.prose p { font-size: 15.5px; color: var(--c-body); line-height: 1.7; margin-bottom: 14px; }
+.prose a { color: var(--c-ink); border-bottom: 1px solid var(--c-accent); text-decoration: none; }
+
+/* ----- Pricing ----- */
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 32px; max-width: 760px; }
+.pricing-card {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-card);
+  padding: 28px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.pricing-card--featured { border-color: var(--c-accent); box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.08); }
+.pricing-card__eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.pricing-card--featured .pricing-card__eyebrow { color: var(--c-accent); }
+.pricing-card__price { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; margin: 8px 0 0; }
+.pricing-card__price-period { font-size: 14px; color: var(--c-muted); font-weight: 500; }
+.pricing-card__save { font-size: 13px; color: var(--c-success); font-weight: 600; margin-top: 4px; }
+.pricing-card ul { margin: 18px 0 24px; padding: 0; list-style: none; }
+.pricing-card li { font-size: 14px; color: var(--c-body); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5; }
+.pricing-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--c-success);
+  font-weight: 700;
+}
+.pricing-card .btn { justify-content: center; margin-top: auto; }
+
+@media (max-width: 720px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}

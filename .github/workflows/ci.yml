@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main, v2-nextjs-rebuild]
+  pull_request:
+    branches: [main, v2-nextjs-rebuild]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    # Build needs NEXT_PUBLIC_* baked in. We expose placeholder values via
+    # a public secret-less env so the bundle can be produced without the
+    # real Supabase/Stripe project. Real values are set per-environment in
+    # Vercel; CI only needs to verify the build compiles, types, and tests.
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://placeholder.supabase.co
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: placeholder-anon-key
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_placeholder
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint -- --max-warnings 0
+
+      - name: Unit tests (Vitest)
+        run: npm run test
+
+      - name: Build
+        run: npm run build

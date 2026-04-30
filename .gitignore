@@ -50,5 +50,9 @@ next-env.d.ts
 .worktrees/
 .playwright-mcp/
 
+# Stray v1 RN/Expo artifacts that linger on developer machines
+.expo/
+.expo-shared/
+
 # Supabase local emulator scratch
 supabase/.temp/

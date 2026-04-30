@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reference-only material that intentionally doesn't compile/lint:
+    "_legacy/**",
+    // Stray on-disk artifacts from the v1 RN setup (also gitignored):
+    ".expo/**",
+    // One-off conversion script — not part of the live runtime:
+    "scripts/extract-seed-to-content.mjs",
   ]),
 ]);
 

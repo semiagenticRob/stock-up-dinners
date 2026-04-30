@@ -1,0 +1,19 @@
+.app-shell { min-height: 100%; display: flex; flex-direction: column; }
+.app-nav { border-bottom: 1px solid var(--c-border); background: var(--c-bg); }
+.app-nav__inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 24px; }
+.app-nav__links { display: flex; gap: 18px; align-items: center; font-size: 14px; font-weight: 500; }
+.app-nav__links a { color: var(--c-body); text-decoration: none; transition: color 80ms ease; }
+.app-nav__links a:hover { color: var(--c-ink); }
+
+.app-main { flex: 1; padding: 32px 0 64px; }
+
+.app-stub {
+  border: 1px dashed var(--c-border);
+  border-radius: var(--r-card);
+  padding: 32px;
+  background: var(--c-bg-tint);
+}
+.app-stub h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.015em; margin: 0 0 8px; }
+.app-stub p { font-size: 14px; color: var(--c-body); line-height: 1.6; margin-top: 0; }
+.app-stub p + p { margin-top: 8px; }
+.app-stub code { font-family: var(--f-mono); font-size: 12px; background: #fff; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--c-border); }
