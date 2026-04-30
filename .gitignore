@@ -43,3 +43,4 @@ yarn-error.*
 supabase/.temp/
 .superpowers/
 .worktrees/
+.playwright-mcp/
