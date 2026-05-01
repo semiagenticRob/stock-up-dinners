@@ -1,13 +1,25 @@
-import { Stub } from "@/components/app/Stub";
+import { redirect } from "next/navigation";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { loadCatalog } from "@/lib/db/catalog";
+import { OnboardingWizard } from "@/components/app/OnboardingWizard";
+import "./onboarding.css";
 
-export default function OnboardingPage() {
-  return (
-    <Stub title="Welcome — let's set up your kitchen" milestone="Milestone 4">
-      <p>5-step wizard: welcome &rarr; diet &amp; allergies &rarr; pantry seed OR starter pack &rarr; subscription &rarr; first recipes.</p>
-      <p>
-        Pantry seed and preferences are saved before the paywall, so even if a user bails at
-        checkout, their work isn&apos;t lost. Defined in spec § 9.
-      </p>
-    </Stub>
-  );
+export default async function OnboardingPage() {
+  const supabase = await createSupabaseServerClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
+
+  // If somehow already onboarded, send them home.
+  const { data: profile } = await supabase
+    .from("user_profiles")
+    .select("onboarded_at")
+    .eq("user_id", user.id)
+    .single();
+  if (profile?.onboarded_at) redirect("/recipes");
+
+  const catalog = await loadCatalog(supabase);
+
+  return <OnboardingWizard ingredients={catalog.ingredients} />;
 }
