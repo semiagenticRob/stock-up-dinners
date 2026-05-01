@@ -19,6 +19,17 @@ const eslintConfig = defineConfig([
     // One-off conversion script — not part of the live runtime:
     "scripts/extract-seed-to-content.mjs",
   ]),
+  {
+    rules: {
+      // Treat _-prefixed args as intentionally unused. Lets us match Next's
+      // expected route handler signatures without lint noise on parameters
+      // we don't read (e.g. GET handlers that ignore the request).
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;
