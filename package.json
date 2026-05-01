@@ -11,7 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "seed": "tsx scripts/seed.ts",
+    "seed": "tsx --env-file=.env.local scripts/seed.ts",
     "extract:legacy-seed": "node scripts/extract-seed-to-content.mjs"
   },
   "dependencies": {

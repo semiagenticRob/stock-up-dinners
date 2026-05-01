@@ -13,7 +13,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000001",
       "package_size": 3,
@@ -37,7 +37,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 2948,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000002",
       "package_size": 6.5,
@@ -61,7 +61,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 2722,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000003",
       "package_size": 6,
@@ -85,7 +85,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "beef",
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000004",
       "package_size": 5,
@@ -109,7 +109,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "turkey",
-    "default_par": null,
+    "default_par": 1814,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000005",
       "package_size": 4,
@@ -133,7 +133,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "bison",
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000006",
       "package_size": 3,
@@ -157,7 +157,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "pork",
-    "default_par": null,
+    "default_par": 1588,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000007",
       "package_size": 3.5,
@@ -181,7 +181,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "pork",
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000008",
       "package_size": 3,
@@ -205,7 +205,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "seafood",
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000009",
       "package_size": 3,
@@ -229,7 +229,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "seafood",
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000010",
       "package_size": 3,
@@ -253,7 +253,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "seafood",
-    "default_par": null,
+    "default_par": 907,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000011",
       "package_size": 2,
@@ -277,7 +277,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "seafood",
-    "default_par": null,
+    "default_par": 8,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000012",
       "package_size": 8,
@@ -301,7 +301,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "seafood",
-    "default_par": null,
+    "default_par": 6,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000013",
       "package_size": 6,
@@ -325,7 +325,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 6,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000014",
       "package_size": 6,
@@ -349,7 +349,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 24,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000015",
       "package_size": 24,
@@ -373,7 +373,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 907,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0001-000000000016",
       "package_size": 2,
@@ -397,7 +397,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 8,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000017",
       "package_size": 8,
@@ -421,7 +421,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 12,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000018",
       "package_size": 12,
@@ -445,7 +445,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 12,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000019",
       "package_size": 12,
@@ -469,7 +469,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 8,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000020",
       "package_size": 8,
@@ -493,7 +493,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 8,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000021",
       "package_size": 8,
@@ -517,7 +517,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 6,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000022",
       "package_size": 6,
@@ -541,7 +541,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 5678,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000023",
       "package_size": 192,
@@ -565,7 +565,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 227,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000024",
       "package_size": 8,
@@ -589,7 +589,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 12,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000025",
       "package_size": 12,
@@ -613,7 +613,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0002-000000000026",
       "package_size": 2,
@@ -637,7 +637,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 11340,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000027",
       "package_size": 25,
@@ -661,7 +661,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 9072,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000028",
       "package_size": 20,
@@ -685,7 +685,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2041,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000029",
       "package_size": 4.5,
@@ -709,7 +709,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 3629,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000030",
       "package_size": 8,
@@ -733,7 +733,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2722,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000031",
       "package_size": 6,
@@ -757,7 +757,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000032",
       "package_size": 5,
@@ -781,7 +781,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 20,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000033",
       "package_size": 20,
@@ -805,7 +805,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1542,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0003-000000000034",
       "package_size": 3.4,
@@ -829,7 +829,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1999,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000035",
       "package_size": 67.6,
@@ -853,7 +853,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1000,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000036",
       "package_size": 33.8,
@@ -877,7 +877,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2484,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000037",
       "package_size": 84,
@@ -901,7 +901,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 454,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000038",
       "package_size": 16,
@@ -925,7 +925,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1597,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000039",
       "package_size": 54,
@@ -949,7 +949,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1000,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000040",
       "package_size": 33.8,
@@ -973,7 +973,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 3785,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000041",
       "package_size": 128,
@@ -997,7 +997,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000042",
       "package_size": 80,
@@ -1021,7 +1021,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1021,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000043",
       "package_size": 36,
@@ -1045,7 +1045,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 349,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000044",
       "package_size": 12.3,
@@ -1069,7 +1069,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 510,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000045",
       "package_size": 18,
@@ -1093,7 +1093,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000046",
       "package_size": 48,
@@ -1117,7 +1117,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1588,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0004-000000000047",
       "package_size": 56,
@@ -1141,7 +1141,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 907,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000048",
       "package_size": 32,
@@ -1165,7 +1165,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000049",
       "package_size": 48,
@@ -1189,7 +1189,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000050",
       "package_size": 80,
@@ -1213,7 +1213,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 680,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000051",
       "package_size": 24,
@@ -1237,7 +1237,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1134,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000052",
       "package_size": 40,
@@ -1261,7 +1261,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 907,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000053",
       "package_size": 32,
@@ -1285,7 +1285,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 3785,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000054",
       "package_size": 128,
@@ -1309,7 +1309,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 5678,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000055",
       "package_size": 192,
@@ -1333,7 +1333,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0005-000000000056",
       "package_size": 48,
@@ -1357,7 +1357,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1814,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000057",
       "package_size": 4,
@@ -1381,7 +1381,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2495,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000058",
       "package_size": 5.5,
@@ -1405,7 +1405,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000059",
       "package_size": 5,
@@ -1429,7 +1429,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1814,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000060",
       "package_size": 4,
@@ -1453,7 +1453,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1814,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000061",
       "package_size": 4,
@@ -1477,7 +1477,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000062",
       "package_size": 3,
@@ -1501,7 +1501,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000063",
       "package_size": 5,
@@ -1525,7 +1525,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000064",
       "package_size": 5,
@@ -1549,7 +1549,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 2722,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000065",
       "package_size": 6,
@@ -1573,7 +1573,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000066",
       "package_size": 3,
@@ -1597,7 +1597,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": "chicken",
-    "default_par": null,
+    "default_par": 1814,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000067",
       "package_size": 4,
@@ -1621,7 +1621,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0006-000000000068",
       "package_size": 3,
@@ -1645,7 +1645,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 1361,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000069",
       "package_size": 3,
@@ -1669,7 +1669,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000070",
       "package_size": 5,
@@ -1693,7 +1693,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 4536,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000071",
       "package_size": 10,
@@ -1717,7 +1717,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 907,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000072",
       "package_size": 2,
@@ -1741,7 +1741,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 4536,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000073",
       "package_size": 10,
@@ -1765,7 +1765,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 2268,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000074",
       "package_size": 5,
@@ -1789,7 +1789,7 @@
     "allergen_tags": [],
     "dietary_tags": [],
     "meat_type": null,
-    "default_par": null,
+    "default_par": 454,
     "_v1_legacy": {
       "old_uuid": "00000000-0000-0000-0007-000000000075",
       "package_size": 1,

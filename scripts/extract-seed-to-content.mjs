@@ -226,7 +226,15 @@ for (const t of ingTuples) {
     allergen_tags: [], // Phase 2
     dietary_tags: [], // Phase 2
     meat_type: deriveMeatType(name),
-    default_par: null, // Phase 2 — desired stock level in canonical_unit
+    // default_par is "one Costco pack" in canonical units — derived from
+    // package_size × unit-conversion-factor. Used by the onboarding bucket
+    // UX (¼/½/¾/Full) and shopping-list threshold math. Phase 2 curation
+    // can refine values that differ from one-pack (e.g. shorter shelf-life
+    // perishables that warrant a larger par).
+    default_par: Math.max(
+      1,
+      Math.round((package_size ?? 0) * unitToCanonicalFactor(package_unit, canonical_unit)),
+    ),
     // ----- v1 source-of-truth fields preserved for Phase 2 curation context -----
     _v1_legacy: {
       old_uuid: id,

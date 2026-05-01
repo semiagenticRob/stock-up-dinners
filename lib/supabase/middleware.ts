@@ -71,6 +71,8 @@ export async function updateSession(request: NextRequest) {
   }
 
   // Subscription gating for protected routes.
+  // Subscription is required BEFORE onboarding (per project memory:
+  // subscription-before-onboarding overrides the spec's preferences-before-paywall).
   if (isProtected && user) {
     const { data: profile } = await supabase
       .from("user_profiles")
@@ -80,15 +82,12 @@ export async function updateSession(request: NextRequest) {
 
     const status = profile?.subscription_status;
     if (!status || !ACTIVE_SUBSCRIPTION_STATUSES.has(status)) {
-      // No active subscription → bounce to pricing.
-      // Onboarding is exempt because users land there before paying.
-      if (path !== "/onboarding" && !path.startsWith("/onboarding/")) {
-        const redirect = request.nextUrl.clone();
-        redirect.pathname = "/pricing";
-        return NextResponse.redirect(redirect);
-      }
+      const redirect = request.nextUrl.clone();
+      redirect.pathname = "/pricing";
+      return NextResponse.redirect(redirect);
     }
 
+    // Onboarding required after subscription, before any other gated route.
     if (
       profile?.onboarded_at == null &&
       path !== "/onboarding" &&

@@ -47,8 +47,10 @@ export default async function RecipesPage() {
 
   const ingByIdName = new Map(catalog.ingredients.map((i) => [i.id, i.display_name] as const));
 
-  const perishable = matches.filter((m) => m.tier === "cookable" && m.uses_perishable);
-  const cookable = matches.filter((m) => m.tier === "cookable" && !m.uses_perishable);
+  // Single "Cook tonight" tier — the matching engine already sorts cookable
+  // recipes with perishable-using ones first (by earliest expiring lot ASC),
+  // so concatenation preserves that priority.
+  const cookable = matches.filter((m) => m.tier === "cookable");
   const substitutable = matches.filter((m) => m.tier === "substitutable");
   const almost = matches.filter((m) => m.tier === "almost");
 
@@ -60,11 +62,13 @@ export default async function RecipesPage() {
         <NoMatches />
       ) : (
         <>
-          {perishable.length > 0 && (
-            <Tier title="Use these soon" subtitle="Pantry items expiring in the next few days." matches={perishable} ingByIdName={ingByIdName} />
-          )}
           {cookable.length > 0 && (
-            <Tier title="Cook tonight" subtitle="Everything in your pantry covers it." matches={cookable} ingByIdName={ingByIdName} />
+            <Tier
+              title="What to cook tonight?"
+              subtitle="Everything in your pantry covers it. Sorted by what should be used first."
+              matches={cookable}
+              ingByIdName={ingByIdName}
+            />
           )}
           {substitutable.length > 0 && (
             <Tier
@@ -72,7 +76,6 @@ export default async function RecipesPage() {
               subtitle="A swap from your pantry stands in for a recipe ingredient."
               matches={substitutable}
               ingByIdName={ingByIdName}
-              collapsibleByDefault
             />
           )}
           {almost.length > 0 && (
@@ -81,7 +84,6 @@ export default async function RecipesPage() {
               subtitle="Pick up just one item and these are unlocked."
               matches={almost}
               ingByIdName={ingByIdName}
-              collapsibleByDefault
             />
           )}
         </>
@@ -187,9 +189,9 @@ function perishableBadge(m: RecipeMatch, ingByIdName: Map<string, string>): stri
   );
   const ingId = first?.substituted_with_ingredient_id ?? first?.ingredient_id;
   const name = ingId ? ingByIdName.get(ingId) ?? "an ingredient" : "an ingredient";
-  if (days <= 0) return `Use today: ${name}`;
-  if (days === 1) return `Use by tomorrow: ${name}`;
-  return `Use in ${days}d: ${name}`;
+  if (days <= 0) return `Cook today: ${name}`;
+  if (days === 1) return `Cook by tomorrow: ${name}`;
+  return `Cook in ${days}d: ${name}`;
 }
 
 function EmptyState() {

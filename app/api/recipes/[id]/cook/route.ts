@@ -14,7 +14,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { loadActivePantry } from "@/lib/db/pantry";
-import { decrementPantry, type DecrementRequirement } from "@/lib/pantry/decrement";
+import { decrementPantry } from "@/lib/pantry/decrement";
+import { buildRequirements } from "@/lib/pantry/build-requirements";
 import {
   toIngredient,
   toRecipe,
@@ -63,30 +64,26 @@ export async function POST(
   if (ingsRes.error) throw ingsRes.error;
 
   const ingredients = (ingsRes.data as IngredientRow[]).map(toIngredient);
-  const ingById = new Map(ingredients.map((i) => [i.id, i] as const));
   const recipeIngs = (recipeIngsRes.data as RecipeIngredientRow[]).map(toRecipeIngredient);
   const recipe = toRecipe(recipeRes.data as RecipeRow, recipeIngs);
 
   const assumedIds = new Set(ingredients.filter((i) => i.is_assumed_staple).map((i) => i.id));
-  const subs = parsed.data.substitutions ?? {};
-  const scale = parsed.data.servings_cooked / recipe.servings;
+  const knownIds = new Set(ingredients.map((i) => i.id));
 
-  const requirements: DecrementRequirement[] = recipeIngs
-    .filter((ri) => !ri.is_optional)
-    .map((ri) => {
-      const required = ri.ingredient_id;
-      const actual = subs[ri.id] ?? required;
-      // Sanity: substitution target must actually exist in the catalog.
-      if (!ingById.has(actual)) {
-        throw new Error(`Unknown substitute ingredient ${actual}`);
-      }
-      return {
-        ingredient_id: required,
-        actual_ingredient_id: actual === required ? undefined : actual,
-        quantity: Math.max(1, Math.round(ri.quantity * scale)),
-        recipe_ingredient_id: ri.id,
-      };
+  let requirements;
+  try {
+    requirements = buildRequirements({
+      recipe,
+      servingsCooked: parsed.data.servings_cooked,
+      substitutions: parsed.data.substitutions ?? {},
+      knownIngredientIds: knownIds,
     });
+  } catch (err) {
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Bad request" },
+      { status: 400 },
+    );
+  }
 
   const plan = decrementPantry(requirements, pantry, { assumedStapleIds: assumedIds });
 
