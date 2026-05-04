@@ -102,6 +102,7 @@ export function computeShoppingList(input: ShoppingListInput): ShoppingListResul
   for (const ing of input.ingredients) {
     if (ing.is_assumed_staple) continue;
     if (input.preferences.blocked_ingredients.includes(ing.id)) continue;
+    if (isBlockedByPreferences(ing, input.preferences)) continue;
 
     const override = overrideById.get(ing.id);
     const par = override?.par_quantity ?? ing.default_par;
@@ -143,4 +144,33 @@ export function computeShoppingList(input: ShoppingListInput): ShoppingListResul
   }
 
   return { items, groups };
+}
+
+/**
+ * Mirrors the recipe-level filters in lib/matching/engine.ts so a user's
+ * blocked_meats / allergens / dietary_filters preferences also keep
+ * disallowed ingredients off the shopping list.
+ */
+function isBlockedByPreferences(ing: Ingredient, prefs: UserPreferences): boolean {
+  // Meats explicitly skipped (e.g. "pork" → bacon + pork tenderloin).
+  if (ing.meat_type && prefs.blocked_meats.includes(ing.meat_type)) return true;
+
+  // Allergens: any tag overlap excludes the ingredient.
+  if (prefs.allergens.length > 0) {
+    for (const a of ing.allergen_tags) {
+      if (prefs.allergens.includes(a)) return true;
+    }
+  }
+
+  // Dietary filters. Each filter is a positive-tag the ingredient must
+  // satisfy to remain. "vegetarian" excludes any ingredient with meat_type;
+  // "pescatarian" allows seafood but excludes other meats; "gluten_free"
+  // requires the ingredient not to carry the "gluten" allergen tag.
+  for (const d of prefs.dietary_filters) {
+    if (d === "vegetarian" && ing.meat_type != null) return true;
+    if (d === "pescatarian" && ing.meat_type != null && ing.meat_type !== "seafood") return true;
+    if (d === "gluten_free" && ing.allergen_tags.includes("gluten")) return true;
+  }
+
+  return false;
 }

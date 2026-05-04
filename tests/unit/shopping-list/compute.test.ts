@@ -313,4 +313,56 @@ describe("computeShoppingList", () => {
     );
     expect(result.items.map((i) => i.ingredient_id)).toEqual([CHICKEN.id]);
   });
+
+  it("excludes ingredients whose meat_type is in blocked_meats", () => {
+    const PORK_LOIN = ing({ id: "i-pork-loin", slug: "pork_loin", meat_type: "pork", default_par: 1000 });
+    const BACON = ing({ id: "i-bacon", slug: "bacon", meat_type: "pork", default_par: 800 });
+    const result = computeShoppingList(
+      input({
+        pantry: [],
+        ingredients: [CHICKEN, PORK_LOIN, BACON],
+        preferences: defaultPrefs({ blocked_meats: ["pork"] }),
+      }),
+    );
+    const ids = result.items.map((i) => i.ingredient_id).sort();
+    expect(ids).toEqual([CHICKEN.id]);
+  });
+
+  it("excludes ingredients whose allergen_tags overlap user allergens", () => {
+    const BREAD = ing({ id: "i-bread", slug: "bread", allergen_tags: ["gluten"], default_par: 800 });
+    const result = computeShoppingList(
+      input({
+        pantry: [],
+        ingredients: [CHICKEN, BREAD],
+        preferences: defaultPrefs({ allergens: ["gluten"] }),
+      }),
+    );
+    expect(result.items.map((i) => i.ingredient_id)).toEqual([CHICKEN.id]);
+  });
+
+  it("vegetarian dietary filter excludes anything with a meat_type", () => {
+    const PORK = ing({ id: "i-pork", slug: "pork", meat_type: "pork", default_par: 1000 });
+    const TOFU = ing({ id: "i-tofu", slug: "tofu", meat_type: null, default_par: 1000 });
+    const result = computeShoppingList(
+      input({
+        pantry: [],
+        ingredients: [PORK, TOFU],
+        preferences: defaultPrefs({ dietary_filters: ["vegetarian"] }),
+      }),
+    );
+    expect(result.items.map((i) => i.ingredient_id)).toEqual([TOFU.id]);
+  });
+
+  it("pescatarian filter keeps seafood but drops other meats", () => {
+    const SALMON = ing({ id: "i-salmon", slug: "salmon", meat_type: "seafood", default_par: 1000 });
+    const BEEF = ing({ id: "i-beef", slug: "beef", meat_type: "beef", default_par: 1000 });
+    const result = computeShoppingList(
+      input({
+        pantry: [],
+        ingredients: [SALMON, BEEF],
+        preferences: defaultPrefs({ dietary_filters: ["pescatarian"] }),
+      }),
+    );
+    expect(result.items.map((i) => i.ingredient_id)).toEqual([SALMON.id]);
+  });
 });
