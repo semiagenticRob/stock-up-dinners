@@ -24,7 +24,7 @@ export default function BillingSuccessPage() {
             from <Link href="/settings">settings</Link>.
           </p>
           <p style={{ marginTop: 32 }}>
-            <Link href="/recipes" className="btn">
+            <Link href="/onboarding" className="btn">
               Open your kitchen
             </Link>
           </p>

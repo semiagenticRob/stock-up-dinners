@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { StartTrialButton } from "./StartTrialButton";
 
 type Variant = "hero" | "closing";
 
@@ -14,9 +14,9 @@ export function SignupForm({
   const ctaId = variant === "hero" ? "signup" : `signup-${variant}`;
   return (
     <div className="signup" id={ctaId}>
-      <Link href="/signup" className="btn signup__btn">
+      <StartTrialButton plan="monthly" className="btn signup__btn">
         {buttonLabel}
-      </Link>
+      </StartTrialButton>
       <p className="helper signup__helper">{helper}</p>
     </div>
   );
