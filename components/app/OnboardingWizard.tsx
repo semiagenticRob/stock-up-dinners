@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 const ALLERGEN_OPTIONS = ["dairy", "gluten", "nuts", "shellfish", "egg", "soy"];
 const DIETARY_OPTIONS = [
@@ -26,7 +25,6 @@ interface ChipGroupState {
 const EMPTY_GROUP: ChipGroupState = { selected: [], noneOfThese: false };
 
 export function OnboardingWizard() {
-  const router = useRouter();
   const [step, setStep] = useState(0);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -74,8 +72,10 @@ export function OnboardingWizard() {
         const text = await res.text();
         throw new Error(text || res.statusText);
       }
-      router.refresh();
-      router.push("/recipes");
+      // Hard redirect — router.push() can be eaten by middleware re-run
+      // before the just-set onboarded_at hits the next request's session.
+      window.location.assign("/recipes");
+      return;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not finalize onboarding");
       setBusy(false);
