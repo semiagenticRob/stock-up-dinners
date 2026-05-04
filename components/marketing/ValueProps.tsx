@@ -6,13 +6,13 @@ const PROPS = [
   },
   {
     num: "02",
-    title: "2 Cooks, 0 Midweek Panic.",
-    body: "A weekend batch or a midweek mini cook session. Storage and reheat instructions for every meal, so dinner is fast after a busy weekday.",
+    title: "Confidence every night, zero mid-week panic.",
+    body: "Always know what's for dinner. Stock Up Dinners surfaces what you can cook tonight from what's already in your pantry — quick a la carte sessions, not weekend marathons.",
   },
   {
     num: "03",
-    title: "14 dinners, ready to go",
-    body: "Family-of-four portions, mapped across two weeks. Delicious staples like burrito bowls, bolognese, or curry, not protein-and-rice on repeat.",
+    title: "14 dinners and growing.",
+    body: "Family-of-four portions cooked fresh each night — burrito bowls, bolognese, curry, salmon — none on repeat. The catalog grows weekly.",
   },
 ];
 

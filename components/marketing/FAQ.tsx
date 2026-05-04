@@ -8,12 +8,12 @@ const FAQS = [
     a: "Most of them, yes. The catalog leans on familiar shapes like burrito bowls, pasta, stir-fry, chili, all with simple seasonings you can dress up or down. Recipes flag which ingredients are easy to swap or skip when you've got a picky eater at the table.",
   },
   {
-    q: "How long does each cook day take?",
-    a: "Cook Day 1 is roughly 3–4 hours of active time on a Sunday afternoon, batching 7 meals. Cook Day 2 is a 60–90 minute mid-week mini, batching the next 7. Reheats are 5–15 minutes on weeknights. You can also cook meals à la carte, with each meal taking ~20 to 45 minutes in total.",
+    q: "How long does each meal take to cook?",
+    a: "Meals are cooked a la carte — most recipes take 20–50 minutes start to finish. Each recipe shows estimated cook time so you can pick something quick on a busy night and something fancier when you have the time.",
   },
   {
-    q: "What if I'm cooking for 2 instead of 4?",
-    a: "Tap the servings stepper on any recipe and the app scales the ingredient quantities — and the pantry drawdown — automatically. Costco pack sizes are generous, so condiments and produce often stay at full quantity even when you halve proteins and starches.",
+    q: "What if I need to adjust portions?",
+    a: "Tap the servings stepper on any recipe and the site scales the ingredient quantities — and the pantry drawdown — automatically. Costco pack sizes are generous, so condiments and produce often stay at full quantity even when you halve proteins and starches.",
   },
   {
     q: "How does pricing work?",

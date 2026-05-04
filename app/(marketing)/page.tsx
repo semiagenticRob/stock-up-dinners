@@ -8,9 +8,9 @@ import { FAQ } from "@/components/marketing/FAQ";
 import { SignupForm } from "@/components/marketing/SignupForm";
 
 export const metadata: Metadata = {
-  title: "Easy Meal Prep for Costco Members",
+  title: "The easiest meals for Costco members",
   description:
-    "A pantry-aware meal-planning app for Costco members. Tell it what you bought; it tells you what to cook tonight and what to put back on the list. 48 recipes, live shopping mode, FIFO pantry tracking. $14.99/mo, 7-day free trial.",
+    "Always know what to cook. Stock Up Dinners is a pantry-aware subscription site for Costco members — tell it what you bought, it tells you what's for dinner tonight. 14 recipes and growing, live shopping mode, FIFO pantry tracking. $14.99/mo, 7-day free trial.",
   alternates: { canonical: "https://stockupdinners.com" },
 };
 
@@ -23,28 +23,27 @@ export default function HomePage() {
 
       <Section tint>
         <p className="eyebrow">How it works</p>
-        <h2>Designed to fit your week, not consume it.</h2>
+        <h2>Always know what to cook.</h2>
         <p className="lede">
-          No daily cooking. No mid-week grocery runs. One Costco trip, two batch sessions, fourteen
-          dinners ready to reheat.
+          One Costco trip. A pantry that tracks itself. Cook a quick, fresh dinner every
+          night — without the 4:50PM scramble.
         </p>
         <ValueProps />
       </Section>
 
       <Section>
-        <p className="eyebrow">Inside the app</p>
+        <p className="eyebrow">Inside the subscription</p>
         <h2>A pantry system, not just recipes.</h2>
-        <div className="pdf-row">
-          <div className="pdf-stack">
+        <div className="inside-row">
+          <div className="inside-media">
             <Image
-              className="pdf-photo pdf-photo--solo"
               src="/images/salmon-bowl.jpg"
-              alt="A salmon quinoa bowl — one of the 48 recipes the app suggests from your pantry."
+              alt="Salmon over rice — one of the dinners Stock Up Dinners suggests from what's in your pantry."
               width={1024}
               height={1024}
             />
           </div>
-          <div className="pdf-meta">
+          <div className="inside-meta">
             <h3>What you actually get</h3>
             <ul>
               <li>
@@ -52,11 +51,11 @@ export default function HomePage() {
                 bought today and a pack bought last week each track their own use-by date.
               </li>
               <li>
-                <strong>48 Costco-anchored recipes.</strong> Every recipe cookable from a tightly
+                <strong>Costco-anchored recipes.</strong> Every recipe cookable from a tightly
                 curated catalog of warehouse staples — no mystery one-off ingredients.
               </li>
               <li>
-                <strong>Cook-tonight suggestions.</strong> The app surfaces what you can make right
+                <strong>Cook-tonight suggestions.</strong> The site surfaces what you can make right
                 now, prioritizing items that are about to expire.
               </li>
               <li>
@@ -64,12 +63,12 @@ export default function HomePage() {
                 it lands on the list. No more &ldquo;what was I out of again?&rdquo;
               </li>
               <li>
-                <strong>Live shopping mode.</strong> Scan items into your pantry as you walk Costco;
+                <strong>Live shopping mode.</strong> Tap items into your pantry as you walk Costco;
                 everything syncs the moment you check out.
               </li>
               <li>
-                <strong>Smart substitutions.</strong> Out of ground beef? The app knows turkey will
-                work for chili — and tracks the swap so your inventory stays honest.
+                <strong>Smart substitutions.</strong> Out of ground beef? Turkey works for chili —
+                and the swap is tracked so your inventory stays honest.
               </li>
             </ul>
           </div>
@@ -91,8 +90,10 @@ export default function HomePage() {
                 the 4:50PM panic, we decided to do something about it.
               </p>
               <p>
-                Our kitchen runs on warehouse-club staples, and a real-life week is two cook windows,
-                not seven. The app captures that rhythm — and applies it to your kitchen.
+                Our kitchen runs on warehouse-club staples, and the real win was knowing exactly
+                what we had on hand at any moment. Stock Up Dinners isn&apos;t an app — it&apos;s a
+                subscription site that turns your Costco trip into a week of dinners you cook a la
+                carte each night.
               </p>
               <p>
                 <Link href="/about" className="why__link">
