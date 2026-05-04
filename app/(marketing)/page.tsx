@@ -8,7 +8,7 @@ import { FAQ } from "@/components/marketing/FAQ";
 import { SignupForm } from "@/components/marketing/SignupForm";
 
 export const metadata: Metadata = {
-  title: "How Costco members always know what to cook tonight",
+  title: "How busy Costco members always know what to cook tonight",
   description:
     "Always know what to cook. Stock Up Dinners is a pantry-aware subscription site for Costco members — tell it what you bought, it tells you what's for dinner tonight. 14 recipes and growing, live shopping mode, FIFO pantry tracking. $14.99/mo, 7-day free trial.",
   alternates: { canonical: "https://stockupdinners.com" },
