@@ -3,29 +3,31 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Ingredient } from "@/lib/types";
+import { pickQuantityInput, type QuantityInputSpec } from "@/lib/quantity-input";
 
 interface Props {
   ingredients: Ingredient[];
 }
 
 interface PendingState {
-  quantity: number;
+  display: number;
   saving: boolean;
   saved: boolean;
   error: string | null;
 }
-
-const UNIT_LABEL: Record<string, string> = {
-  grams: "g",
-  milliliters: "mL",
-  count: "ct",
-};
 
 export function QuickPantryAdd({ ingredients }: Props) {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const [activeId, setActiveId] = useState<string | null>(null);
   const [pending, setPending] = useState<Record<string, PendingState>>({});
+
+  // Cache the per-ingredient input spec so we don't re-pick on every keystroke.
+  const specById = useMemo(() => {
+    const m = new Map<string, QuantityInputSpec>();
+    for (const ing of ingredients) m.set(ing.id, pickQuantityInput(ing));
+    return m;
+  }, [ingredients]);
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
@@ -34,19 +36,13 @@ export function QuickPantryAdd({ ingredients }: Props) {
     return list.filter((i) => i.display_name.toLowerCase().includes(q));
   }, [ingredients, search]);
 
-  function defaultQuantity(ing: Ingredient): number {
-    if (ing.default_par && ing.default_par > 0) return ing.default_par;
-    if (ing.canonical_unit === "grams") return 454;
-    if (ing.canonical_unit === "milliliters") return 500;
-    return 1;
-  }
-
   function startEdit(ing: Ingredient) {
+    const spec = specById.get(ing.id)!;
     setActiveId(ing.id);
     setPending((prev) => ({
       ...prev,
       [ing.id]: prev[ing.id] ?? {
-        quantity: defaultQuantity(ing),
+        display: spec.defaultDisplay,
         saving: false,
         saved: false,
         error: null,
@@ -54,21 +50,23 @@ export function QuickPantryAdd({ ingredients }: Props) {
     }));
   }
 
-  function setQuantity(id: string, q: number) {
-    setPending((prev) => ({ ...prev, [id]: { ...prev[id], quantity: q } }));
+  function setDisplay(id: string, n: number) {
+    setPending((prev) => ({ ...prev, [id]: { ...prev[id], display: n } }));
   }
 
   async function add(ing: Ingredient) {
     const cur = pending[ing.id];
-    if (!cur || cur.quantity <= 0) return;
+    const spec = specById.get(ing.id)!;
+    if (!cur || cur.display <= 0) return;
     setPending((prev) => ({ ...prev, [ing.id]: { ...cur, saving: true, error: null } }));
     try {
+      const canonical = spec.toCanonical(cur.display);
       const res = await fetch("/api/pantry/lots", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           ingredient_id: ing.id,
-          quantity_initial: cur.quantity,
+          quantity_initial: canonical,
           acquired_on: new Date().toISOString().slice(0, 10),
           storage_state: ing.default_storage,
         }),
@@ -76,11 +74,10 @@ export function QuickPantryAdd({ ingredients }: Props) {
       if (!res.ok) throw new Error((await res.text()) || "Save failed");
       setPending((prev) => ({
         ...prev,
-        [ing.id]: { quantity: defaultQuantity(ing), saving: false, saved: true, error: null },
+        [ing.id]: { display: spec.defaultDisplay, saving: false, saved: true, error: null },
       }));
       setActiveId(null);
       router.refresh();
-      // Clear the "saved" tick after a moment.
       setTimeout(() => {
         setPending((prev) => {
           const next = { ...prev };
@@ -112,9 +109,10 @@ export function QuickPantryAdd({ ingredients }: Props) {
       </div>
       <div className="qpa__grid">
         {filtered.map((ing) => {
+          const spec = specById.get(ing.id)!;
           const state = pending[ing.id];
           const isActive = activeId === ing.id;
-          const unit = UNIT_LABEL[ing.canonical_unit] ?? ing.canonical_unit;
+          const display = state?.display ?? spec.defaultDisplay;
           return (
             <div key={ing.id} className={`qpa-card ${isActive ? "qpa-card--active" : ""}`}>
               <button
@@ -133,22 +131,21 @@ export function QuickPantryAdd({ ingredients }: Props) {
                     <div className="qpa-stepper">
                       <button
                         type="button"
-                        onClick={() => setQuantity(ing.id, Math.max(1, (state?.quantity ?? 1) - stepFor(ing)))}
+                        onClick={() => setDisplay(ing.id, Math.max(spec.step, round(display - spec.step)))}
                         disabled={state?.saving}
+                        aria-label="Decrease"
                       >
                         −
                       </button>
-                      <input
-                        type="number"
-                        min={1}
-                        value={state?.quantity ?? defaultQuantity(ing)}
-                        onChange={(e) => setQuantity(ing.id, Number(e.target.value) || 0)}
-                      />
-                      <span className="qpa-stepper__unit">{unit}</span>
+                      <span className="qpa-stepper__value">
+                        {spec.formatDisplay(display)}
+                      </span>
+                      <span className="qpa-stepper__unit">{spec.unitLabel}</span>
                       <button
                         type="button"
-                        onClick={() => setQuantity(ing.id, (state?.quantity ?? 0) + stepFor(ing))}
+                        onClick={() => setDisplay(ing.id, round(display + spec.step))}
                         disabled={state?.saving}
+                        aria-label="Increase"
                       >
                         +
                       </button>
@@ -158,7 +155,7 @@ export function QuickPantryAdd({ ingredients }: Props) {
                         type="button"
                         className="btn"
                         onClick={() => add(ing)}
-                        disabled={state?.saving || (state?.quantity ?? 0) <= 0}
+                        disabled={state?.saving || display <= 0}
                       >
                         {state?.saving ? "Adding…" : "Add to pantry"}
                       </button>
@@ -194,8 +191,7 @@ export function QuickPantryAdd({ ingredients }: Props) {
   );
 }
 
-function stepFor(ing: Ingredient): number {
-  if (ing.canonical_unit === "grams") return 100;
-  if (ing.canonical_unit === "milliliters") return 100;
-  return 1;
+function round(n: number): number {
+  // Avoid float drift on 0.5 + 0.5 + 0.5 = 1.4999...
+  return Math.round(n * 100) / 100;
 }

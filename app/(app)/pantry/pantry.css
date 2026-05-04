@@ -574,19 +574,15 @@
 }
 .qpa-stepper button:hover { background: var(--c-bg-tint); }
 .qpa-stepper button:disabled { opacity: 0.4; cursor: not-allowed; }
-.qpa-stepper input {
-  border: none;
-  background: transparent;
+.qpa-stepper__value {
+  min-width: 48px;
   text-align: center;
-  width: 64px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--c-ink);
-  font-family: var(--f-sans);
-  padding: 0;
+  font-variant-numeric: tabular-nums;
 }
-.qpa-stepper input:focus { outline: none; }
-.qpa-stepper__unit { font-size: 11px; color: var(--c-muted); font-family: var(--f-mono); }
+.qpa-stepper__unit { font-size: 11px; color: var(--c-muted); font-family: var(--f-mono); padding-right: 4px; }
 
 .qpa-card__actions { display: flex; gap: 6px; align-items: center; }
 .qpa-card__actions .btn { padding: 8px 14px; font-size: 13px; }
