@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Section } from "@/components/marketing/Section";
+import { StartTrialButton } from "@/components/marketing/StartTrialButton";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -25,15 +25,13 @@ export default function PricingPage() {
           </p>
           <ul>
             <li>Pantry tracker with expiration awareness</li>
-            <li>48 curated Costco-anchored recipes</li>
+            <li>14 Costco-anchored recipes (and growing)</li>
             <li>Auto-generated shopping lists</li>
             <li>Live shopping mode for in-store</li>
             <li>Substitution-aware recipe suggestions</li>
             <li>Cancel anytime</li>
           </ul>
-          <Link href="/signup?plan=monthly" className="btn">
-            Start free trial
-          </Link>
+          <StartTrialButton plan="monthly" />
         </div>
 
         <div className="pricing-card pricing-card--featured">
@@ -49,9 +47,7 @@ export default function PricingPage() {
             <li>Locked-in price for the year</li>
             <li>Cancel anytime; refund within 14 days</li>
           </ul>
-          <Link href="/signup?plan=annual" className="btn">
-            Start free trial
-          </Link>
+          <StartTrialButton plan="annual" />
         </div>
       </div>
     </Section>
