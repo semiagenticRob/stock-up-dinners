@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "How Stock Up Dinners handles your data.",
 };
 
-const UPDATED = "2026-04-28";
+const UPDATED = "2026-05-04";
 
 export default function PrivacyPage() {
   return (
@@ -16,43 +16,52 @@ export default function PrivacyPage() {
       <div className="prose">
         <h3>What we collect</h3>
         <p>
-          When you sign up for the free meal plan, we collect your email address and any UTM
-          parameters present in the URL at the time of sign-up (so we can understand which channels
-          work). That&apos;s it — no name, no phone, no payment info, no demographic data.
+          When you sign up for an account we collect your email address. While you use the app we
+          store the data you put into it: pantry items, recipes you cook, shopping sessions,
+          dietary preferences. Payment processing happens through Stripe (see below); we never see
+          your card number.
         </p>
 
         <h3>Where it lives</h3>
         <p>
-          Email addresses are stored in{" "}
-          <a href="https://www.beehiiv.com/privacy" target="_blank" rel="noopener noreferrer">
-            Beehiiv
+          Account data is stored in{" "}
+          <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">
+            Supabase
+          </a>{" "}
+          (Postgres on AWS). Subscription billing is handled by{" "}
+          <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">
+            Stripe
           </a>
-          , our newsletter platform. Beehiiv hosts the welcome sequence and any future newsletter
-          content.
+          . We use Stripe&apos;s hosted checkout and customer portal, so your card details never
+          touch our servers.
         </p>
 
         <h3>Analytics</h3>
         <p>
-          We use Google Analytics to measure traffic, signup conversion, and channel attribution.
-          GA4 sets cookies that may identify your browser; it does not collect personally
-          identifying information like your email address.
+          We use Google Analytics to measure traffic and conversion. GA4 sets cookies that may
+          identify your browser; it does not collect personally identifying information like your
+          email address.
         </p>
 
         <h3>Sharing</h3>
         <p>
-          We don&apos;t sell, rent, or share your email with third parties. Beehiiv processes it on
-          our behalf as our email service provider; that&apos;s the only sharing that happens.
+          We don&apos;t sell, rent, or share your data with third parties. Supabase and Stripe
+          process it on our behalf as our infrastructure providers; that&apos;s the only sharing
+          that happens.
         </p>
 
-        <h3>Unsubscribing &amp; deletion</h3>
+        <h3>Cancellation &amp; deletion</h3>
         <p>
-          Every email we send includes a one-click unsubscribe. Unsubscribing removes you from the
-          active list. To request full deletion of your record from Beehiiv, reply to any newsletter
-          email and we&apos;ll handle it within 7 days.
+          You can cancel your subscription anytime from the Settings page in the app or via the
+          Stripe customer portal. To request full deletion of your account and associated data,
+          contact us through the support form (linked from your account Settings page) and
+          we&apos;ll handle it within 7 days.
         </p>
 
         <h3>Contact</h3>
-        <p>Questions?</p>
+        <p>
+          Questions? Use the support form linked from your account Settings page.
+        </p>
       </div>
     </Section>
   );

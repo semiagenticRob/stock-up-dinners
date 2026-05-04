@@ -11,7 +11,7 @@ const DEFAULTS: UserPreferences = {
   blocked_ingredients: [],
   blocked_meats: [],
   allergens: [],
-  use_soon_threshold_days: 3,
+  use_soon_threshold_days: 7,
   default_threshold_pct: 15,
 };
 

@@ -16,7 +16,7 @@ export function Section({
     .join(" ");
   return (
     <section className={classes} id={id}>
-      <div className="container">{children}</div>
+      <div className="shell">{children}</div>
     </section>
   );
 }

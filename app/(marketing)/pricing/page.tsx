@@ -4,7 +4,7 @@ import { Section } from "@/components/marketing/Section";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Stock Up Dinners subscription pricing — monthly and annual plans, 7-day free trial.",
+  description: "Stock Up Dinners subscription pricing — $14.99/mo or $124.99/yr. 7-day free trial.",
 };
 
 export default function PricingPage() {
@@ -39,13 +39,13 @@ export default function PricingPage() {
         <div className="pricing-card pricing-card--featured">
           <p className="pricing-card__eyebrow">Annual</p>
           <p className="pricing-card__price">
-            $143.88
+            $124.99
             <span className="pricing-card__price-period">/yr</span>
           </p>
-          <p className="pricing-card__save">Save ~20% vs monthly · $11.99/mo equivalent</p>
+          <p className="pricing-card__save">Save 30% vs monthly · ≈ $10.42/mo</p>
           <ul>
             <li>Everything in monthly</li>
-            <li>Two months free</li>
+            <li>Roughly four months free</li>
             <li>Locked-in price for the year</li>
             <li>Cancel anytime; refund within 14 days</li>
           </ul>

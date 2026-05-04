@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/marketing/Section";
 import { Hero } from "@/components/marketing/Hero";
 import { ValueProps } from "@/components/marketing/ValueProps";
-import { PDFCoverMock } from "@/components/marketing/PDFCoverMock";
 import { FAQ } from "@/components/marketing/FAQ";
 import { SignupForm } from "@/components/marketing/SignupForm";
 
 export const metadata: Metadata = {
   title: "Easy Meal Prep for Costco Members",
   description:
-    "A free 14-dinner meal plan for a family of four. Built around 75 Costco staples. One warehouse run, two cook days, fourteen dinners. PDF + printable shopping list.",
+    "A pantry-aware meal-planning app for Costco members. Tell it what you bought; it tells you what to cook tonight and what to put back on the list. 48 recipes, live shopping mode, FIFO pantry tracking. $14.99/mo, 7-day free trial.",
   alternates: { canonical: "https://stockupdinners.com" },
 };
 
@@ -32,40 +32,44 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <p className="eyebrow">Inside the free PDF</p>
+        <p className="eyebrow">Inside the app</p>
         <h2>A pantry system, not just recipes.</h2>
         <div className="pdf-row">
           <div className="pdf-stack">
-            <PDFCoverMock />
             <Image
-              className="pdf-photo"
+              className="pdf-photo pdf-photo--solo"
               src="/images/salmon-bowl.jpg"
-              alt=""
+              alt="A salmon quinoa bowl — one of the 48 recipes the app suggests from your pantry."
               width={1024}
               height={1024}
-              aria-hidden="true"
             />
           </div>
           <div className="pdf-meta">
-            <h3>What&apos;s actually in the file</h3>
+            <h3>What you actually get</h3>
             <ul>
               <li>
-                <strong>14 dinners with full recipes.</strong> Ingredients, quantities, instructions,
-                storage notes.
+                <strong>Pantry tracker with expiration awareness.</strong> Lot-by-lot, so a pack
+                bought today and a pack bought last week each track their own use-by date.
               </li>
               <li>
-                <strong>Consolidated shopping lists.</strong> Costco organized. Printable. Quantified.
+                <strong>48 Costco-anchored recipes.</strong> Every recipe cookable from a tightly
+                curated catalog of warehouse staples — no mystery one-off ingredients.
               </li>
               <li>
-                <strong>Cook day workflows.</strong> Step-by-step: what goes in the oven first, what&apos;s
-                prepped while it&apos;s roasting.
+                <strong>Cook-tonight suggestions.</strong> The app surfaces what you can make right
+                now, prioritizing items that are about to expire.
               </li>
               <li>
-                <strong>Storage + reheat cheat sheet.</strong> Foil pan vs freezer bag, oven vs
-                microwave, exact times.
+                <strong>Auto-updating shopping list.</strong> When something drops below threshold,
+                it lands on the list. No more &ldquo;what was I out of again?&rdquo;
               </li>
               <li>
-                <strong>The 75-staple list.</strong> The Costco shortlist the system runs on.
+                <strong>Live shopping mode.</strong> Scan items into your pantry as you walk Costco;
+                everything syncs the moment you check out.
+              </li>
+              <li>
+                <strong>Smart substitutions.</strong> Out of ground beef? The app knows turkey will
+                work for chili — and tracks the swap so your inventory stays honest.
               </li>
             </ul>
           </div>
@@ -78,21 +82,22 @@ export default function HomePage() {
             <p className="eyebrow" style={{ color: "var(--c-muted)" }}>
               Why we built this
             </p>
-            <h2>The Only Solution for a Busy Family Like Us!</h2>
+            <h2>The only solution for a busy family like ours.</h2>
             <div className="why__body">
               <p>We&apos;re busy professionals with kids.</p>
               <p>
-                After a long day of meetings, nothing was more stressful than getting home and rushing
-                to prep dinner with hungry children prowling the house. Instead of accepting the
-                4:50PM panic, we decided to do something about it.
+                After a long day of meetings, nothing was more stressful than getting home and
+                rushing to prep dinner with hungry children prowling the house. Instead of accepting
+                the 4:50PM panic, we decided to do something about it.
               </p>
-              <p>Our kitchen runs on warehouse-club staples and a real-life week is two cook windows, not seven.</p>
               <p>
-                Free fourteen-day plan now. The full six-week system, with three more bi-weekly plans,
-                lands later.{" "}
-                <a href="/about" className="why__link">
+                Our kitchen runs on warehouse-club staples, and a real-life week is two cook windows,
+                not seven. The app captures that rhythm — and applies it to your kitchen.
+              </p>
+              <p>
+                <Link href="/about" className="why__link">
                   More about the project →
-                </a>
+                </Link>
               </p>
             </div>
           </div>
@@ -117,9 +122,9 @@ export default function HomePage() {
 
       <Section tint>
         <div className="closing">
-          <h2>Get the free 14-dinner plan.</h2>
-          <p className="lede">PDF + printable shopping list, in your inbox in under a minute.</p>
-          <SignupForm variant="closing" helper="Free PDF + printable shopping list. No spam." />
+          <h2>Start cooking from your pantry.</h2>
+          <p className="lede">7-day free trial. Cancel anytime.</p>
+          <SignupForm variant="closing" helper="$14.99/mo or $124.99/yr (≈ $10.42/mo). Cancel anytime." />
         </div>
       </Section>
     </>

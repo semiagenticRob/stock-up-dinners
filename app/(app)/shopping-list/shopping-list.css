@@ -1,46 +1,86 @@
-.shop-group { margin-bottom: 32px; }
-.shop-group h2 {
-  font-size: 18px;
-  font-weight: 800;
+/* ============================================================
+   Shopping list — image-tile cards grouped by category.
+   Mirrors the pantry tile grid so the visual language is consistent.
+   ============================================================ */
+
+.shop-section { margin-bottom: 32px; }
+.shop-section__head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
   margin: 0 0 12px;
+  font-size: 13px;
   font-family: var(--f-mono);
-  text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--c-ink);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--c-border);
+}
+.shop-section__count {
+  font-size: 11px;
   color: var(--c-muted);
   font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
-.shop-list {
+.shop-grid {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+/* Cap at 6 columns on wide screens, mirroring the pantry grid. */
+@media (min-width: 1280px) {
+  .shop-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+.shop-card {
   background: #fff;
   border: 1px solid var(--c-border);
   border-radius: var(--r-card);
   overflow: hidden;
+  transition: border-color 80ms ease, transform 80ms ease, box-shadow 80ms ease;
+}
+.shop-card:hover {
+  border-color: #94A3B8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -4px rgba(15, 23, 42, 0.12);
 }
 
-.shop-row {
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--c-border);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 16px;
-  align-items: center;
+.shop-card__media {
+  aspect-ratio: 16 / 10;
+  background-color: var(--c-bg-tint);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Fallback gradient when no image is set on the element. The category-
+     tinted variants below override (mirrors pantry-tile coloring). */
+  background-image: linear-gradient(135deg, #94A3B8 0%, #64748B 100%);
 }
-.shop-row:last-child { border-bottom: none; }
+.shop-card__media--protein { background-image: linear-gradient(135deg, #FCA5A5 0%, #DC2626 100%); }
+.shop-card__media--canned { background-image: linear-gradient(135deg, #FCD34D 0%, #D97706 100%); }
+.shop-card__media--grain { background-image: linear-gradient(135deg, #FDE68A 0%, #B45309 100%); }
+.shop-card__media--dairy { background-image: linear-gradient(135deg, #BFDBFE 0%, #2563EB 100%); }
+.shop-card__media--frozen { background-image: linear-gradient(135deg, #BAE6FD 0%, #0369A1 100%); }
+.shop-card__media--produce { background-image: linear-gradient(135deg, #BBF7D0 0%, #15803D 100%); }
+.shop-card__media--oil_condiment { background-image: linear-gradient(135deg, #FED7AA 0%, #C2410C 100%); }
 
-.shop-row__main { min-width: 0; }
-.shop-row__main h3 { font-size: 15px; font-weight: 600; margin: 0; line-height: 1.3; color: var(--c-ink); }
-.shop-row__sub { font-size: 12.5px; color: var(--c-muted); margin: 2px 0 0; }
-.shop-row__why { font-size: 12px; color: var(--c-muted); margin: 4px 0 0; font-family: var(--f-mono); }
-
-.shop-row__qty {
-  font-family: var(--f-mono);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--c-accent);
-  white-space: nowrap;
+.shop-card__name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin: 0;
+  padding: 10px 12px 12px;
+  line-height: 1.3;
+  color: var(--c-ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
 }
-.shop-row__unit { font-size: 12px; color: var(--c-muted); font-weight: 400; margin-left: 4px; }

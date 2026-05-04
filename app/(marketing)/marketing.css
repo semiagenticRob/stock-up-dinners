@@ -21,7 +21,7 @@
 
 /* ----- Header ----- */
 .header { border-bottom: 1px solid var(--c-border); background: var(--c-bg); }
-.header__inner { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+.header__inner { display: flex; justify-content: space-between; align-items: center; padding-block: 18px; }
 .header__brand { text-decoration: none; }
 .header__cta {
   font-size: 13px;

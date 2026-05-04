@@ -38,9 +38,11 @@ export default async function RecipeDetailPage({
   });
   const match = matches[0];
 
-  // Build per-ingredient substitution candidates: any ingredient currently in
-  // the user's pantry that's the same category as the recipe ingredient (and
-  // not the ingredient itself), where the recipe row allows substitution.
+  // Build per-ingredient substitution candidates: any non-staple ingredient
+  // currently in the user's pantry (other than the recipe's own ingredient),
+  // where the recipe row allows substitution. We trust the user's judgment
+  // on what makes sense; we just guarantee they can only pick from what
+  // they actually have on hand.
   const ingById = new Map(catalog.ingredients.map((i) => [i.id, i]));
   const pantryIngIds = new Set(pantry.map((l) => l.ingredient_id));
   const candidatesByRi: Record<string, Array<{ id: string; display_name: string }>> = {};
@@ -52,7 +54,6 @@ export default async function RecipeDetailPage({
       .filter(
         (i) =>
           i.id !== ri.ingredient_id &&
-          i.category === recipeIng.category &&
           !i.is_assumed_staple &&
           pantryIngIds.has(i.id),
       )
@@ -60,7 +61,11 @@ export default async function RecipeDetailPage({
       .sort((a, b) => a.display_name.localeCompare(b.display_name));
   }
 
-  const allReady = match
+  // Whether the cook button should start enabled. Client-side state in
+  // RecipeCookView refines this once the user picks substitutions: a recipe
+  // in "almost" tier (one missing ingredient) becomes cookable as soon as
+  // the user subs that ingredient with something from the pantry.
+  const startsReady = match
     ? match.tier === "cookable" || match.tier === "substitutable"
     : false;
 
@@ -70,7 +75,7 @@ export default async function RecipeDetailPage({
       match={match}
       ingredients={catalog.ingredients}
       candidatesByRi={candidatesByRi}
-      allReady={allReady}
+      startsReady={startsReady}
     />
   );
 }

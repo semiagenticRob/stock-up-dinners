@@ -85,16 +85,19 @@ p { margin: 0; }
   h2 { font-size: 28px; }
 }
 
-/* ----- Layout primitives — same names as the v1 Astro site so ported markup carries over ----- */
+/* ----- Layout primitives ----- */
 
-.container {
+/* `.shell` is our centered max-width wrapper. Tailwind v4 reserves
+   `.container` for its own utility (responsive max-widths, no auto-center),
+   so we use a different name to avoid being stomped on. */
+.shell {
   max-width: var(--container);
   margin: 0 auto;
   padding-left: var(--pad-x);
   padding-right: var(--pad-x);
 }
 @media (min-width: 780px) {
-  .container { padding-left: var(--pad-x-lg); padding-right: var(--pad-x-lg); }
+  .shell { padding-left: var(--pad-x-lg); padding-right: var(--pad-x-lg); }
 }
 
 .section {

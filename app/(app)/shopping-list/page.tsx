@@ -39,8 +39,8 @@ export default async function ShoppingListPage() {
         <div>
           <h1>Shopping list</h1>
           <p className="pantry-subtitle">
-            Auto-updated. {result.items.length}{" "}
-            {result.items.length === 1 ? "item" : "items"} below threshold.
+            Auto-updated · {result.items.length}{" "}
+            {result.items.length === 1 ? "item" : "items"} to pick up
           </p>
         </div>
         <Link href="/shopping" className="btn">
@@ -62,25 +62,28 @@ export default async function ShoppingListPage() {
         </div>
       ) : (
         result.groups.map((group) => (
-          <section key={group.key} className="shop-group">
-            <h2>{group.label}</h2>
-            <ul className="shop-list">
+          <section key={group.key} className="shop-section">
+            <h2 className="shop-section__head">
+              {group.label}
+              <span className="shop-section__count">
+                {group.items.length} {group.items.length === 1 ? "item" : "items"}
+              </span>
+            </h2>
+            <ul className="shop-grid">
               {group.items.map((it) => (
-                <li key={it.ingredient_id} className="shop-row">
-                  <div className="shop-row__main">
-                    <h3>{it.sku_display_name ?? it.ingredient_display_name}</h3>
-                    {it.sku_display_name && (
-                      <p className="shop-row__sub">for {it.ingredient_display_name}</p>
-                    )}
-                    <p className="shop-row__why">{it.why}</p>
-                  </div>
-                  <p className="shop-row__qty">
-                    +{it.suggested_quantity}{" "}
-                    <span className="shop-row__unit">
-                      {catalog.ingredients.find((i) => i.id === it.ingredient_id)?.canonical_unit ??
-                        ""}
-                    </span>
-                  </p>
+                <li key={it.ingredient_id}>
+                  <article className="shop-card">
+                    <div
+                      className={`shop-card__media shop-card__media--${it.category}`}
+                      aria-hidden="true"
+                      style={{
+                        backgroundImage: `url(/images/ingredients/${it.ingredient_slug}.jpg)`,
+                      }}
+                    />
+                    <h3 className="shop-card__name">
+                      {it.sku_display_name ?? it.ingredient_display_name}
+                    </h3>
+                  </article>
                 </li>
               ))}
             </ul>

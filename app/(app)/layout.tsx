@@ -22,7 +22,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
   return (
     <div className="app-shell">
       <header className="app-nav">
-        <div className="container app-nav__inner">
+        <div className="shell app-nav__inner">
           <Link href="/recipes" aria-label="Stock Up Dinners home">
             <Wordmark />
           </Link>
@@ -35,7 +35,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main className="app-main">
-        <div className="container">{children}</div>
+        <div className="shell">{children}</div>
       </main>
     </div>
   );

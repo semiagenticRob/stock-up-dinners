@@ -1,11 +1,11 @@
 const FAQS = [
   {
     q: "Do I have to shop at Costco?",
-    a: "The plan is built around 75 Costco staples — pack sizes, quantities, and price expectations all assume Costco. You can substitute equivalents from any warehouse club or large grocery store, but the shopping list won't map 1:1.",
+    a: "The app is built around 75 Costco staples — pack sizes, quantities, and price expectations all assume Costco. You can substitute equivalents from any warehouse club or large grocery store, but the shopping list won't map 1:1.",
   },
   {
     q: "Will the recipes work for picky kids?",
-    a: "Most of them, yes. The plan leans on familiar shapes like burrito bowls, pasta, stir-fry, chili, all with simple seasonings you can dress up or down. The PDF includes notes on ingredients to swap or skip when you've got a picky eater at the table.",
+    a: "Most of them, yes. The catalog leans on familiar shapes like burrito bowls, pasta, stir-fry, chili, all with simple seasonings you can dress up or down. Recipes flag which ingredients are easy to swap or skip when you've got a picky eater at the table.",
   },
   {
     q: "How long does each cook day take?",
@@ -13,15 +13,15 @@ const FAQS = [
   },
   {
     q: "What if I'm cooking for 2 instead of 4?",
-    a: "Halve the protein and starch quantities; produce and condiments are usually fine to keep at full quantity since Costco pack sizes are generous. The free plan doesn't include scaled-down lists — that's for paid subscribers to the full pantry tracking system.",
+    a: "Tap the servings stepper on any recipe and the app scales the ingredient quantities — and the pantry drawdown — automatically. Costco pack sizes are generous, so condiments and produce often stay at full quantity even when you halve proteins and starches.",
   },
   {
-    q: "Is there a paid version?",
-    a: "Yes — a full pantry tracking system at $14.99/mo with the full 6-week plan (the free 14 dinners plus three more bi-weekly plans = 26 dinners total, with rolling weekly rhythm and pantry-drawdown logic). You'll hear about it in the welcome email sequence.",
+    q: "How does pricing work?",
+    a: "$14.99/month or $124.99/year (about $10.42/mo equivalent — saves you 30%). 7-day free trial on either plan; no card needed for the trial. Cancel anytime from your account in one click.",
   },
   {
-    q: "Will you spam me?",
-    a: "No. The welcome sequence is three emails over a week, then occasional updates when new bi-weekly plans drop. Unsubscribe with one click any time.",
+    q: "Can I cancel?",
+    a: "Yes, in one click from the Settings page. We use Stripe for billing, so you can also manage everything from your Stripe customer portal. Cancellation is effective at the end of your current period — no surprise charges.",
   },
 ];
 

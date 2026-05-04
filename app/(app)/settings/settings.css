@@ -1,0 +1,301 @@
+.settings { max-width: 880px; }
+
+.settings__head { margin-bottom: 18px; }
+.settings__head h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+.settings__subtitle {
+  font-size: 13px;
+  color: var(--c-muted);
+  margin: 4px 0 0;
+  font-family: var(--f-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ----- Tabs ----- */
+.settings__tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 24px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+.settings__tab {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 80ms ease, border-color 80ms ease;
+  white-space: nowrap;
+}
+.settings__tab:hover { color: var(--c-ink); }
+.settings__tab--on {
+  color: var(--c-ink);
+  border-bottom-color: var(--c-accent);
+}
+
+/* ----- Panel ----- */
+.settings__panel {
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-card);
+  padding: 28px;
+}
+
+.settings-tab__head {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0 0 8px;
+}
+.settings-tab__lede {
+  font-size: 14px;
+  color: var(--c-body);
+  margin: 0 0 20px;
+  line-height: 1.55;
+}
+.settings-tab__err {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid #FECACA;
+  background: #FEF2F2;
+  color: #B91C1C;
+  border-radius: var(--r-btn);
+  font-size: 13px;
+}
+.settings-tab__ok {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid #BBF7D0;
+  background: #F0FDF4;
+  color: #166534;
+  border-radius: var(--r-btn);
+  font-size: 13px;
+}
+
+/* ----- Status pill (subscription tab) ----- */
+.settings-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  letter-spacing: 0.04em;
+  border: 1px solid;
+}
+.settings-pill--ok { background: #F0FDF4; color: #166534; border-color: #BBF7D0; }
+.settings-pill--warn { background: #FFFBEB; color: #92400E; border-color: #FDE68A; }
+.settings-pill--bad { background: #FEF2F2; color: #B91C1C; border-color: #FECACA; }
+.settings-pill--muted { background: var(--c-bg-tint); color: var(--c-muted); border-color: var(--c-border); }
+
+/* ----- Description list (key/value rows in subscription tab) ----- */
+.settings-kv {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 24px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+.settings-kv > div {
+  display: contents;
+}
+.settings-kv dt {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  font-weight: 600;
+  padding-top: 4px;
+}
+.settings-kv dd {
+  margin: 0;
+  font-size: 14px;
+  color: var(--c-ink);
+}
+
+/* ----- Per-group sections inside a tab ----- */
+.settings-group { margin: 0 0 24px; }
+.settings-group h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--c-ink);
+}
+.settings-group__hint {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  color: var(--c-muted);
+}
+
+/* ----- Chip rows (mirror onboarding's .ob__chip; copied so settings.css is self-contained) ----- */
+.settings-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ----- Sliders ----- */
+.settings-slider {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+}
+.settings-slider input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--c-border);
+  outline: none;
+  cursor: pointer;
+}
+.settings-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-ink);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(15,23,42,0.25);
+  cursor: pointer;
+}
+.settings-slider input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-ink);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(15,23,42,0.25);
+  cursor: pointer;
+}
+.settings-slider__readout {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-ink);
+  min-width: 80px;
+  text-align: right;
+}
+
+/* ----- Save row at bottom of each tab ----- */
+.settings-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--c-border);
+}
+.settings-actions .settings-tab__ok,
+.settings-actions .settings-tab__err {
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ----- Inline labelled input + adjacent button (Profile tab) ----- */
+.settings-input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  max-width: 480px;
+  margin-top: 4px;
+}
+.settings-input-row input[type="text"],
+.settings-input-row input[type="email"] {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-btn);
+  padding: 10px 12px;
+  font-family: var(--f-sans);
+  font-size: 14px;
+  color: var(--c-ink);
+  background: #fff;
+}
+.settings-input-row input::placeholder { color: #94A3B8; }
+
+/* ----- Per-ingredient par/threshold rows (Pantry Defaults tab) ----- */
+.par-rows {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-card);
+  background: #fff;
+  max-height: 600px;
+  overflow-y: auto;
+}
+.par-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--c-border);
+  font-size: 13px;
+}
+.par-row:last-child { border-bottom: none; }
+
+.par-row__name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.par-row__name > span:first-child {
+  font-weight: 600;
+  color: var(--c-ink);
+}
+.par-row__baseline {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-muted);
+}
+
+.par-row__field {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 6px;
+  align-items: center;
+}
+.par-row__field > span {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--c-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.par-row__field input[type="number"] {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-btn);
+  padding: 4px 8px;
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  width: 100%;
+  min-width: 0;
+}
+.par-row__field small {
+  font-size: 11px;
+  color: var(--c-muted);
+  font-family: var(--f-mono);
+}
+
+.par-row__actions {
+  display: flex;
+  gap: 6px;
+}
+
+@media (max-width: 720px) {
+  .par-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .par-row__actions { justify-content: flex-end; }
+}

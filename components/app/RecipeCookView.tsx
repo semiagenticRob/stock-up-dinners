@@ -19,7 +19,13 @@ interface Props {
   ingredients: Ingredient[];
   /** recipe_ingredient.id → candidate substitutes from the user's pantry */
   candidatesByRi: Record<string, SubstitutionCandidate[]>;
-  allReady: boolean;
+  /**
+   * Whether the recipe is cookable on first render — used as the seed.
+   * Once the user picks any substitution we recompute live so a recipe in
+   * "almost there" tier becomes cookable as soon as a missing ingredient
+   * is satisfied from the pantry.
+   */
+  startsReady: boolean;
 }
 
 export function RecipeCookView({
@@ -27,7 +33,7 @@ export function RecipeCookView({
   match,
   ingredients,
   candidatesByRi,
-  allReady,
+  startsReady,
 }: Props) {
   const router = useRouter();
   const ingById = useMemo(
@@ -43,6 +49,30 @@ export function RecipeCookView({
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
+
+  // ----- Cookability ------
+  // A recipe is cookable when every non-optional ingredient is either
+  // already covered (DIRECT / ASSUMED / SUBSTITUTED) OR the user has
+  // explicitly picked a substitution for it from the pantry.
+  // This re-evaluates on every render as the substitutions map changes,
+  // so picking a sub for a MISSING ingredient unlocks the cook button.
+  const allReady = useMemo(() => {
+    if (!match) return false;
+    for (const ri of recipe.ingredients) {
+      if (ri.is_optional) continue;
+      const status = match.ingredient_status.find(
+        (s) => s.recipe_ingredient_id === ri.id,
+      );
+      const covered =
+        status?.status === "DIRECT" ||
+        status?.status === "ASSUMED" ||
+        status?.status === "SUBSTITUTED" ||
+        Boolean(substitutions[ri.id]);
+      if (!covered) return false;
+    }
+    return true;
+  }, [match, recipe.ingredients, substitutions]);
+  void startsReady; // accepted for prop parity but unused — match drives readiness
 
   // ----- Wake lock -----
   useEffect(() => {

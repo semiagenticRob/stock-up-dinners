@@ -5,7 +5,7 @@
  * - Redirects unauthenticated users away from /(app)/* routes.
  * - Redirects users without an active subscription away from /(app)/* into /pricing.
  *
- * Marketing pages (/, /about, /pricing, /privacy, /terms, /thanks) and auth
+ * Marketing pages (/, /about, /pricing, /privacy, /terms) and auth
  * pages (/login, /signup, /forgot-password) are always public.
  */
 

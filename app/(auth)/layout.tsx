@@ -8,14 +8,14 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <div className="auth-shell">
       <header className="auth-header">
-        <div className="container auth-header__inner">
+        <div className="shell auth-header__inner">
           <Link href="/" aria-label="Stock Up Dinners home">
             <Wordmark />
           </Link>
         </div>
       </header>
       <main className="auth-main">
-        <div className="container auth-container">{children}</div>
+        <div className="shell auth-container">{children}</div>
       </main>
     </div>
   );

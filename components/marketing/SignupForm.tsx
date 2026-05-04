@@ -1,11 +1,11 @@
-type Variant = "hero" | "closing";
+import Link from "next/link";
 
-const SUBSCRIBE_URL = "https://stockupdinners.beehiiv.com/subscribe";
+type Variant = "hero" | "closing";
 
 export function SignupForm({
   variant = "hero",
-  helper = "Free PDF + printable shopping list. No spam — unsubscribe anytime.",
-  buttonLabel = "Get the free plan",
+  helper = "7-day free trial. Cancel anytime from your account.",
+  buttonLabel = "Start free trial",
 }: {
   variant?: Variant;
   helper?: string;
@@ -14,9 +14,9 @@ export function SignupForm({
   const ctaId = variant === "hero" ? "signup" : `signup-${variant}`;
   return (
     <div className="signup" id={ctaId}>
-      <a href={SUBSCRIBE_URL} className="btn signup__btn" data-signup-link>
+      <Link href="/signup" className="btn signup__btn">
         {buttonLabel}
-      </a>
+      </Link>
       <p className="helper signup__helper">{helper}</p>
     </div>
   );

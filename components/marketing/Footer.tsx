@@ -5,7 +5,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="footer">
-      <div className="container footer__inner">
+      <div className="shell footer__inner">
         <Wordmark size="sm" />
         <nav className="footer__nav" aria-label="Footer">
           <Link href="/about">About</Link>
@@ -13,7 +13,7 @@ export function Footer() {
           <Link href="/terms">Terms</Link>
         </nav>
       </div>
-      <div className="container footer__legal">© {year} Stock Up Dinners.</div>
+      <div className="shell footer__legal">© {year} Stock Up Dinners.</div>
     </footer>
   );
 }
