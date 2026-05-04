@@ -10,7 +10,7 @@ export function Hero() {
           <p className="hero__meta">
             1&nbsp;COSTCO&nbsp;TRIP &nbsp;·&nbsp; COOK&nbsp;A&nbsp;LA&nbsp;CARTE &nbsp;·&nbsp; 14&nbsp;DINNERS&nbsp;&amp;&nbsp;GROWING
           </p>
-          <h1>The easiest meals for Costco members.</h1>
+          <h1>How Costco members always know what to cook tonight.</h1>
           <p className="hero__sub">
             No more 4:50PM panic and hungry kids yelling:{" "}
             <em>&ldquo;What are we having for dinner tonight!?&rdquo;</em>
