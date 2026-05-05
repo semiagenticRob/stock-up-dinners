@@ -75,6 +75,74 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section>
+        <p className="eyebrow">See it in action</p>
+        <h2>Three screens you&apos;ll touch every week.</h2>
+        <p className="lede">
+          Pantry → recipes → shopping. The whole loop, end to end.
+        </p>
+
+        <div className="showcase">
+          <div className="showcase-row">
+            <div className="showcase-row__media">
+              <Image
+                src="/images/product-pantry.jpg"
+                alt="The pantry view: tiles of every ingredient on hand, grouped by category, with a 'use these soon' banner highlighting items about to expire."
+                width={1400}
+                height={1416}
+              />
+            </div>
+            <div className="showcase-row__copy">
+              <h3>Lot-by-lot pantry, with expiration awareness.</h3>
+              <p>
+                Every pack gets its own use-by date. The pantry knows the difference between
+                ground beef bought today and ground beef bought last week — and surfaces what&apos;s
+                about to expire in a banner at the top, so nothing gets forgotten in the back of
+                the fridge.
+              </p>
+            </div>
+          </div>
+
+          <div className="showcase-row showcase-row--reverse">
+            <div className="showcase-row__media">
+              <Image
+                src="/images/product-recipes.jpg"
+                alt="The 'What to cook tonight?' page: a grid of dinners cookable right now from the pantry, with red 'cook by tomorrow' tags on items using ingredients about to expire."
+                width={1400}
+                height={1206}
+              />
+            </div>
+            <div className="showcase-row__copy">
+              <h3>The site tells you what to cook tonight.</h3>
+              <p>
+                Recipes you can make right now from what&apos;s already on hand, prioritized by
+                what&apos;s about to expire. No more 4:50PM scramble through the fridge — just open
+                the page and pick.
+              </p>
+            </div>
+          </div>
+
+          <div className="showcase-row">
+            <div className="showcase-row__media showcase-row__media--portrait">
+              <Image
+                src="/images/product-shopping.jpg"
+                alt="Live shopping mode: a checklist of items grouped by Costco section (refrigerated, frozen, pantry), with checkboxes to tick off as you grab each one."
+                width={1400}
+                height={1628}
+              />
+            </div>
+            <div className="showcase-row__copy">
+              <h3>Walk Costco. Tap as you grab. Pantry updates.</h3>
+              <p>
+                Your shopping list auto-builds from items dropping below threshold. Open live
+                shopping mode at the warehouse and check items off as you put them in the cart —
+                pantry refreshes the moment you submit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <Section tint>
         <div className="why">
           <div className="why__copy">
