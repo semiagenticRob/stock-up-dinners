@@ -28,6 +28,7 @@ import {
 const Body = z.object({
   servings_cooked: z.number().int().positive(),
   substitutions: z.record(z.string().uuid(), z.string().uuid()).optional(),
+  overrides: z.record(z.string().uuid(), z.number().int().positive()).optional(),
 });
 
 export async function POST(
@@ -76,6 +77,7 @@ export async function POST(
       recipe,
       servingsCooked: parsed.data.servings_cooked,
       substitutions: parsed.data.substitutions ?? {},
+      overrides: parsed.data.overrides,
       knownIngredientIds: knownIds,
     });
   } catch (err) {

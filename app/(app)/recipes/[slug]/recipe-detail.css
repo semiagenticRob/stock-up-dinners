@@ -403,3 +403,98 @@
 .cook-bar__msg { font-size: 13px; margin: 0; padding: 8px 12px; border-radius: var(--r-btn); }
 .cook-bar__msg--err { color: #B91C1C; background: #FEF2F2; border: 1px solid #FECACA; }
 .cook-bar__msg--ok { color: #166534; background: #F0FDF4; border: 1px solid #BBF7D0; }
+
+/* ----- Per-ingredient amount editor ----- */
+.ings__qty--btn {
+  background: transparent;
+  border: 1px dashed transparent;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 80ms ease, background 80ms ease;
+}
+.ings__qty--btn:hover { border-color: var(--c-border); background: var(--c-bg-tint); }
+.ings__qty--editing { opacity: 0.5; }
+.ings__qty--edited { color: var(--c-accent); font-weight: 600; }
+.ings__qty__pencil { font-size: 11px; color: var(--c-muted); }
+.ings__qty--btn:hover .ings__qty__pencil { color: var(--c-ink); }
+
+.qty-editor {
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: var(--c-bg-tint);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-card);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.qty-editor__stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-btn);
+  padding: 4px 6px;
+}
+.qty-editor__stepper button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-ink);
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.qty-editor__stepper button:hover { background: var(--c-bg-tint); }
+.qty-editor__value {
+  min-width: 56px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-ink);
+  font-variant-numeric: tabular-nums;
+}
+.qty-editor__unit {
+  font-size: 11px;
+  color: var(--c-muted);
+  font-family: var(--f-mono);
+  letter-spacing: 0.04em;
+  padding-right: 4px;
+}
+.qty-editor__actions { display: flex; gap: 12px; align-items: center; margin-left: auto; }
+.qty-editor__reset {
+  background: transparent;
+  border: none;
+  color: var(--c-muted);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 4px;
+}
+.qty-editor__reset:hover { color: var(--c-ink); }
+.qty-editor__done {
+  background: var(--c-ink);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-btn);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.qty-editor__done:hover { filter: brightness(1.1); }
+
+@media (max-width: 640px) {
+  .qty-editor { flex-direction: column; align-items: stretch; }
+  .qty-editor__actions { margin-left: 0; justify-content: space-between; }
+}

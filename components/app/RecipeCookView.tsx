@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import type { Ingredient, Recipe, RecipeIngredient } from "@/lib/types";
 import type { IngredientMatchStatus, RecipeMatch } from "@/lib/matching/engine";
 import { scaleDisplayQuantity } from "@/lib/scale-display";
+import { formatPantryQuantity } from "@/lib/format-quantity";
+import { pickQuantityInput } from "@/lib/quantity-input";
 
 interface SubstitutionCandidate {
   id: string;
@@ -45,6 +47,10 @@ export function RecipeCookView({
   const [servings, setServings] = useState(recipe.servings);
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [substitutions, setSubstitutions] = useState<Record<string, string>>({});
+  // recipe_ingredient_id → user-overridden quantity in canonical units (g/ml/ct).
+  // When set, this absolute amount wins over servings-scaled defaults.
+  const [overrides, setOverrides] = useState<Record<string, number>>({});
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [keepAwake, setKeepAwake] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -116,6 +122,15 @@ export function RecipeCookView({
     });
   }
 
+  function setOverride(riId: string, canonicalQty: number | null) {
+    setOverrides((prev) => {
+      const next = { ...prev };
+      if (canonicalQty === null) delete next[riId];
+      else next[riId] = Math.max(1, Math.round(canonicalQty));
+      return next;
+    });
+  }
+
   async function onCook() {
     if (busy || !allReady) return;
     setBusy(true);
@@ -128,6 +143,7 @@ export function RecipeCookView({
         body: JSON.stringify({
           servings_cooked: servings,
           substitutions,
+          overrides,
         }),
       });
       if (!res.ok) {
@@ -244,6 +260,11 @@ export function RecipeCookView({
                 substituteId={substitutions[ri.id]}
                 onSetSub={(id) => setSub(ri.id, id)}
                 scale={servings / recipe.servings}
+                override={overrides[ri.id]}
+                isEditing={editingId === ri.id}
+                onStartEdit={() => setEditingId(ri.id)}
+                onStopEdit={() => setEditingId(null)}
+                onSetOverride={(qty) => setOverride(ri.id, qty)}
               />
             );
           })}
@@ -283,6 +304,11 @@ function IngredientRow({
   substituteId,
   onSetSub,
   scale,
+  override,
+  isEditing,
+  onStartEdit,
+  onStopEdit,
+  onSetOverride,
 }: {
   ri: RecipeIngredient;
   ing: Ingredient | undefined;
@@ -294,11 +320,24 @@ function IngredientRow({
   substituteId: string | undefined;
   onSetSub: (id: string | null) => void;
   scale: number;
+  override: number | undefined;
+  isEditing: boolean;
+  onStartEdit: () => void;
+  onStopEdit: () => void;
+  onSetOverride: (canonicalQty: number | null) => void;
 }) {
+  // The unit picker uses the ingredient that actually gets drawn from the
+  // pantry — substitute if picked, otherwise the recipe's required ingredient.
+  const consumedIng = substituteId ? ingById.get(substituteId) : ing;
   const baseQty = ri.display_quantity ?? `${ri.quantity} ${ing?.canonical_unit ?? ""}`;
-  const qty = ri.display_quantity
+  const scaledQty = ri.display_quantity
     ? scaleDisplayQuantity(baseQty, scale)
     : `${Math.round(ri.quantity * scale)} ${ing?.canonical_unit ?? ""}`;
+  const overrideDisplay =
+    override != null && consumedIng
+      ? formatPantryQuantity(override, consumedIng.canonical_unit)
+      : null;
+  const qty = overrideDisplay ?? scaledQty;
   const subName = substituteId ? ingById.get(substituteId)?.display_name : null;
   const engineSubName = !subName && status?.substituted_with_ingredient_id
     ? ingById.get(status.substituted_with_ingredient_id)?.display_name
@@ -339,10 +378,120 @@ function IngredientRow({
         {!subName && engineSubName && (
           <p className="ings__sub ings__sub--auto">auto-subbing {engineSubName} from your pantry</p>
         )}
+        {isEditing && consumedIng && (
+          <QtyEditor
+            ingredient={consumedIng}
+            recipeQuantity={Math.max(1, Math.round(ri.quantity * scale))}
+            currentOverride={override}
+            onChange={onSetOverride}
+            onDone={onStopEdit}
+          />
+        )}
       </div>
-      <span className="ings__qty">{qty}</span>
+      {isEditing ? (
+        <span className="ings__qty ings__qty--editing">{qty}</span>
+      ) : (
+        <button
+          type="button"
+          className={`ings__qty ings__qty--btn ${override != null ? "ings__qty--edited" : ""}`}
+          onClick={onStartEdit}
+          aria-label={`Adjust amount for ${ingredientName}`}
+        >
+          {qty}
+          <span className="ings__qty__pencil" aria-hidden="true">
+            ✎
+          </span>
+        </button>
+      )}
     </li>
   );
+}
+
+function QtyEditor({
+  ingredient,
+  recipeQuantity,
+  currentOverride,
+  onChange,
+  onDone,
+}: {
+  ingredient: Ingredient;
+  recipeQuantity: number;
+  currentOverride: number | undefined;
+  onChange: (canonicalQty: number | null) => void;
+  onDone: () => void;
+}) {
+  const spec = useMemo(() => pickQuantityInput(ingredient), [ingredient]);
+  // Display value derived from the current canonical state.
+  const canonical = currentOverride ?? recipeQuantity;
+  const display = canonicalToDisplay(canonical, ingredient.canonical_unit, spec.unitLabel);
+
+  function bump(delta: number) {
+    const nextDisplay = Math.max(0, round2(display + delta));
+    if (nextDisplay <= 0) return;
+    onChange(spec.toCanonical(nextDisplay));
+  }
+
+  return (
+    <div className="qty-editor">
+      <div className="qty-editor__stepper">
+        <button
+          type="button"
+          onClick={() => bump(-spec.step)}
+          aria-label="Decrease"
+        >
+          −
+        </button>
+        <span className="qty-editor__value">{spec.formatDisplay(display)}</span>
+        <span className="qty-editor__unit">{spec.unitLabel}</span>
+        <button type="button" onClick={() => bump(spec.step)} aria-label="Increase">
+          +
+        </button>
+      </div>
+      <div className="qty-editor__actions">
+        {currentOverride != null && (
+          <button
+            type="button"
+            className="qty-editor__reset"
+            onClick={() => {
+              onChange(null);
+              onDone();
+            }}
+          >
+            Reset to recipe default
+          </button>
+        )}
+        <button type="button" className="qty-editor__done" onClick={onDone}>
+          Done
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function canonicalToDisplay(
+  canonical: number,
+  canonicalUnit: string,
+  displayUnit: string,
+): number {
+  const G_PER_LB = 453.592;
+  const G_PER_OZ = 28.3495;
+  const ML_PER_CUP = 240;
+  const ML_PER_FL_OZ = 29.5735;
+  const ML_PER_TBSP = 14.7868;
+  if (canonicalUnit === "grams") {
+    if (displayUnit === "lb") return round2(canonical / G_PER_LB);
+    if (displayUnit === "oz") return Math.round(canonical / G_PER_OZ);
+  }
+  if (canonicalUnit === "milliliters") {
+    if (displayUnit === "cup") return round2(canonical / ML_PER_CUP);
+    if (displayUnit === "fl oz") return Math.round(canonical / ML_PER_FL_OZ);
+    if (displayUnit === "tbsp") return Math.round(canonical / ML_PER_TBSP);
+  }
+  return Math.round(canonical);
+}
+
+function round2(n: number): number {
+  return Math.round(n * 100) / 100;
 }
 
 function SubPicker({

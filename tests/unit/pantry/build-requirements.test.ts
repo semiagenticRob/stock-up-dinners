@@ -149,4 +149,58 @@ describe("buildRequirements", () => {
       }),
     ).toThrow(/Unknown substitute/);
   });
+
+  it("override on a recipe ingredient wins over servings-scaled default", () => {
+    // Recipe asks for 907g cod for 4 servings; user overrides to 600g.
+    const reqs = buildRequirements({
+      recipe: RECIPE,
+      servingsCooked: 4,
+      substitutions: {},
+      overrides: { "ri-cod": 600 },
+      knownIngredientIds: knownIds,
+    });
+    expect(reqs.find((r) => r.ingredient_id === "i-cod")?.quantity).toBe(600);
+    // Other ingredients still scaled normally.
+    expect(reqs.find((r) => r.ingredient_id === "i-tortillas")?.quantity).toBe(8);
+  });
+
+  it("override is absolute — does NOT re-scale when servings change", () => {
+    // User overrode cod to 600g while at 4 servings. They then bump servings
+    // to 8. Override stays 600 (their explicit choice), tortillas double.
+    const reqs = buildRequirements({
+      recipe: RECIPE,
+      servingsCooked: 8,
+      substitutions: {},
+      overrides: { "ri-cod": 600 },
+      knownIngredientIds: knownIds,
+    });
+    expect(reqs.find((r) => r.ingredient_id === "i-cod")?.quantity).toBe(600);
+    expect(reqs.find((r) => r.ingredient_id === "i-tortillas")?.quantity).toBe(16);
+  });
+
+  it("override applies to the substitute ingredient when both are set", () => {
+    // User subbed cod for salmon AND overrode the amount to 800g.
+    // The pantry decrement should pull 800g from salmon lots.
+    const reqs = buildRequirements({
+      recipe: RECIPE,
+      servingsCooked: 4,
+      substitutions: { "ri-cod": "i-salmon" },
+      overrides: { "ri-cod": 800 },
+      knownIngredientIds: knownIds,
+    });
+    const codReq = reqs.find((r) => r.ingredient_id === "i-cod");
+    expect(codReq?.actual_ingredient_id).toBe("i-salmon");
+    expect(codReq?.quantity).toBe(800);
+  });
+
+  it("override clamps to >=1 to satisfy DB constraint", () => {
+    const reqs = buildRequirements({
+      recipe: RECIPE,
+      servingsCooked: 4,
+      substitutions: {},
+      overrides: { "ri-cod": 0 },
+      knownIngredientIds: knownIds,
+    });
+    expect(reqs.find((r) => r.ingredient_id === "i-cod")?.quantity).toBe(1);
+  });
 });
