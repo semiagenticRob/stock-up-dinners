@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -356,8 +356,21 @@ function SubPicker({
   ingredientName: string;
   onPick: (id: string | null) => void;
 }) {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  function close() {
+    if (detailsRef.current) detailsRef.current.open = false;
+  }
+
+  function pickAndClose(id: string | null) {
+    onPick(id);
+    close();
+  }
+
+  if (candidates.length === 0) return null;
+
   return (
-    <details className="sub-picker">
+    <details className="sub-picker" ref={detailsRef}>
       <summary
         className={`sub-picker__btn ${currentId ? "sub-picker__btn--on" : ""}`}
         aria-label={`Substitute for ${ingredientName}`}
@@ -372,7 +385,7 @@ function SubPicker({
               <button
                 type="button"
                 className={`sub-picker__opt ${currentId === c.id ? "sub-picker__opt--on" : ""}`}
-                onClick={() => onPick(currentId === c.id ? null : c.id)}
+                onClick={() => pickAndClose(c.id)}
               >
                 {c.display_name}
               </button>
@@ -383,7 +396,7 @@ function SubPicker({
           <button
             type="button"
             className="sub-picker__clear"
-            onClick={() => onPick(null)}
+            onClick={() => pickAndClose(null)}
           >
             Clear
           </button>

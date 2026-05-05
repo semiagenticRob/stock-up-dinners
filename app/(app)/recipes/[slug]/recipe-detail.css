@@ -266,7 +266,25 @@
   box-shadow: 0 8px 24px -8px rgba(15,23,42,0.18);
   padding: 8px;
   min-width: 220px;
+  max-width: calc(100vw - 32px);
   z-index: 10;
+}
+
+/* Narrow viewports: switch to a bottom sheet so the panel never spills off
+   the page when the SUB button isn't anchored at the right edge. */
+@media (max-width: 640px) {
+  .sub-picker__panel {
+    position: fixed;
+    inset: auto 16px 16px 16px;
+    top: auto;
+    right: auto;
+    min-width: 0;
+    max-width: none;
+    max-height: 60vh;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 12px 36px -8px rgba(15,23,42,0.24);
+  }
 }
 .sub-picker__title {
   font-family: var(--f-mono);

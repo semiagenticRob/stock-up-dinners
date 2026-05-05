@@ -38,11 +38,13 @@ export default async function RecipeDetailPage({
   });
   const match = matches[0];
 
-  // Build per-ingredient substitution candidates: any non-staple ingredient
-  // currently in the user's pantry (other than the recipe's own ingredient),
-  // where the recipe row allows substitution. We trust the user's judgment
-  // on what makes sense; we just guarantee they can only pick from what
-  // they actually have on hand.
+  // Build per-ingredient substitution candidates: pantry ingredients that are
+  // a sensible kind-match for the recipe ingredient.
+  //   - Meaty recipe ingredients (anything with meat_type set) accept any
+  //     other meaty pantry item OR a category=protein item (e.g. tofu) —
+  //     this lets canned chicken sub for fresh chicken across categories.
+  //   - Non-meat ingredients restrict to the same category, so rice only
+  //     subs for grains and apples only sub for produce.
   const ingById = new Map(catalog.ingredients.map((i) => [i.id, i]));
   const pantryIngIds = new Set(pantry.map((l) => l.ingredient_id));
   const candidatesByRi: Record<string, Array<{ id: string; display_name: string }>> = {};
@@ -51,12 +53,15 @@ export default async function RecipeDetailPage({
     const recipeIng = ingById.get(ri.ingredient_id);
     if (!recipeIng || recipeIng.is_assumed_staple) continue;
     candidatesByRi[ri.id] = catalog.ingredients
-      .filter(
-        (i) =>
-          i.id !== ri.ingredient_id &&
-          !i.is_assumed_staple &&
-          pantryIngIds.has(i.id),
-      )
+      .filter((i) => {
+        if (i.id === ri.ingredient_id) return false;
+        if (i.is_assumed_staple) return false;
+        if (!pantryIngIds.has(i.id)) return false;
+        if (recipeIng.meat_type) {
+          return i.meat_type !== null || i.category === "protein";
+        }
+        return i.category === recipeIng.category;
+      })
       .map((i) => ({ id: i.id, display_name: i.display_name }))
       .sort((a, b) => a.display_name.localeCompare(b.display_name));
   }
