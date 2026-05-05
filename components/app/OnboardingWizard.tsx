@@ -51,7 +51,7 @@ export function OnboardingWizard() {
     setter({ selected: [], noneOfThese: !state.noneOfThese });
   }
 
-  async function finalize() {
+  async function finalize(destination = "/pantry/add") {
     setBusy(true);
     setError(null);
     try {
@@ -74,7 +74,7 @@ export function OnboardingWizard() {
       }
       // Hard redirect — router.push() can be eaten by middleware re-run
       // before the just-set onboarded_at hits the next request's session.
-      window.location.assign("/recipes");
+      window.location.assign(destination);
       return;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not finalize onboarding");
@@ -101,6 +101,11 @@ export function OnboardingWizard() {
 
       {step === 0 && (
         <>
+          <div
+            className="ob__hero"
+            style={{ backgroundImage: "url(/images/onboarding-welcome.jpg)" }}
+            aria-hidden="true"
+          />
           <h1>Welcome to Stock Up Dinners.</h1>
           <p className="ob__lede">
             Three minutes to set things up: tell us what you avoid. After that, we&apos;ll start
@@ -187,18 +192,38 @@ export function OnboardingWizard() {
 
       {step === 2 && (
         <>
-          <h1>You&apos;re all set.</h1>
+          <h1>Time to stock your pantry.</h1>
           <p className="ob__lede">
-            Your preferences are saved. Add what&apos;s in your pantry from the Pantry tab whenever
-            you&apos;ve got a minute, or kick off a live shopping session at Costco — we&apos;ll
-            track everything from there.
+            Pick one to get going. Recipe suggestions kick in the moment we know what&apos;s in
+            your kitchen.
           </p>
-          <div className="ob__nav">
-            <button className="btn btn--secondary" onClick={() => setStep(1)}>
+          <ul className="ob__choices">
+            <li>
+              <strong>Already have groceries?</strong> Add what&apos;s on hand and we&apos;ll start
+              tracking lots and expirations.
+            </li>
+            <li>
+              <strong>Headed to Costco?</strong> Kick off live shopping mode — tap items as you
+              put them in the cart, and your pantry fills the moment you check out.
+            </li>
+          </ul>
+          <div className="ob__nav ob__nav--3col">
+            <button className="btn btn--secondary" onClick={() => setStep(1)} disabled={busy}>
               ← Back
             </button>
-            <button className="btn" onClick={finalize} disabled={busy}>
-              {busy ? "Saving…" : "Open my kitchen →"}
+            <button
+              className="btn btn--secondary"
+              onClick={() => finalize("/shopping")}
+              disabled={busy}
+            >
+              {busy ? "Saving…" : "Start a Costco run →"}
+            </button>
+            <button
+              className="btn"
+              onClick={() => finalize("/pantry/add")}
+              disabled={busy}
+            >
+              {busy ? "Saving…" : "Record my pantry →"}
             </button>
           </div>
         </>

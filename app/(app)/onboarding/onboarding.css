@@ -141,3 +141,49 @@
   .ob { padding: 24px; }
   .ob__pick-grid { grid-template-columns: 1fr; max-height: 320px; }
 }
+
+/* ----- Welcome step hero banner ----- */
+.ob__hero {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: var(--r-card);
+  background-color: var(--c-bg-tint);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 24px;
+  border: 1px solid var(--c-border);
+}
+
+/* ----- Final-step "two paths" choices list ----- */
+.ob__choices {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ob__choices li {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-card);
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--c-body);
+  line-height: 1.55;
+  background: var(--c-bg-tint);
+}
+.ob__choices li strong { color: var(--c-ink); display: block; margin-bottom: 2px; font-weight: 700; }
+
+/* 3-button nav (Back · Costco run · Record pantry) on the final step. */
+.ob__nav--3col {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.ob__nav--3col > :first-child { margin-right: auto; }
+
+@media (max-width: 640px) {
+  .ob__nav--3col { flex-direction: column; align-items: stretch; }
+  .ob__nav--3col > :first-child { margin-right: 0; }
+  .ob__nav--3col .btn { justify-content: center; }
+}
